@@ -114,7 +114,7 @@ def game_ready(cla):
     from game_check import loading_check, out_check
 
     try:
-
+        game_ready = False
         # 바깥 화면
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\out_ready_screen.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -122,8 +122,18 @@ def game_ready(cla):
         imgs_ = imgs_set_(70, 1000, 150, 1040, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("out_ready_screen", imgs_)
-
             game_ready = True
+        else:
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\next.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(550, 450, 930, 600, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("next", imgs_)
+                game_ready = True
+
+        if game_ready == True:
+
             game_ready_count = 0
             while game_ready is True:
 
@@ -142,7 +152,15 @@ def game_ready(cla):
                     imgs_ = imgs_set_(70, 1000, 150, 1040, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_2(700, 800, cla)
+                    else:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\next.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(550, 450, 930, 600, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(700, 800, cla)
                 QTest.qWait(1000)
+
 
         # # 접속대기일 경우 기다리기
         # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\check\\moon_game_ready.PNG"

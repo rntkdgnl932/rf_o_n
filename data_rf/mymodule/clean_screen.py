@@ -23,7 +23,7 @@ def clean_screen_start(cla):
 
         clean = False
         clean_count = 0
-        while clean is True:
+        while clean is False:
             clean_count += 1
             if clean_count > 5:
                 clean = True
@@ -49,9 +49,12 @@ def clean_screen_go(cla):
 
     from function_game import imgs_set_, click_pos_reg
     from game_check import out_check
+    from action import juljun_off
 
     try:
         print("clean_screen_go")
+
+        juljun_off(cla)
 
         clean = False
         clean_count = 0

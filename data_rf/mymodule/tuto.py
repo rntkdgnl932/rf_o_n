@@ -16,11 +16,18 @@ def tuto_start(cla):
     from function_game import macro_out, imgs_set_, click_pos_2
     from game_check import out_check
     from clean_screen import clean_screen_start
-    from action import confirm_all
+    from action import confirm_all, juljun_check, juljun_off
 
     try:
         print("tuto_start")
         # 절전모드는 무조건 풀고
+
+        result_juljun = juljun_check(cla)
+        if result_juljun == True:
+            juljun_off(cla)
+
+
+
 
         # 스토리모드부터 확인
         result_story = tuto_story(cla)

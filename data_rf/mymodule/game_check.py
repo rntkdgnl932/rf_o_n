@@ -98,10 +98,18 @@ def out_check(cla):
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\out_check\\talk.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(330, 500, 440, 540, cla, img, 0.85)
+        imgs_ = imgs_set_(0, 850, 60, 920, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             print("talk", imgs_)
             is_data = True
+        else:
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\out_check\\talk2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 850, 60, 920, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("talk2", imgs_)
+                is_data = True
 
         return is_data
 
