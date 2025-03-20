@@ -16,6 +16,7 @@ def tuto_start(cla):
     from function_game import macro_out, imgs_set_, click_pos_2
     from game_check import out_check
     from clean_screen import clean_screen_start
+    from action import confirm_all
 
     try:
         print("tuto_start")
@@ -26,7 +27,13 @@ def tuto_start(cla):
         if result_story == False:
             result_quest_on = quest_on_check(cla)
             if result_quest_on == False:
-                click_pos_2(830, 100, cla)
+                click_pos_2(895, 100, cla)
+
+                for i in range(5):
+                    result_confirm = confirm_all(cla)
+                    if result_confirm == True:
+                        break
+                    time.sleep(0.1)
 
                 result_out = out_check(cla)
                 if result_out == False:
@@ -167,6 +174,7 @@ def tuto_skip(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_reg, drag_pos
+    from action import confirm_all
 
     try:
         print("tuto_skip")
@@ -175,6 +183,8 @@ def tuto_skip(cla):
         is_data_count = 0
         while is_data is False:
             is_data_count += 1
+
+            confirm_all(cla)
 
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\skip\\skip_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
