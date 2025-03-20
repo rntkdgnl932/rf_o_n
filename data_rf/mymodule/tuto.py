@@ -113,6 +113,7 @@ def tuto_story(cla):
     import cv2
     from function_game import imgs_set_, click_pos_2
     from game_check import out_check
+    from action import confirm_all
 
     try:
         print("tuto_story")
@@ -140,11 +141,13 @@ def tuto_story(cla):
                 is_data = True
 
                 for i in range(5):
-                    result_out = out_check(cla)
-                    if result_out == True:
-                        break
-                    else:
-                        click_pos_2(890, 1020, cla)
+                    result_confirm = confirm_all(cla)
+                    if result_confirm == False:
+                        result_out = out_check(cla)
+                        if result_out == True:
+                            break
+                        else:
+                            click_pos_2(890, 1020, cla)
                     QTest.qWait(1000)
 
 
@@ -193,7 +196,7 @@ def way_check(cla):
                     imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("up_1", imgs_)
-                        click_pos_reg(imgs_.x, imgs_.y - 50, cla)
+                        click_pos_reg(imgs_.x, imgs_.y - 40, cla)
                         time.sleep(0.5)
                         is_data_count = 0
 
