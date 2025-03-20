@@ -81,6 +81,7 @@ def tuto_story(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_, click_pos_2
+    from game_check import out_check
 
     try:
         print("tuto_story")
@@ -98,6 +99,22 @@ def tuto_story(cla):
             print("attack_click", imgs_)
             click_pos_2(890, 985, cla)
             is_data = True
+        else:
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\quest.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(20, 30, 200, 100, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("quest", imgs_)
+                is_data = True
+
+                for i in range(5):
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        break
+                    else:
+                        click_pos_2(890, 1020, cla)
+                    QTest.qWait(1000)
 
 
         return is_data
