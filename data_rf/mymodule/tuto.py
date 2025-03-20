@@ -40,7 +40,7 @@ def tuto_start(cla):
                     result_confirm = confirm_all(cla)
                     if result_confirm == True:
                         break
-                    time.sleep(0.1)
+                    QTest.qWait(500)
 
                 result_out = out_check(cla)
                 if result_out == False:
