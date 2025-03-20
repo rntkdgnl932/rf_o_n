@@ -20,6 +20,30 @@ def go_test(cla):
     print('hi test!', cla)
 
 
+def macro_out(cla):
+    import os
+    try:
+        dir_path = "C:\\my_games\\load\\" + str(v_.game_folder)
+        file_path = dir_path + "\\start.txt"
+        # cla.txt
+        cla_data = str(cla) + "cla"
+        file_path2 = dir_path + "\\" + cla_data + ".txt"
+        with open(file_path, "w", encoding='utf-8-sig') as file:
+            data = 'no'
+            file.write(str(data))
+            time.sleep(0.2)
+        with open(file_path2, "w", encoding='utf-8-sig') as file:
+            data = cla
+            file.write(str(data))
+            time.sleep(0.2)
+        os.execl(sys.executable, sys.executable, *sys.argv)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
 # 이미지 특정 색상 제외함
 def image_processing(src, min_color, max_color):
     import cv2
