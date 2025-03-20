@@ -109,7 +109,7 @@ def tuto_story(cla):
 def way_check(cla):
     import numpy as np
     import cv2
-    from function_game import imgs_set_, click_pos_reg, drag_pos
+    from function_game import imgs_set_, click_pos_reg, drag_pos, drag_pos_reg
 
     try:
         print("way_check")
@@ -155,7 +155,7 @@ def way_check(cla):
                     imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("up_2", imgs_)
-                        drag_pos(imgs_.x, imgs_.y + 30, imgs_.x, imgs_.y - 30, cla)
+                        drag_pos_reg(imgs_.x, imgs_.y + 30, imgs_.x, imgs_.y - 30, cla)
                         is_data_count = 0
 
             if is_data_count > 3:
