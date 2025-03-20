@@ -26,7 +26,7 @@ def tuto_start(cla):
         if result_juljun == True:
             juljun_off(cla)
 
-
+        quest_complete(cla)
 
 
         # 스토리모드부터 확인
@@ -51,6 +51,30 @@ def tuto_start(cla):
         print(e)
 
 
+def quest_complete(cla):
+    import numpy as np
+    import cv2
+    from function_game import imgs_set_, click_pos_reg
+
+
+    try:
+        print("quest_complete")
+
+        is_data = False
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\out_complete_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(820, 80, 920, 250, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("out_complete_1", imgs_)
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            is_data = True
+
+
+        return is_data
+    except Exception as e:
+        print(e)
 def quest_on_check(cla):
     import numpy as np
     import cv2
