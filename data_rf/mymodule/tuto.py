@@ -13,7 +13,7 @@ def tuto_start(cla):
     import numpy as np
     import cv2
 
-    from function_game import macro_out, imgs_set_, click_pos_2
+    from function_game import macro_out, imgs_set_, click_pos_2, drag_pos
     from game_check import out_check
     from clean_screen import clean_screen_start
     from action import confirm_all, juljun_check, juljun_off
@@ -34,6 +34,7 @@ def tuto_start(cla):
         if result_story == False:
             result_quest_on = quest_on_check(cla)
             if result_quest_on == False:
+
                 click_pos_2(895, 100, cla)
 
                 for i in range(5):
@@ -45,6 +46,8 @@ def tuto_start(cla):
                 result_out = out_check(cla)
                 if result_out == False:
                     clean_screen_start(cla)
+                else:
+                    drag_pos(820, 100, 820, 160, cla)
 
 
     except Exception as e:
