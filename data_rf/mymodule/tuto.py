@@ -147,7 +147,18 @@ def tuto_story(cla):
                         if result_out == True:
                             break
                         else:
-                            click_pos_2(890, 1020, cla)
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\story\\cancle_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(770, 940, 960, 1040, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("cancle_1", imgs_)
+                                click_pos_2(935, 60, cla)
+                            else:
+                                click_pos_2(890, 1020, cla)
+
+
+
                     QTest.qWait(1000)
 
 
