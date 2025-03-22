@@ -85,6 +85,49 @@ def loading_check(cla):
         print(e)
 
 
+def move_check(cla):
+    import numpy as np
+    import cv2
+    from function_game import imgs_set_
+
+
+    try:
+        print("move_check")
+
+        is_move = False
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\move\\m.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(485, 880, 520, 910, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("m", imgs_)
+            is_move = True
+
+        is_move_count = 0
+        count = 0
+        while is_move is True:
+            count += 2
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\move\\m.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(485, 880, 520, 910, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("m :", count, "초", imgs_)
+                is_move_count = 0
+            else:
+                is_move_count += 1
+                if is_move_count > 5:
+                    is_move = False
+                else:
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        is_move_count += 1
+            QTest.qWait(2000)
+
+    except Exception as e:
+        print(e)
+
 def out_check(cla):
     import numpy as np
     import cv2
@@ -95,21 +138,26 @@ def out_check(cla):
 
         is_data = False
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\out_check\\talk.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 850, 60, 920, cla, img, 0.85)
+        imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
-            print("talk", imgs_)
-            is_data = True
+            print("menu_setting", imgs_)
+
         else:
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\out_check\\talk2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 850, 60, 920, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                print("talk2", imgs_)
-                is_data = True
+            for i in range(3):
+
+                is_list = i + 1
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\out_check\\talk" + str(is_list) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 850, 60, 920, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("talk", str(is_list), imgs_)
+                    is_data = True
+                    break
 
         return is_data
 
@@ -121,28 +169,48 @@ def out_check(cla):
 def attack_check(cla):
     import numpy as np
     import cv2
-    from function_game import imgs_set_
+    from function_game import imgs_set_, text_check_get_black_white
+    from action import juljun_check
 
     try:
         print("attack_check")
 
         is_data = False
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\attack\\auto_on.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(890, 900, 950, 950, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("auto_on", imgs_)
-            is_data = True
+        result_juljun = juljun_check(cla)
+        if result_juljun == True:
+            result_exp_1 = text_check_get_black_white(33, 125, 135, 155, cla)
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\attack\\auto_off.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(890, 900, 950, 950, cla, img, 0.9)
-        if imgs_ is not None and imgs_ != False:
-            print("auto_off", imgs_)
-            is_data = False
+            for i in range(20):
+                result_exp_2 = text_check_get_black_white(33, 125, 135, 155, cla)
+
+                if result_exp_1 != result_exp_2:
+                    is_data = True
+                    break
+
+                QTest.qWait(1000)
+
+        else:
+            result_out = out_check(cla)
+            if result_out == True:
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\attack\\auto_on.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(890, 900, 950, 950, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("auto_on", imgs_)
+                    is_data = True
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\attack\\auto_off.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(890, 900, 950, 950, cla, img, 0.9)
+                if imgs_ is not None and imgs_ != False:
+                    print("auto_off", imgs_)
+                    is_data = False
+
+
+
 
         return is_data
 

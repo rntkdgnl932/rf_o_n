@@ -48,6 +48,24 @@ def confirm_all(cla):
                     print("soolock_confirm_1", imgs_)
                     is_confirm = True
                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\sangjum_sohwan\\all_confirm_btn.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(420, 980, 550, 1040, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        print("all_confirm_btn", imgs_)
+                        is_confirm = True
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\sangjum_sohwan\\confirm.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(420, 980, 620, 1040, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("confirm", imgs_)
+                            is_confirm = True
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
 
         return is_confirm
     except Exception as e:
@@ -61,9 +79,12 @@ def menu_open(cla):
     from function_game import click_pos_2, imgs_set_
     from game_check import out_check
     from clean_screen import clean_screen_start
+    from get_item import get_event, get_promotion, get_post
 
     try:
         print("menu_open")
+
+        plus_minus = 20
 
         is_data = False
         is_data_count = 0
@@ -79,7 +100,44 @@ def menu_open(cla):
             imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 print("menu_setting", imgs_)
-                is_data = True
+
+                # event
+                this_point_x = 767
+                this_point_y = 45
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
+                                  this_point_x + plus_minus, this_point_y + plus_minus, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("menu_open : get_event")
+                    get_event(cla)
+                else:
+                    # promotion
+                    this_point_x = 810
+                    this_point_y = 45
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
+                                      this_point_x + plus_minus, this_point_y + plus_minus, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("menu_open : get_event")
+                        get_promotion(cla)
+                    else:
+                        # post
+                        this_point_x = 770
+                        this_point_y = 1000
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
+                                          this_point_x + plus_minus, this_point_y + plus_minus, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("menu_open : get_event")
+                            get_post(cla)
+                        else:
+                            is_data = True
             else:
                 result_out = out_check(cla)
                 if result_out == True:
@@ -290,5 +348,147 @@ def juljun_on(cla):
 
 
 
+def go_maul(cla):
+    import numpy as np
+    import cv2
+
+    from function_game import drag_pos, imgs_set_, click_pos_reg, click_pos_2
+    from clean_screen import clean_screen_start
+    try:
+        print("go_maul")
 
 
+        is_data = True
+        is_data_count = 0
+        while is_data is True:
+            is_data_count += 1
+            if is_data_count > 7:
+                is_data = False
+
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\jabhwa_btn.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(40, 40, 190, 210, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                is_data = False
+            else:
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\guild_btn.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(40, 40, 190, 210, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    drag_pos(120, 80, 120, 190, cla)
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(630, 980, 675, 1030, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                        already_maul = False
+                        for i in range(10):
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\already_maul_notice.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(330, 70, 600, 120, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                already_maul = True
+                                break
+                            time.sleep(0.1)
+                        if already_maul == True:
+                            click_pos_2(24, 52, cla)
+                    else:
+                        clean_screen_start(cla)
+            QTest.qWait(1000)
+
+    except Exception as e:
+        print(e)
+
+
+def go_random(cla):
+    import numpy as np
+    import cv2
+
+    from function_game import drag_pos, imgs_set_, click_pos_reg, click_pos_2
+    from clean_screen import clean_screen_start
+    from game_check import out_check
+    try:
+        print("go_random")
+
+
+        is_data = True
+        is_data_count = 0
+        while is_data is True:
+            is_data_count += 1
+            if is_data_count > 7:
+                is_data = False
+
+            result_out = out_check(cla)
+            if result_out == True:
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_random\\random_move_btn.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(580, 980, 630, 1030, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    time.sleep(5)
+                    for i in range(10):
+                        result_out = out_check(cla)
+                        if result_out == True:
+                            is_data = False
+                            break
+                        QTest.qWait(1000)
+
+            else:
+                clean_screen_start(cla)
+
+            QTest.qWait(1000)
+
+    except Exception as e:
+        print(e)
+
+
+def attack_on(cla):
+    import numpy as np
+    import cv2
+    from function_game import imgs_set_, click_pos_2
+    from clean_screen import clean_screen_start
+    from game_check import out_check, attack_check
+
+
+    try:
+        print("attack_on")
+
+        attack = False
+        attack_count = 0
+        while attack is False:
+            attack_count += 1
+            if attack_count > 7:
+                attack = True
+
+            result_juljun = juljun_check(cla)
+            if result_juljun == True:
+                result_attack = attack_check(cla)
+                if result_attack == True:
+                    attack = True
+                else:
+                    juljun_off(cla)
+            else:
+                result_out = out_check(cla)
+                if result_out == True:
+
+                    result_attack = attack_check(cla)
+                    if result_attack == False:
+
+                        # go_random(cla)
+                        click_pos_2(920, 925, cla)
+                        attack = True
+                else:
+                    clean_screen_start(cla)
+            QTest.qWait(1000)
+
+
+    except Exception as e:
+        print(e)

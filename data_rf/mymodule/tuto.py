@@ -17,6 +17,7 @@ def tuto_start(cla):
     from game_check import out_check
     from clean_screen import clean_screen_start
     from action import confirm_all, juljun_check, juljun_off
+    from dead_die import dead_check
 
     try:
         print("tuto_start")
@@ -28,6 +29,7 @@ def tuto_start(cla):
 
         quest_complete(cla)
 
+        dead_check(cla, "튜토육성")
 
         # 스토리모드부터 확인
         result_story = tuto_story(cla)
@@ -35,19 +37,20 @@ def tuto_start(cla):
             result_quest_on = quest_on_check(cla)
             if result_quest_on == False:
 
-                click_pos_2(895, 100, cla)
+                result_out = out_check(cla)
+                if result_out == False:
+                    clean_screen_start(cla)
+                    click_pos_2(895, 100, cla)
+                else:
+                    drag_pos(820, 100, 820, 160, cla)
+                    time.sleep(1)
+                    click_pos_2(895, 100, cla)
 
                 for i in range(5):
                     result_confirm = confirm_all(cla)
                     if result_confirm == True:
                         break
                     QTest.qWait(500)
-
-                result_out = out_check(cla)
-                if result_out == False:
-                    clean_screen_start(cla)
-                else:
-                    drag_pos(820, 100, 820, 160, cla)
 
 
     except Exception as e:
