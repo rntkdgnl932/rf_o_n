@@ -59,7 +59,7 @@ def dungeon_start(cla, data):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\pyegijang.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(50, 30, 200, 80, cla, img, 0.85)
+                    imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         print("pyegijang", imgs_)
 
@@ -276,12 +276,14 @@ def dun_in(cla, data):
                                 go_random(cla)
                                 click_pos_2(920, 925, cla)
                                 juljun_on(cla)
+                                break
                             else:
                                 result_out = out_check(cla)
                                 if result_out == True:
                                     go_random(cla)
                                     click_pos_2(920, 925, cla)
                                     juljun_on(cla)
+                                    break
                                 else:
                                     loading_check(cla)
                             QTest.qWait(1000)
