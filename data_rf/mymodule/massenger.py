@@ -335,7 +335,7 @@ def line_monitor(game, cla):
                         print("day_[0]", day_[0])
                         print("nowDay", nowDay)
                         ms_ = str(game) + str(" 초기화 갱신 안되었다.")
-                        line_to_me(cla, ms_)
+                        # line_to_me(cla, ms_)
 
             time.sleep(300)
 
