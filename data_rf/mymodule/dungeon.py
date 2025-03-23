@@ -266,7 +266,7 @@ def dun_in(cla, data):
                             drag_pos(290, 660, 290, 460, cla)
 
                     if is_dun == False:
-                        for i in range(10):
+                        for i in range(30):
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\same_spot.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -278,15 +278,25 @@ def dun_in(cla, data):
                                 juljun_on(cla)
                                 break
                             else:
-                                result_out = out_check(cla)
-                                if result_out == True:
-                                    go_random(cla)
-                                    click_pos_2(920, 925, cla)
-                                    juljun_on(cla)
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\time_lack_notice.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(270, 60, 630, 130, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("time_lack_notice", imgs_)
+                                    myQuest_play_add(cla, data)
+                                    is_dun = False
                                     break
                                 else:
-                                    loading_check(cla)
-                            QTest.qWait(1000)
+                                    result_out = out_check(cla)
+                                    if result_out == True:
+                                        go_random(cla)
+                                        click_pos_2(920, 925, cla)
+                                        juljun_on(cla)
+                                        break
+                                    else:
+                                        loading_check(cla)
+                            QTest.qWait(300)
 
 
 
@@ -298,15 +308,25 @@ def dun_in(cla, data):
                     if imgs_ is not None and imgs_ != False:
                         print("clicked", imgs_)
 
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\dun_in_btn.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\zero.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(770, 990, 950, 1040, cla, img, 0.85)
+                        imgs_ = imgs_set_(830, 900, 950, 970, cla, img, 0.95)
                         if imgs_ is not None and imgs_ != False:
-                            print("dun_in_btn", imgs_)
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                        else:
+                            print("zero", imgs_)
                             myQuest_play_add(cla, data)
+                            is_dun = False
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\dun_in_btn.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(770, 990, 950, 1040, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("dun_in_btn", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                myQuest_play_add(cla, data)
+                                is_dun = False
                     else:
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\dungeon.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
