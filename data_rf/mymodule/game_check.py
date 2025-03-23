@@ -37,6 +37,16 @@ def game_check_start(cla):
                 why = "장시간...."
                 line_to_me(cla, why)
                 macro_out(cla)
+            else:
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\new_path_notice.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("new_path_notice", imgs_)
+                    why = "새로운 패치...."
+                    line_to_me(cla, why)
+                    macro_out(cla)
 
     except Exception as e:
         print(e)
