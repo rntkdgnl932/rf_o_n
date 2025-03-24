@@ -16,7 +16,7 @@ def go_test():
     import random
 
 
-    cla = "one"
+    cla = "two"
 
     plus = 0
 
@@ -40,7 +40,7 @@ def go_test():
     from character_select_and_game_start import game_start_screen
     from schedule import myQuest_play_check
     from get_item import get_post, get_upjuk, get_event, get_item_start, get_sangjum_sohwan
-    from game_check import out_check, move_check
+    from game_check import out_check, move_check, attack_check
     from boonhae_collection import collection_start, boonhae_go
     from massenger import line_to_me
     from potion import potion_buy
@@ -72,7 +72,7 @@ def go_test():
         if imgs_ is not None and imgs_ != False:
             print("boohwal_btn", imgs_)
 
-        dead_check(cla)
+        attack_check(cla)
 
         # result_out = out_check(cla)
         # if result_out == True:
