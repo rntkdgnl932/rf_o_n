@@ -34,6 +34,7 @@ def jadong_check(cla, data):
     from action import juljun_check, juljun_on, attack_on, juljun_off
     from clean_screen import clean_screen_start
     from potion import potion_check
+    from dead_die import dead_check
 
     try:
         print("jadong_check", data)
@@ -117,6 +118,9 @@ def jadong_check(cla, data):
                 else:
                     jadong_in(cla, data)
             else:
+
+                dead_check(cla)
+
                 result_out = out_check(cla)
                 if result_out == True:
                     juljun_on(cla)

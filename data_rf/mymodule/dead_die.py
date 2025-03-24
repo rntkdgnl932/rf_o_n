@@ -9,13 +9,13 @@ sys.path.append('C:/my_games/' + str(v_.game_folder) + '/' + str(v_.data_folder)
 
 
 
-def dead_check(cla, data):
+def dead_check(cla):
     import numpy as np
     import cv2
     import pyautogui
     import random
 
-    from schedule import myQuest_play_add
+    from schedule import myQuest_play_add, myQuest_play_check
     from function_game import imgs_set_
 
     try:
@@ -42,8 +42,14 @@ def dead_check(cla, data):
 
         if is_data == True:
 
-            if "튜토육성" in data:
-                myQuest_play_add(cla, data)
+            result_schedule = myQuest_play_check(cla, "check")
+            print("result_schedule", result_schedule)
+            character_id = result_schedule[0][1]
+            result_schedule_ = result_schedule[0][2]
+
+
+            if "튜토육성" in result_schedule_:
+                myQuest_play_add(cla, result_schedule_)
 
             dead_recovery(cla)
 

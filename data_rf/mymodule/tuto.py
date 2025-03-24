@@ -29,7 +29,7 @@ def tuto_start(cla):
 
         quest_complete(cla)
 
-        dead_check(cla, "튜토육성")
+        dead_check(cla)
 
         # 스토리모드부터 확인
         result_story = tuto_story(cla)

@@ -3892,7 +3892,7 @@ class game_Playing(QThread):
 
 
                                 # 죽었는지 파악
-                                dead_check(v_.now_cla, result_schedule_)
+                                dead_check(v_.now_cla)
 
 
 
