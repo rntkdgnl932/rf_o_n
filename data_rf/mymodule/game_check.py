@@ -152,6 +152,7 @@ def out_check(cla):
     import numpy as np
     import cv2
     from function_game import imgs_set_
+    from dead_die import dead_check
 
     try:
         print("out_check")
@@ -181,6 +182,9 @@ def out_check(cla):
                     
         if is_data == True:
             is_data = close_check(cla)
+
+            if is_data == True:
+                dead_check(cla)
 
         return is_data
 

@@ -16,7 +16,8 @@ def dead_check(cla):
     import random
 
     from schedule import myQuest_play_add, myQuest_play_check
-    from function_game import imgs_set_
+    from function_game import imgs_set_, macro_out
+    from massenger import line_to_me
 
     try:
         print("dead_check")
@@ -46,6 +47,12 @@ def dead_check(cla):
             print("result_schedule", result_schedule)
             character_id = result_schedule[0][1]
             result_schedule_ = result_schedule[0][2]
+
+            v_.dead_count += 1
+            if v_.dead_count > 4:
+                why = "하루 5번 죽었다"
+                line_to_me(cla, why)
+                macro_out(cla)
 
 
             if "튜토육성" in result_schedule_:
@@ -96,34 +103,14 @@ def dead_recovery(cla):
                     click_pos_2(415, 395, cla)
                     time.sleep(0.5)
 
-                    for i in range(5):
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\dead_penalty_title.PNG"
+                    for i in range(10):
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\recovery_item_ready.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(420, 340, 530, 380, cla, img, 0.85)
+                        imgs_ = imgs_set_(440, 545, 525, 585, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\anymore_exp.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(380, 500, 570, 570, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                break
-                            else:
-                                click_pos_2(480, 710, cla)
+                            click_pos_2(550, 620, cla)
                         else:
-                            break
-                        time.sleep(0.5)
-
-                    # 장비
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\dead_penalty_title.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(420, 340, 530, 380, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_2(555, 395, cla)
-                        time.sleep(0.5)
-
-                        for i in range(5):
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\dead_penalty_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -136,10 +123,58 @@ def dead_recovery(cla):
                                 if imgs_ is not None and imgs_ != False:
                                     break
                                 else:
-                                    click_pos_2(480, 710, cla)
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\recovery_item.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(575, 690, 630, 735, cla, img, 0.85)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    else:
+                                        click_pos_2(480, 710, cla)
                             else:
                                 break
-                            time.sleep(0.5)
+                        QTest.qWait(1000)
+
+                    # 장비
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\dead_penalty_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(420, 340, 530, 380, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(555, 395, cla)
+                        time.sleep(0.5)
+
+                        for i in range(10):
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\recovery_item_ready.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(440, 545, 525, 585, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(550, 620, cla)
+                            else:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\dead_penalty_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(420, 340, 530, 380, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\anymore_exp.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(380, 500, 570, 570, cla, img, 0.85)
+                                    if imgs_ is not None and imgs_ != False:
+                                        break
+                                    else:
+                                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\recovery_item.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(575, 690, 630, 735, cla, img, 0.85)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        else:
+                                            click_pos_2(480, 710, cla)
+                                else:
+                                    break
+                            QTest.qWait(1000)
 
                 else:
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\boohwal_btn.PNG"
