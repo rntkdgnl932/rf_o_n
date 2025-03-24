@@ -178,6 +178,9 @@ def out_check(cla):
                     print("talk", str(is_list), imgs_)
                     is_data = True
                     break
+                    
+        if is_data == True:
+            is_data = close_check(cla)
 
         return is_data
 
@@ -185,6 +188,67 @@ def out_check(cla):
         print(e)
 
 
+def close_check(cla):
+    import numpy as np
+    import cv2
+    from function_game import imgs_set_
+
+    try:
+        print("close_check")
+
+        clean = True
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("menu_setting", imgs_)
+            clean = False
+        else:
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                clean = False
+                print("close_1", imgs_)
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                clean = False
+                print("close_2", imgs_)
+
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_3.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                clean = False
+                print("close_3", imgs_)
+
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_4.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                clean = False
+                print("close_4", imgs_)
+
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\out_btn_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(900, 30, 960, 200, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                clean = False
+                print("out_btn_1", imgs_)
+
+        return clean
+
+    except Exception as e:
+        print(e)
 
 def attack_check(cla):
     import numpy as np

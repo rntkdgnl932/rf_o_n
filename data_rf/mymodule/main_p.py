@@ -1149,7 +1149,7 @@ class FirstTab(QWidget):
                 list55 = []
                 for i in range(len(read_baran)):
                     read_2_ready = read_baran[i].split("_")
-                    list55.append(read_2_ready[0])
+                    list55.append(read_2_ready[2])
                 list55.insert(0, "< 아크레시아 >")
 
             with open(file_path3, "r", encoding='utf-8-sig') as file:
@@ -1157,7 +1157,7 @@ class FirstTab(QWidget):
                 list555 = []
                 for i in range(len(read_countryregioon)):
                     read_2_ready = read_countryregioon[i].split("_")
-                    list555.append(read_2_ready[0])
+                    list555.append(read_2_ready[2])
                 list555.insert(0, "< 코라 >")
 
             with open(file_path4, "r", encoding='utf-8-sig') as file:
