@@ -257,8 +257,22 @@ def close_check(cla):
 def attack_check(cla):
     import numpy as np
     import cv2
+    import pyautogui
     from function_game import imgs_set_, text_check_get_black_white
     from action import juljun_check
+
+    if cla == "one":
+        plus = 0
+    elif cla == "two":
+        plus = 960
+    elif cla == "three":
+        plus = 960 * 2
+    elif cla == "four":
+        plus = 960 * 3
+    elif cla == "five":
+        plus = 960 * 4
+    elif cla == "six":
+        plus = 960 * 5
 
     try:
         print("attack_check")
@@ -268,6 +282,15 @@ def attack_check(cla):
         result_juljun = juljun_check(cla)
         if result_juljun == True:
             result_exp_1 = text_check_get_black_white(33, 125, 135, 155, cla)
+
+            # a = 33
+            # b = 125
+            # c = 135
+            # d = 155
+            #
+            # pos = (a + plus, b, c - a, d - b)
+            # pyautogui.screenshot("asd.png", region=pos)
+
 
             for i in range(20):
                 result_exp_2 = text_check_get_black_white(33, 125, 135, 155, cla)

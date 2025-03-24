@@ -22,6 +22,7 @@ def boonhae_collection_start(cla):
         print("boonhae_collection_start")
 
         collection_start(cla)
+        boonhae_go(cla)
 
 
     except Exception as e:
@@ -34,8 +35,9 @@ def collection_start(cla):
     import pyautogui
     import random
 
-    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from function_game import imgs_set_, click_pos_reg, click_pos_2, macro_out
     from action import menu_open_pure
+    from massenger import line_to_me
 
     try:
         print("collection_start")
@@ -141,6 +143,7 @@ def collection_start(cla):
     except Exception as e:
         print(e)
 
+
 def collection_go(cla):
     import numpy as np
     import cv2
@@ -209,6 +212,94 @@ def collection_go(cla):
                 if is_in == False:
                     is_get = True
             time.sleep(1)
+
+    except Exception as e:
+        print(e)
+
+def boonhae_go(cla):
+    import numpy as np
+    import cv2
+    import pyautogui
+    import random
+
+    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from action import menu_open_pure
+    from game_check import out_check
+    from clean_screen import clean_screen_start
+
+    try:
+        print("boonhae_go")
+
+        is_data = False
+        is_data_count = 0
+
+        while is_data is False:
+            is_data_count += 1
+            if is_data_count > 7:
+                is_data = True
+
+
+
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\boonhae_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(540, 60, 620, 110, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("boonhae_title", imgs_)
+
+
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\boonhae_complete.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 480, 540, 540, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("boonhae_complete", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        break
+                    else:
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\common_clicked.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(440, 200, 610, 345, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("common_clicked", imgs_)
+                            click_pos_2(870, 1020, cla)
+                            is_data = True
+                        else:
+                            print("안보야")
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\rare_on_clicked.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(440, 200, 610, 345, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("rare_on_clicked", imgs_)
+                                click_pos_2(530, 270, cla)
+                                time.sleep(0.5)
+
+                            click_pos_2(530, 245, cla)
+                            time.sleep(0.5)
+                            click_pos_2(530, 310, cla)
+                            time.sleep(0.5)
+                    time.sleep(0.5)
+            else:
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\bag_open\\is_bag.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("is_bag", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                else:
+                    result_out = out_check(cla)
+                    if result_out == True:
+                        click_pos_2(885, 55, cla)
+                    else:
+                        clean_screen_start(cla)
+            QTest.qWait(1000)
 
     except Exception as e:
         print(e)

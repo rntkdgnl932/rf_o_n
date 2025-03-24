@@ -188,6 +188,49 @@ def menu_open_pure(cla):
         print(e)
 
 
+
+def bag_open(cla):
+    import numpy as np
+    import cv2
+
+    from function_game import click_pos_2, imgs_set_
+    from game_check import out_check
+    from clean_screen import clean_screen_start
+    from get_item import get_event, get_promotion, get_post
+
+    try:
+        print("bag_open")
+
+        is_data = False
+        is_data_count = 0
+
+        while is_data is False:
+            is_data_count += 1
+            if is_data_count > 7:
+                is_data = True
+
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\bag_open\\is_bag.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("is_bag", imgs_)
+
+                is_data = True
+
+            else:
+                result_out = out_check(cla)
+                if result_out == True:
+                    click_pos_2(885, 55, cla)
+                else:
+                    clean_screen_start(cla)
+            QTest.qWait(1000)
+
+    except Exception as e:
+        print(e)
+
+
+
 def juljun_check(cla):
     import numpy as np
     import cv2

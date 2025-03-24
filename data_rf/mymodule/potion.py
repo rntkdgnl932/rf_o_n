@@ -58,6 +58,7 @@ def potion_buy(cla):
     from function_game import drag_pos, click_pos_reg, click_pos_2, imgs_set_
     from action import go_maul
     from game_check import move_check
+    from boonhae_collection import boonhae_collection_start
 
     try:
         print("potion_buy")
@@ -131,7 +132,7 @@ def potion_buy(cla):
                         go_maul(cla)
             QTest.qWait(1000)
 
-
+        boonhae_collection_start(cla)
 
 
     except Exception as e:
