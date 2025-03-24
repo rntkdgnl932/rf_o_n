@@ -187,6 +187,14 @@ def way_check(cla):
         while is_data is False:
             is_data_count += 1
 
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\way\\left_drag_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("left_drag_1", imgs_)
+                drag_pos(930, 590, 500, 590, cla)
+
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\way\\right_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
