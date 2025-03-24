@@ -57,30 +57,13 @@ def go_test():
 
         # attack_on(cla)
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_1.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\way\\left_drag_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+        imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            clean = False
-            print("close_1", imgs_)
-            QTest.qWait(500)
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
-        if imgs_ is not None and imgs_ != False:
-            clean = False
-            print("close_2", imgs_)
-            QTest.qWait(500)
-
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_3.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
-        if imgs_ is not None and imgs_ != False:
-            clean = False
-            print("close_3", imgs_)
+            print("left_drag_1", imgs_)
+            drag_pos(930, 590, 800, 590, cla)
 
         # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\sangjum_sohwan\\not_sold_out.PNG"
         # img_array = np.fromfile(full_path, np.uint8)
