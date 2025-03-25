@@ -36,7 +36,7 @@ def collection_start(cla):
     import random
 
     from function_game import imgs_set_, click_pos_reg, click_pos_2, macro_out
-    from action import menu_open_pure
+    from action import menu_open_pure, confirm_all
     from massenger import line_to_me
 
     try:
@@ -64,6 +64,9 @@ def collection_start(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(100, 100, 140, 500, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
+
+                        y_point = imgs_.y
+
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\have_item.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -79,9 +82,14 @@ def collection_start(cla):
                             imgs_ = imgs_set_(330, 470, 430, 520, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
                                 print("rare_more_notice", imgs_)
-                                why = "레이이상 등록하려 한다."
-                                line_to_me(cla, why)
-                                macro_out(cla)
+
+                                if y_point < 245:
+
+                                    why = "레어이상 등록하려 한다."
+                                    line_to_me(cla, why)
+                                    macro_out(cla)
+                                else:
+                                    confirm_all(cla)
                             else:
 
                                 click_pos_2(890, 1020, cla)

@@ -72,6 +72,8 @@ def go_test():
         if imgs_ is not None and imgs_ != False:
             print("jangsigan_1", imgs_)
 
+        confirm_all(cla)
+
         # result_out = out_check(cla)
         # if result_out == True:
         #     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\out_zero.PNG"
