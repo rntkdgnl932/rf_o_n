@@ -73,6 +73,7 @@ def dead_recovery(cla):
 
     from function_game import macro_out, click_pos_reg, click_pos_2
     from function_game import imgs_set_
+    from potion import potion_buy
 
     try:
         print("dead_recovery")
@@ -198,7 +199,7 @@ def dead_recovery(cla):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                 QTest.qWait(1000)
-
+            po
 
 
 

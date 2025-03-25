@@ -16,7 +16,7 @@ def go_test():
     import random
 
 
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -41,7 +41,7 @@ def go_test():
     from schedule import myQuest_play_check
     from get_item import get_post, get_upjuk, get_event, get_item_start, get_sangjum_sohwan
     from game_check import out_check, move_check, attack_check
-    from boonhae_collection import collection_start, boonhae_go
+    from boonhae_collection import collection_start, boonhae_go, boonhae_collection_start
     from massenger import line_to_me
     from potion import potion_buy
     from jadong import jadong_in
@@ -65,14 +65,14 @@ def go_test():
         # pos = (a + plus, b, c - a, d - b)
         # pyautogui.screenshot("asd.png", region=pos)
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\boohwal_btn.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\plus_5.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(650, 30, 750, 80, cla, img, 0.85)
+        imgs_ = imgs_set_(400, 100, 700, 1020, cla, img, 0.95)
         if imgs_ is not None and imgs_ != False:
-            print("boohwal_btn", imgs_)
+            print("plus_5", imgs_)
 
-        attack_check(cla)
+        potion_buy(cla)
 
         # result_out = out_check(cla)
         # if result_out == True:
