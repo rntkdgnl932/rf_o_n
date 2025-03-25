@@ -156,6 +156,7 @@ def out_check(cla):
     import cv2
     from function_game import imgs_set_, click_pos_2
     from dead_die import dead_check
+    from massenger import line_to_me
 
     try:
         print("out_check")
@@ -170,6 +171,10 @@ def out_check(cla):
             print("jangsigan_1", imgs_)
 
             click_pos_2(480, 620, cla)
+
+            why = "장시간인데 로그인 되는지 확인하라"
+            line_to_me(cla, why)
+
         else:
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
             img_array = np.fromfile(full_path, np.uint8)
