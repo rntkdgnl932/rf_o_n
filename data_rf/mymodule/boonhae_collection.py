@@ -89,7 +89,10 @@ def collection_start(cla):
                                     line_to_me(cla, why)
                                     macro_out(cla)
                                 else:
-                                    confirm_all(cla)
+                                    result_confirm = confirm_all(cla)
+                                    if result_confirm == True:
+                                        time.sleep(0.5)
+                                        click_pos_2(60, 275, cla)
                             else:
 
                                 click_pos_2(890, 1020, cla)
