@@ -13,7 +13,7 @@ def game_check_start(cla):
     import numpy as np
     import cv2
 
-    from function_game import macro_out, imgs_set_
+    from function_game import macro_out, imgs_set_, click_pos_2
     from massenger import line_to_me
 
     try:
@@ -34,9 +34,12 @@ def game_check_start(cla):
             imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 print("jangsigan_1", imgs_)
-                why = "장시간...."
-                line_to_me(cla, why)
-                macro_out(cla)
+
+                click_pos_2(480, 620, cla)
+
+                # why = "장시간...."
+                # line_to_me(cla, why)
+                # macro_out(cla)
             else:
                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\new_path_notice.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -151,7 +154,7 @@ def move_check(cla):
 def out_check(cla):
     import numpy as np
     import cv2
-    from function_game import imgs_set_
+    from function_game import imgs_set_, click_pos_2
     from dead_die import dead_check
 
     try:
@@ -159,26 +162,35 @@ def out_check(cla):
 
         is_data = False
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
+        imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
-            print("menu_setting", imgs_)
+            print("jangsigan_1", imgs_)
 
+            click_pos_2(480, 620, cla)
         else:
-            for i in range(3):
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("menu_setting", imgs_)
 
-                is_list = i + 1
+            else:
+                for i in range(3):
 
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\out_check\\talk" + str(is_list) + ".PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 850, 60, 920, cla, img, 0.85)
-                if imgs_ is not None and imgs_ != False:
-                    print("talk", str(is_list), imgs_)
-                    is_data = True
-                    break
+                    is_list = i + 1
+
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\out_check\\talk" + str(is_list) + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 850, 60, 920, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("talk", str(is_list), imgs_)
+                        is_data = True
+                        break
                     
         if is_data == True:
             is_data = close_check(cla)

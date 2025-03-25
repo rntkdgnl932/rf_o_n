@@ -168,22 +168,25 @@ class MyApp(QDialog):
                 with open(file_path, "w", encoding='utf-8-sig') as file:
                     file.write("ccocco:메롱")
 
-        if line_[0] == "coob":
-            x_reg = 960 * 3
+
 
         monitors = get_monitors()
         last_monitor_number = 0
         for idx, monitor in enumerate(monitors, start=1):
             last_monitor_number = idx
+        y_reg = 200
+        if line_[1] == "super_coob":
+            x_reg = 960 * 3 + 150
+            y_reg = 200
 
-        if last_monitor_number == 1:
+        elif last_monitor_number == 1:
             x_reg = 0
         elif last_monitor_number == 2:
             x_reg = 960 * 3
         elif last_monitor_number == 3:
             x_reg = 960 * 3
 
-        self.setGeometry(20 + x_reg, 200, 900, 700)
+        self.setGeometry(20 + x_reg, y_reg, 900, 700)
         self.show()
     def my_title(self):
         self.setWindowTitle(v_.this_game + "(ver " + version + ")")

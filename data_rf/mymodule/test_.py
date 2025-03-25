@@ -65,14 +65,12 @@ def go_test():
         # pos = (a + plus, b, c - a, d - b)
         # pyautogui.screenshot("asd.png", region=pos)
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\plus_5.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(400, 100, 700, 1020, cla, img, 0.95)
+        imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
-            print("plus_5", imgs_)
-
-        potion_buy(cla)
+            print("jangsigan_1", imgs_)
 
         # result_out = out_check(cla)
         # if result_out == True:
