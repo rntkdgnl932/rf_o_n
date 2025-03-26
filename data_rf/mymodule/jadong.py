@@ -116,7 +116,6 @@ def jadong_check(cla, data):
                         juljun_off(cla)
                         click_pos_2(920, 925, cla)
                         juljun_on(cla)
-                        jadong_mode(cla)
                 else:
                     jadong_in(cla, data)
             else:
