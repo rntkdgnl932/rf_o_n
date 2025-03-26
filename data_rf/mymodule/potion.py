@@ -23,6 +23,8 @@ def potion_check(cla):
     try:
         print("potion_check")
 
+        need_potion = False
+
         result_out = out_check(cla)
         if result_out == True:
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\out_zero.PNG"
@@ -31,9 +33,15 @@ def potion_check(cla):
             imgs_ = imgs_set_(230, 980, 280, 1035, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 print("out_zero", imgs_)
+                need_potion = True
 
-
-                potion_buy(cla)
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\out_zero_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(230, 980, 280, 1035, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("out_zero_2", imgs_)
+                need_potion = True
 
         else:
             result_juljun = juljun_check(cla)
@@ -44,8 +52,19 @@ def potion_check(cla):
                 imgs_ = imgs_set_(250, 970, 305, 1035, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
                     print("juljun_zero", imgs_)
-                    potion_buy(cla)
+                    need_potion = True
 
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\juljun_zero_2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(250, 970, 305, 1035, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("juljun_zero_2", imgs_)
+                    need_potion = True
+
+
+        if need_potion == True:
+            potion_buy(cla)
 
     except Exception as e:
         print(e)

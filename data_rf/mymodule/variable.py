@@ -11,6 +11,7 @@ dead_count = 0
 this_game = "rf_o_n"
 game_folder = "rf_o_n"
 data_folder = "data_rf"
+ready_count = 0
 
 # 버젼
 

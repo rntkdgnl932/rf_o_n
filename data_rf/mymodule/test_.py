@@ -41,10 +41,10 @@ def go_test():
     from schedule import myQuest_play_check
     from get_item import get_post, get_upjuk, get_event, get_item_start, get_sangjum_sohwan
     from game_check import out_check, move_check, attack_check
-    from boonhae_collection import collection_start, boonhae_go, boonhae_collection_start
+    from boonhae_collection import collection_start, boonhae_go, boonhae_collection_start, collection_go
     from massenger import line_to_me
     from potion import potion_buy
-    from jadong import jadong_in
+    from jadong import jadong_in, jadong_mode
     from clean_screen import clean_screen_start
     from dead_die import dead_check
     try:
@@ -65,14 +65,51 @@ def go_test():
         # pos = (a + plus, b, c - a, d - b)
         # pyautogui.screenshot("asd.png", region=pos)
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
-        if imgs_ is not None and imgs_ != False:
-            print("jangsigan_1", imgs_)
+        collection_go(cla)
 
-        confirm_all(cla)
+        # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\out_zero.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(230, 980, 280, 1035, cla, img, 0.85)
+        # if imgs_ is not None and imgs_ != False:
+        #     print("out_zero", imgs_)
+        #     need_potion = True
+        #
+        # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\out_zero_2.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(230, 980, 280, 1035, cla, img, 0.85)
+        # if imgs_ is not None and imgs_ != False:
+        #     print("out_zero_2", imgs_)
+        #     need_potion = True
+        #
+        # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\juljun_zero.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(250, 970, 305, 1035, cla, img, 0.85)
+        # if imgs_ is not None and imgs_ != False:
+        #     print("juljun_zero", imgs_)
+        #     need_potion = True
+        #
+        # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\juljun_zero_2.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(250, 970, 305, 1035, cla, img, 0.85)
+        # if imgs_ is not None and imgs_ != False:
+        #     print("juljun_zero_2", imgs_)
+        #     need_potion = True
+
+        # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\out_zero.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(230, 980, 280, 1035, cla, img, 0.85)
+        # if imgs_ is not None and imgs_ != False:
+        #     print("out_zero", imgs_)
+
+
+
+
+
 
         # result_out = out_check(cla)
         # if result_out == True:

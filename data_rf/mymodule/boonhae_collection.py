@@ -194,66 +194,78 @@ def collection_go(cla):
 
                     for i in range(20):
 
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\anymore_item_notice.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\jaelyo_lack_notice.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(360, 60, 610, 110, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            print("anymore_item_notice", imgs_)
+                            print("jaelyo_lack_notice", imgs_)
+                            is_get = True
+                            click_pos_2(30, 60, cla)
                             break
                         else:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\ganghwa_aim_notice.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\anymore_item_notice.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(360, 60, 610, 110, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
-                                print("ganghwa_aim_notice", imgs_)
-                                click_pos_2(30, 60, cla)
+                                print("anymore_item_notice", imgs_)
+                                break
                             else:
-                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\ganghwa_aim_notice_2.PNG"
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\ganghwa_aim_notice.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(360, 60, 610, 110, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("ganghwa_aim_notice_2", imgs_)
+                                    print("ganghwa_aim_notice", imgs_)
                                     click_pos_2(30, 60, cla)
-
                                 else:
-                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\jangbi_ganghwa.PNG"
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\ganghwa_aim_notice_2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(30, 30, 200, 100, cla, img, 0.95)
+                                    imgs_ = imgs_set_(360, 60, 610, 110, cla, img, 0.85)
                                     if imgs_ is not None and imgs_ != False:
-                                        print("title : jangbi_ganghwa", imgs_)
-                                        click_pos_2(420, 1020, cla)
+                                        print("ganghwa_aim_notice_2", imgs_)
+                                        click_pos_2(30, 60, cla)
+                                        is_get = True
+                                        break
+
                                     else:
-                                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\ilgwal_registration.PNG"
+                                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\jangbi_ganghwa.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(810, 990, 940, 1040, cla, img, 0.85)
+                                        imgs_ = imgs_set_(30, 30, 200, 100, cla, img, 0.95)
                                         if imgs_ is not None and imgs_ != False:
-                                            print("ilgwal_registration", imgs_)
-                                            click_pos_reg(imgs_.x, imgs_.y, cla)
-
-
-                                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\plus_5.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(400, 100, 700, 1020, cla, img, 0.95)
-                                        if imgs_ is not None and imgs_ != False:
-                                            print("plus_5", imgs_)
-                                            click_pos_reg(imgs_.x - 15, imgs_.y - 15, cla)
-
-                                            time.sleep(0.5)
-
-                                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\upgrade_btn.PNG"
+                                            print("title : jangbi_ganghwa", imgs_)
+                                            click_pos_2(420, 1020, cla)
+                                        else:
+                                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\ilgwal_registration.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(900, 280, 960, 330, cla, img, 0.85)
+                                            imgs_ = imgs_set_(810, 990, 940, 1040, cla, img, 0.85)
                                             if imgs_ is not None and imgs_ != False:
-                                                print("upgrade_btn", imgs_)
+                                                print("ilgwal_registration", imgs_)
                                                 click_pos_reg(imgs_.x, imgs_.y, cla)
-                                                QTest.qWait(1000)
+
+
+                                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\plus_5.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(400, 100, 700, 1020, cla, img, 0.95)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("plus_5", imgs_)
+                                                click_pos_reg(imgs_.x - 15, imgs_.y - 15, cla)
+
+                                                time.sleep(0.5)
+
+                                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\upgrade_btn.PNG"
+                                                img_array = np.fromfile(full_path, np.uint8)
+                                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                imgs_ = imgs_set_(900, 280, 960, 330, cla, img, 0.85)
+                                                if imgs_ is not None and imgs_ != False:
+                                                    print("upgrade_btn", imgs_)
+                                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                                    QTest.qWait(1000)
 
 
 

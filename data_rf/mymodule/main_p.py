@@ -3790,9 +3790,10 @@ class game_Playing(QThread):
 
             while self.isCheck is True:
 
-
-                print("게임 실행 모드(ver " + version + ")")
-                print("now_arduino", v_.now_arduino)
+                v_.ready_count += 1
+                if v_.ready_count % 300:
+                    print("게임 실행 모드(ver " + version + ")")
+                    print("now_arduino", v_.now_arduino)
                 result_game = game_start()
                 if result_game == True and v_.now_cla != "none":
                     # 이전 게임 모드 불러와서 실행

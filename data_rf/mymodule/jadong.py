@@ -110,11 +110,13 @@ def jadong_check(cla, data):
                     print("this map", str(title_map), str(des_map), imgs_)
                     result_attack = attack_check(cla)
                     if result_attack == True:
-                        potion_check(cla)
+                        # potion_check(cla)
+                        jadong_mode(cla)
                     else:
                         juljun_off(cla)
                         click_pos_2(920, 925, cla)
                         juljun_on(cla)
+                        jadong_mode(cla)
                 else:
                     jadong_in(cla, data)
             else:
@@ -348,3 +350,95 @@ def jadong_in(cla, data):
 
     except Exception as e:
         print(e)
+
+
+
+
+def jadong_mode(cla):
+    import numpy as np
+    import cv2
+
+    from function_game import click_pos_reg, imgs_set_
+    from potion import potion_buy
+
+
+
+    try:
+        print("jadong_mode")
+        # * 0.2
+        # 300 => 1분
+        # 30 => 6초
+        count = 30
+
+        jadong_mode = True
+
+        jadong_mode_count = 0
+
+        while jadong_mode is True:
+
+            jadong_mode_count += 1
+
+            minute = jadong_mode_count // count
+
+            if jadong_mode_count % count == 0:
+                print("자동전투 감지중", str(minute), "분")
+
+            click_ready = False
+            potion_need = False
+
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(630, 980, 675, 1030, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("maul_move_btn", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                click_ready = True
+
+            else:
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\juljun_zero.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(250, 970, 305, 1035, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("juljun_zero", imgs_)
+                    potion_need = True
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\juljun_zero_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(250, 970, 305, 1035, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("juljun_zero_2", imgs_)
+                        potion_need = True
+
+            if click_ready == True:
+                for i in range(30):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\jabhwa_btn.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(40, 40, 190, 210, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("jabhwa_btn", imgs_)
+                        jadong_mode = False
+                        potion_buy(cla)
+
+                    else:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(630, 980, 675, 1030, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                    QTest.qWait(200)
+            if potion_need == True:
+                potion_buy(cla)
+                jadong_mode = False
+            QTest.qWait(200)
+
+
+
+
+    except Exception as e:
+        print(e)
+
