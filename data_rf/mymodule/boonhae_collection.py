@@ -94,11 +94,30 @@ def collection_start(cla):
                                         time.sleep(0.5)
                                         click_pos_2(60, 275, cla)
                             else:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\more_grade_jangbi_notice.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(330, 470, 430, 520, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("more_grade_jangbi_notice", imgs_)
 
-                                click_pos_2(890, 1020, cla)
-                                time.sleep(0.5)
-                                click_pos_2(890, 1020, cla)
-                                time.sleep(0.5)
+                                    if y_point < 245:
+
+                                        why = "나보다 높은 등급을 등록하려 한다."
+                                        line_to_me(cla, why)
+                                        macro_out(cla)
+                                    else:
+                                        result_confirm = confirm_all(cla)
+                                        if result_confirm == True:
+                                            time.sleep(0.5)
+                                            click_pos_2(60, 275, cla)
+
+                                else:
+
+                                    click_pos_2(890, 1020, cla)
+                                    time.sleep(0.5)
+                                    click_pos_2(890, 1020, cla)
+                                    time.sleep(0.5)
                         else:
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\collection_point_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
