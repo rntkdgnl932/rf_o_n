@@ -422,6 +422,7 @@ def jadong_mode(cla):
                         print("jabhwa_btn", imgs_)
                         jadong_mode = False
                         potion_buy(cla)
+                        break
 
                     else:
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
