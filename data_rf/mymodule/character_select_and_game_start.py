@@ -110,27 +110,82 @@ def game_ready(cla):
     import numpy as np
     import cv2
 
-    from function_game import imgs_set_, click_pos_reg, click_pos_2
+    from function_game import imgs_set_, click_pos_reg, click_pos_2, macro_out
     from game_check import loading_check, out_check
+    from massenger import line_to_me
 
     try:
+
         game_ready = False
-        # 바깥 화면
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\out_ready_screen.PNG"
+
+        # 다운로드 화면
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\download_start_btn.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(70, 1000, 150, 1040, cla, img, 0.8)
+        imgs_ = imgs_set_(470, 600, 620, 660, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("out_ready_screen", imgs_)
-            game_ready = True
+            print("download_start_btn", imgs_)
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+            game_ready_count = 0
+            game_play_count = 0
+            while game_ready is False:
+
+                game_ready_count += 1
+                if game_ready_count > 1800:
+                    why = "다운한지 30분 넘었다."
+                    line_to_me(cla, why)
+                    macro_out(cla)
+
+
+                game_play_count += 1
+                if game_play_count % 30 == 0:
+                    print("다운로드중", str(game_play_count), "초")
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\out_ready_screen.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(70, 1000, 150, 1040, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("out_ready_screen", imgs_)
+                    game_ready = True
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\next.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(550, 450, 930, 600, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("next", imgs_)
+                        game_ready = True
+
+                    else:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\download_start_btn.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(470, 600, 620, 660, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("download_start_btn", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(1)
+
         else:
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\next.PNG"
+
+            # 바깥 화면
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\out_ready_screen.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(550, 450, 930, 600, cla, img, 0.8)
+            imgs_ = imgs_set_(70, 1000, 150, 1040, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
-                print("next", imgs_)
+                print("out_ready_screen", imgs_)
                 game_ready = True
+            else:
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\next.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(550, 450, 930, 600, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("next", imgs_)
+                    game_ready = True
 
         if game_ready == True:
 
@@ -160,7 +215,6 @@ def game_ready(cla):
                         if imgs_ is not None and imgs_ != False:
                             click_pos_2(700, 800, cla)
                 QTest.qWait(1000)
-
 
         # # 접속대기일 경우 기다리기
         # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\check\\moon_game_ready.PNG"
