@@ -157,6 +157,8 @@ def out_check(cla):
     from function_game import imgs_set_, click_pos_2
     from dead_die import dead_check
     from massenger import line_to_me
+    from schedule import myQuest_play_check
+    from character_select_and_game_start import game_start_screen
 
     try:
         print("out_check")
@@ -202,6 +204,17 @@ def out_check(cla):
 
             if is_data == True:
                 dead_check(cla)
+        else:
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\next.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(550, 450, 930, 600, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("hi")
+                result_schedule = myQuest_play_check(v_.now_cla, "check")
+                character_id = result_schedule[0][1]
+
+                game_start_screen(v_.now_cla, character_id)
 
         return is_data
 

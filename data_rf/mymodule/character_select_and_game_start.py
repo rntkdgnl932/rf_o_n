@@ -13,7 +13,6 @@ def game_start_screen(cla, character_id):
     from function_game import imgs_set_, click_pos_reg
 
 
-
     try:
 
         # 게임화면 분석
