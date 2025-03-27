@@ -50,11 +50,14 @@ def clean_screen_go(cla):
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from game_check import out_check
     from action import juljun_off
+    from stop_event18 import _stop_please
 
     try:
         print("clean_screen_go")
 
         juljun_off(cla)
+
+        _stop_please(cla)
 
         clean = False
         clean_count = 0
