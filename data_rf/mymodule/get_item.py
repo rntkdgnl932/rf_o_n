@@ -877,7 +877,9 @@ def get_event_click(cla, is_picture, y_point):
 
         # 4 : 지치지않는용병!(all_get)
 
-        # 5 : rf패스시즌1(all_get)
+        # 5 : 아케인의유산!(all_get)
+
+        # 6 : rf패스시즌1(all_get)
 
 
         # ?? :
@@ -890,7 +892,7 @@ def get_event_click(cla, is_picture, y_point):
             data = "fourteen"
         elif is_picture == "2":
             data = "length_five"
-        elif is_picture == "3" or is_picture == "4" or is_picture == "5":
+        elif is_picture == "3" or is_picture == "4" or is_picture == "5" or is_picture == "6":
             data = "all_get"
 
 
