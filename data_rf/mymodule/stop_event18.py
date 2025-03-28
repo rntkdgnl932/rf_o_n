@@ -20,13 +20,13 @@ def _stop_please(cla):
 
         event_18 = False
         event_18_count = 0
+        anymore_today_look_btn = False
+        one_eight_close_1 = False
 
         while event_18 is False:
             event_18_count += 1
             if event_18_count > 100:
-                why = "event_18에서 오류인듯"
-                line_to_me(cla, why)
-                macro_out(cla)
+                break
 
             event_18 = True
 
@@ -37,6 +37,7 @@ def _stop_please(cla):
             if imgs_ is not None and imgs_ != False:
                 print("anymore_today_look_btn", imgs_)
                 event_18 = False
+                anymore_today_look_btn = True
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 time.sleep(0.5)
 
@@ -47,11 +48,22 @@ def _stop_please(cla):
             if imgs_ is not None and imgs_ != False:
                 print("18_close_1", imgs_)
                 event_18 = False
+                one_eight_close_1 = True
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 time.sleep(0.5)
 
             time.sleep(1)
 
+        if event_18_count > 100:
+            a = "/a"
+            b = "/b"
+            if anymore_today_look_btn == True:
+                a = "/anymore_today_look_btn"
+            if one_eight_close_1 == True:
+                b = "/one_eight_close_1"
+            why = "event_18에서 오류인듯" + str(a) +str(b)
+            line_to_me(cla, why)
+            macro_out(cla)
 
 
     except Exception as e:
