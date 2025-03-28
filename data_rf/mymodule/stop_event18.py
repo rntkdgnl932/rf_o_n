@@ -33,7 +33,7 @@ def _stop_please(cla):
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\18\\anymore_today_look_btn.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.7)
+            imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 print("anymore_today_look_btn", imgs_)
                 event_18 = False
@@ -44,7 +44,7 @@ def _stop_please(cla):
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\18\\18_close_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 30, 960, 770, cla, img, 0.7)
+            imgs_ = imgs_set_(0, 30, 960, 770, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 print("18_close_1", imgs_)
                 event_18 = False
