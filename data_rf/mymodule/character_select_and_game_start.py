@@ -109,9 +109,10 @@ def game_ready(cla):
     import numpy as np
     import cv2
 
-    from function_game import imgs_set_, click_pos_reg, click_pos_2, macro_out
+    from function_game import imgs_set_, click_pos_reg, click_pos_2, macro_out, text_check_get_black_white
     from game_check import loading_check, out_check
     from massenger import line_to_me
+    from stop_event18 import _stop_please
 
     try:
 
@@ -185,6 +186,68 @@ def game_ready(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("next", imgs_)
                     game_ready = True
+
+
+
+        # 접속대기일 경우 기다리기
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\ready_cancle_btn.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 500, 600, 700, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            game_ready = True
+            game_ready_count = 0
+            game_play_count = 0
+            while game_ready is True:
+
+                game_ready_count += 1
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\character_select_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(20, 30, 200, 100, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    game_ready = False
+                else:
+
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\ready_cancle_btn.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 500, 600, 700, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        game_ready_count = 0
+
+                        result_text = text_check_get_black_white(480, 510, 570, 540, cla)
+
+                        print("기다리는중", game_ready_count, "초, 대기열 :", str(result_text))
+                    else:
+                        # 로딩중 확인
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\loading\\loading_tip.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 800, 650, 1040, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            loading_check(cla)
+
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\18\\18_close_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 30, 960, 770, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("18_close_1", imgs_)
+                                _stop_please(cla)
+
+                            result_out = out_check(cla)
+                            if result_out == False:
+                                game_ready = True
+
+                            else:
+                                game_play_count += 1
+                                print("게임 3초 대기", game_ready_count)
+                                if game_play_count > 2:
+                                    game_ready = False
+                time.sleep(1)
 
         if game_ready == True:
 
