@@ -60,11 +60,8 @@ def auction_start(cla):
     import cv2
 
     from function_game import imgs_set_, text_check_get_reg, in_number_check, int_put_, click_pos_2
-    from chango import chango_maul_auction, chango_maul_spot
     from boonhae_collection import boonhae_collection_start
     try:
-        # 창고에 가서 물품 꺼내고
-        chango_maul_auction(cla)
         # 거래소 들어가서
         # 정산 후
         # 아이템 판매 등록 활성화하고
@@ -88,8 +85,6 @@ def auction_start(cla):
         # 마무리 전 컬렉에 박아버리고, 장비는 분해하고
         boonhae_collection_start(cla)
 
-        # 마무리로 창고에 다시 넣는다다
-        chango_maul_spot(cla)
 
     except Exception as e:
         print(e)

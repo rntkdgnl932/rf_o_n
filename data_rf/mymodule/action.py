@@ -71,6 +71,32 @@ def confirm_all(cla):
     except Exception as e:
         print(e)
 
+def cancle_all(cla):
+    import numpy as np
+    import cv2
+    import pyautogui
+    import random
+
+    from function_game import click_pos_reg, imgs_set_
+
+    try:
+        print("cancle_all")
+
+        is_cancle = False
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\cancle_all\\cancel_btn_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(300, 500, 700, 800, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("cancel_btn_1", imgs_)
+            is_cancle = True
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
+        return is_cancle
+    except Exception as e:
+        print(e)
 
 def menu_open(cla):
     import numpy as np
