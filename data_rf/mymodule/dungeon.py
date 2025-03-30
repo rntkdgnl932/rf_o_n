@@ -211,11 +211,16 @@ def dun_in(cla, data):
                     imgs_ = imgs_set_(30, 30, 200, 100, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         print("dungeon", imgs_)
-
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\bio_suit\\zero_1.PNG"
+                        if read_data[1] == "바이오슈트":
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\bio_suit\\zero_1.PNG"
+                        elif read_data[1] == "신기":
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\singi\\zero_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(360, 400, 470, 450, cla, img, 0.85)
+                        if read_data[1] == "바이오슈트":
+                            imgs_ = imgs_set_(360, 400, 435, 450, cla, img, 0.85)
+                        elif read_data[1] == "신기":
+                            imgs_ = imgs_set_(815, 400, 880, 450, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             print("zero_1", imgs_)
                             myQuest_play_add(cla, data)
