@@ -914,12 +914,30 @@ def get_event_click(cla, is_picture, y_point):
 
                         print("checked", imgs_)
 
+
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(590, 470, 690, 570, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
-                            click_pos_2(200, 595, cla)
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_for(130, 550, 830, 730, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_for(130, 550, 830, 730, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    if len(imgs_for) > 0:
+                                        click_x = imgs_for[len(imgs_for) - 1][0]
+                                        click_y = imgs_for[len(imgs_for) - 1][1]
+                                        click_pos_reg(click_x + 80, click_y, cla)
+
+
+                            else:
+                                click_pos_2(200, 595, cla)
                         else:
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
