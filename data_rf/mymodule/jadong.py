@@ -415,7 +415,7 @@ def jadong_mode(cla):
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
+                        imgs_ = imgs_set_(330, 500, 500, 700, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             print("jangsigan_1", imgs_)
 
@@ -424,6 +424,15 @@ def jadong_mode(cla):
                             jangsigan = True
 
                             time.sleep(1)
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\re_join_btn.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(330, 500, 500, 700, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("re_join_btn", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                jadong_mode = False
 
             if click_ready == True:
                 for i in range(30):
