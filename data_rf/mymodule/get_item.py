@@ -45,9 +45,6 @@ def get_sangjum_sohwan(cla):
 
 
         print("get_sangjum_sohwan")
-        this_point_x = 855
-        this_point_y = 45
-        plus_minus = 20
 
         is_get = False
         is_get_count = 0
@@ -128,14 +125,13 @@ def get_sangjum_sohwan(cla):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\sangjum_sohwan\\menu_sangjum.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
-                                              this_point_x + plus_minus, this_point_y + plus_minus, cla, img, 0.8)
+                            imgs_ = imgs_set_(800, 30, 880, 90, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                print("menu_point_1")
-                                click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                                print("menu_sangjum")
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
                             menu_open_pure(cla)
                     time.sleep(1)

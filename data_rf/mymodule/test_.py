@@ -39,7 +39,7 @@ def go_test():
     from action import confirm_all, juljun_off_setting, go_maul, attack_on, juljun_check
     from character_select_and_game_start import game_start_screen
     from schedule import myQuest_play_check
-    from get_item import get_post, get_upjuk, get_event, get_item_start, get_sangjum_sohwan, allget_btn_click
+    from get_item import get_post, get_upjuk, get_event, get_item_start, get_sangjum_sohwan, allget_btn_click, get_sangjum_sohwan_start
     from game_check import out_check, move_check, attack_check
     from boonhae_collection import collection_start, boonhae_go, boonhae_collection_start, collection_go
     from massenger import line_to_me
@@ -65,14 +65,14 @@ def go_test():
         # pos = (a + plus, b, c - a, d - b)
         # pyautogui.screenshot("asd.png", region=pos)
 
-        allget_btn_click(cla)
+        # get_sangjum_sohwan_start(cla)
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\18\\18_close_1.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\zero.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(0, 30, 960, 770, cla, img, 0.7)
+        imgs_ = imgs_set_(850, 900, 895, 970, cla, img, 0.95)
         if imgs_ is not None and imgs_ != False:
-            print("18_close_1", imgs_)
+            print("zero", imgs_)
 
 
         # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\out_zero.PNG"

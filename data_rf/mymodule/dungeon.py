@@ -350,7 +350,7 @@ def dun_in(cla, data):
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\zero.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(830, 900, 950, 970, cla, img, 0.95)
+                        imgs_ = imgs_set_(850, 900, 895, 970, cla, img, 0.95)
                         if imgs_ is not None and imgs_ != False:
                             print("zero", imgs_)
                             myQuest_play_add(cla, data)
