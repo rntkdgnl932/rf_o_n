@@ -357,7 +357,7 @@ def jadong_mode(cla):
     import numpy as np
     import cv2
 
-    from function_game import click_pos_reg, imgs_set_
+    from function_game import click_pos_reg, imgs_set_, click_pos_2
     from potion import potion_buy
 
 
@@ -384,6 +384,7 @@ def jadong_mode(cla):
 
             click_ready = False
             potion_need = False
+            jangsigan = False
 
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -410,6 +411,19 @@ def jadong_mode(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("juljun_zero_2", imgs_)
                         potion_need = True
+                    else:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("jangsigan_1", imgs_)
+
+                            click_pos_2(480, 620, cla)
+
+                            jangsigan = True
+
+                            time.sleep(1)
 
             if click_ready == True:
                 for i in range(30):
@@ -434,6 +448,22 @@ def jadong_mode(cla):
             if potion_need == True:
                 potion_buy(cla)
                 jadong_mode = False
+
+            if jangsigan == True:
+                jadong_mode = False
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("jangsigan_1", imgs_)
+
+                    click_pos_2(480, 620, cla)
+
+
+
+
             QTest.qWait(200)
 
 
