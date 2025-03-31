@@ -63,7 +63,7 @@ def dead_check(cla):
                 macro_out(cla)
 
 
-            if "튜토육성" in result_schedule_:
+            if "튜토육성" in result_schedule_ or "퀘스트" in result_schedule_:
                 myQuest_play_add(cla, result_schedule_)
 
             dead_recovery(cla)
