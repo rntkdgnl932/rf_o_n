@@ -377,7 +377,7 @@ def tuto_skip(cla):
                         is_data_count = 0
 
 
-            if is_data_count > 3:
+            if is_data_count > 2:
                 is_data = True
 
             QTest.qWait(500)
