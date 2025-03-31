@@ -62,11 +62,15 @@ def quest_start(cla, data):
             result_move = move_check_pure(cla)
 
             if result_move == True:
-                read_data = data.split("_")
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\googa_out_btn.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(710, 100, 745, 175, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("googa_out_btn", imgs_)
+                    click_pos_2(900, imgs_.y, cla)
 
-                quest_get(cla, read_data[1])
-
-                for i in range(5):
+                for i in range(3):
                     result_confirm = confirm_all(cla)
                     if result_confirm == True:
                         break
