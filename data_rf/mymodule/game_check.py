@@ -151,6 +151,31 @@ def move_check(cla):
     except Exception as e:
         print(e)
 
+
+def move_check_pure(cla):
+    import numpy as np
+    import cv2
+    from function_game import imgs_set_
+
+
+    try:
+        print("move_check_pure")
+
+        is_move = False
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\move\\m.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(485, 880, 520, 910, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("m", imgs_)
+            is_move = True
+
+        return is_move
+
+    except Exception as e:
+        print(e)
+
 def out_check(cla):
     import numpy as np
     import cv2

@@ -14,7 +14,7 @@ def quest_start(cla, data):
     import cv2
 
     from function_game import macro_out, imgs_set_, click_pos_2, drag_pos
-    from game_check import out_check
+    from game_check import out_check, move_check_pure
     from clean_screen import clean_screen_start
     from action import confirm_all, juljun_check, juljun_off
     from dead_die import dead_check
@@ -52,6 +52,19 @@ def quest_start(cla, data):
 
                 quest_get(cla, read_data[1])
 
+
+                for i in range(5):
+                    result_confirm = confirm_all(cla)
+                    if result_confirm == True:
+                        break
+                    QTest.qWait(500)
+        else:
+            result_move = move_check_pure(cla)
+
+            if result_move == True:
+                read_data = data.split("_")
+
+                quest_get(cla, read_data[1])
 
                 for i in range(5):
                     result_confirm = confirm_all(cla)
