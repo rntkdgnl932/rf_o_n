@@ -475,7 +475,7 @@ def jadong_mode(cla):
                     imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         print("jangsigan_1", imgs_)
-    
+
                         click_pos_2(480, 620, cla)
 
 

@@ -321,7 +321,7 @@ def dun_in(cla, data):
                         click_pos_2(660, 660, cla)
                         is_dun = False
                     else:
-                        if int(read_data) < 5:
+                        if int(read_data[2]) < 5:
                             drag_pos(290, 460, 290, 660, cla)
                         else:
                             drag_pos(290, 660, 290, 460, cla)
