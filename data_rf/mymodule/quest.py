@@ -18,6 +18,7 @@ def quest_start(cla, data):
     from clean_screen import clean_screen_start
     from action import confirm_all, juljun_check, juljun_off
     from dead_die import dead_check
+    from tuto import way_check, quest_complete, tuto_skip, quest_on_check
 
     try:
         print("quest_start", data)
@@ -31,6 +32,7 @@ def quest_start(cla, data):
 
         dead_check(cla)
 
+        way_check(cla)
 
         tuto_skip(cla)
 
@@ -89,6 +91,7 @@ def quest_get(cla, data):
     import cv2
     from function_game import imgs_set_, click_pos_reg, click_pos_2
     from action import menu_open_pure, confirm_all
+    from schedule import myQuest_play_add
 
     try:
         print("quest_get", data)
@@ -120,6 +123,9 @@ def quest_get(cla, data):
                     click_pos_2(280, 95, cla)
                     time.sleep(0.2)
                     click_pos_2(280, 95, cla)
+
+                add_data = "퀘스트_" + str(data)
+
                 QTest.qWait(500)
 
 
@@ -158,54 +164,72 @@ def quest_get(cla, data):
                                         break
                                 QTest.qWait(1000)
 
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\googa_out_btn.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(710, 100, 745, 175, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        print("googa_out_btn", imgs_)
-                        click_pos_2(900, imgs_.y, cla)
-
-
-                for i in range(3):
-                    btn = i + 1
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\quest_soolock_btn_" + str(btn) + ".PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(790, 995, 945, 1040, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        print("quest_soolock_btn", str(btn), imgs_)
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(1)
-
-                        break
-                if data == "국가":
-                    for i in range(5):
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\quest.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\googa_out_btn.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(30, 30, 160, 100, cla, img, 0.9)
+                        imgs_ = imgs_set_(710, 100, 745, 175, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            click_pos_2(935, 55, cla)
-                        else:
+                            print("googa_out_btn", imgs_)
+                            click_pos_2(900, imgs_.y, cla)
+                    else:
+                        is_btn = False
+                        for i in range(3):
+                            btn = i + 1
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\quest_soolock_btn_" + str(btn) + ".PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(790, 995, 945, 1040, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("quest_soolock_btn", str(btn), imgs_)
+                                is_btn = True
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(1)
+
+                                break
+
+                        for i in range(5):
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\quest.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(30, 30, 160, 100, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(935, 55, cla)
+                            else:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\googa_out_btn.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(710, 100, 745, 175, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("googa_out_btn", imgs_)
+                                    break
+                            QTest.qWait(1000)
+                        if is_btn == True:
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\googa_out_btn.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(710, 100, 745, 175, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
                                 print("googa_out_btn", imgs_)
-                                break
-                        QTest.qWait(1000)
+                                click_pos_2(900, imgs_.y, cla)
+                        else:
+                            myQuest_play_add(cla, add_data)
+                else:
+                    is_btn = False
+                    for i in range(3):
+                        btn = i + 1
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\quest_soolock_btn_" + str(btn) + ".PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(790, 995, 945, 1040, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("quest_soolock_btn", str(btn), imgs_)
+                            is_btn = True
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(1)
 
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\googa_out_btn.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(710, 100, 745, 175, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        print("googa_out_btn", imgs_)
-                        click_pos_2(900, imgs_.y, cla)
-
-
+                            break
+                    if is_btn == False:
+                        myQuest_play_add(cla, add_data)
 
             else:
 
@@ -240,30 +264,7 @@ def quest_get(cla, data):
     except Exception as e:
         print(e)
 
-def quest_complete(cla):
-    import numpy as np
-    import cv2
-    from function_game import imgs_set_, click_pos_reg
 
-
-    try:
-        print("quest_complete")
-
-        is_data = False
-
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\out_complete_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(820, 80, 920, 250, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("out_complete_1", imgs_)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
-            is_data = True
-
-
-        return is_data
-    except Exception as e:
-        print(e)
 
 
 def quide_quest_check(cla):
@@ -294,96 +295,6 @@ def quide_quest_check(cla):
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 QTest.qWait(500)
 
-
-    except Exception as e:
-        print(e)
-
-def quest_on_check(cla):
-    import numpy as np
-    import cv2
-    from function_game import imgs_set_
-
-
-    try:
-        print("quest_on_check")
-
-        is_data = False
-
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\quest_check\\quest_on_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(890, 900, 950, 950, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("quest_on_1", imgs_)
-            is_data = True
-        else:
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\quest_check\\quest_on_2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(890, 900, 950, 950, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("quest_on_2", imgs_)
-                is_data = True
-
-
-        return is_data
-    except Exception as e:
-        print(e)
-
-
-
-
-def tuto_skip(cla):
-    import numpy as np
-    import cv2
-    from function_game import imgs_set_, click_pos_reg, drag_pos
-    from action import confirm_all
-
-    try:
-        print("tuto_skip")
-
-        is_data = False
-        is_data_count = 0
-        while is_data is False:
-            is_data_count += 1
-
-            confirm_all(cla)
-
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\skip\\skip_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(700, 30, 960, 200, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("skip_1", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                is_data_count = 0
-            else:
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\skip\\skip_2.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(700, 30, 960, 200, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("skip_2", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    is_data_count = 0
-                else:
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\skip\\quest_complete_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(370, 450, 600, 600, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("quest_complete_1", imgs_)
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        is_data_count = 0
-
-
-            if is_data_count > 2:
-                is_data = True
-
-            QTest.qWait(500)
-
-
-        return is_data
 
     except Exception as e:
         print(e)

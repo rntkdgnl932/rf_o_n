@@ -102,6 +102,7 @@ def dun_ing(cla, data):
 
     from function_game import macro_out, click_pos_reg, click_pos_2, imgs_set_
     from schedule import myQuest_play_add
+    from game_check import loading_check
 
     try:
         print("dun_ing", data)
@@ -150,8 +151,24 @@ def dun_ing(cla, data):
                         if imgs_ is not None and imgs_ != False:
                             print("stage_failed_notice", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            for i in range(10):
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\bio_suit\\stage_failed_notice.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(100, 300, 700, 900, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("stage_failed_notice", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                else:
+                                    loading_check(cla)
+                                time.sleep(0.3)
+
                             is_dun = False
-                            myQuest_play_add(cla, data)
+
+                            # 소탕해버리깅
+                            dun_in_sotang(cla, data)
+
                         else:
 
                             is_dun_count += 1
@@ -391,6 +408,152 @@ def dun_in(cla, data):
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                             else:
                                 menu_open(cla)
+            QTest.qWait(1000)
+
+
+
+
+    except Exception as e:
+        print(e)
+
+
+
+
+def dun_in_sotang(cla, data):
+    import numpy as np
+    import cv2
+    import pyautogui
+    import random
+
+    from function_game import drag_pos, click_pos_reg, click_pos_2, imgs_set_
+    from action import menu_open, go_random, juljun_on, confirm_all
+    from game_check import loading_check, out_check
+    from schedule import myQuest_play_add
+    from clean_screen import clean_screen_start
+
+    try:
+        print("dun_in", data)
+
+        # 던전_바이오슈트
+        # 던전_신기
+        # 던전_폐기장_8
+        # 던전_비밀기지
+
+        read_data = data.split("_")
+
+        is_dun = True
+        is_dun_count = 0
+        while is_dun is True:
+            is_dun_count += 1
+            if is_dun_count > 10:
+                is_dun = False
+
+
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\bio_suit\\ScienceTrainingCenter.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(50, 30, 200, 80, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("ScienceTrainingCenter", imgs_)
+                is_dun = False
+            else:
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\dungeon.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 30, 200, 100, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("dungeon", imgs_)
+                    if read_data[1] == "바이오슈트":
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\bio_suit\\zero_1.PNG"
+                    elif read_data[1] == "신기":
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\singi\\zero_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    if read_data[1] == "바이오슈트":
+                        imgs_ = imgs_set_(360, 400, 435, 450, cla, img, 0.85)
+                    elif read_data[1] == "신기":
+                        imgs_ = imgs_set_(815, 400, 880, 450, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("zero_1", imgs_)
+                        myQuest_play_add(cla, data)
+                        is_dun = False
+
+
+                    else:
+                        click_pos_2(60, 95, cla)
+                        time.sleep(0.5)
+
+                        for i in range(5):
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\sotang_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(440, 360, 515, 410, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("sotang_title 1", imgs_)
+                                break
+                            else:
+                                if read_data[1] == "바이오슈트":
+                                    click_pos_2(135, 735, cla)
+                                elif read_data[1] == "신기":
+                                    click_pos_2(600, 735, cla)
+                            time.sleep(0.5)
+
+                        # 소탕
+                        for i in range(5):
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\sotang_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(440, 360, 515, 410, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("sotang_title 2", imgs_)
+                                confirm_all(cla)
+                            else:
+                                break
+                            time.sleep(0.5)
+
+                        for i in range(10):
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\bio_suit\\ticket_lack_notice.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(300, 40, 800, 160, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("ticket_lack_notice", imgs_)
+                                myQuest_play_add(cla, data)
+                                is_dun = False
+                                break
+                            else:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\singi\\not_complete_notice.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(300, 40, 800, 160, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("not_complete_notice", imgs_)
+                                    myQuest_play_add(cla, data)
+                                    is_dun = False
+                                    break
+                                else:
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\get_sotang.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(470, 430, 570, 490, cla, img, 0.85)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("get_sotang", imgs_)
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        myQuest_play_add(cla, data)
+                                        is_dun = False
+                                        break
+
+                            time.sleep(0.1)
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\menu_dun.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(730, 290, 800, 360, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        menu_open(cla)
+
             QTest.qWait(1000)
 
 

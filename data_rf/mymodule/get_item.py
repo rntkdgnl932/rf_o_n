@@ -877,6 +877,8 @@ def get_event_click(cla, is_picture, y_point):
 
         # 6 : rf패스시즌1(all_get)
 
+        # 7 : 데일리출석이벤트!(twenty_one)
+
 
         # ?? :
         # ? :
@@ -886,6 +888,8 @@ def get_event_click(cla, is_picture, y_point):
 
         if is_picture == "1" :
             data = "fourteen"
+        elif is_picture == "7":
+            data = "twenty_one"
         elif is_picture == "2":
             data = "length_five"
         elif is_picture == "3" or is_picture == "4" or is_picture == "5" or is_picture == "6":
@@ -900,56 +904,166 @@ def get_event_click(cla, is_picture, y_point):
 
 
             for c in range(5):
-                result_point = event_get_reg(cla, y_point)
-                if result_point == True:
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(130, 340, 830, 730, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(is_picture) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("get_event_click : pic_num", is_picture)
 
-                        print("checked", imgs_)
-
-
+                    result_point = event_get_reg(cla, y_point)
+                    if result_point == True:
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(590, 470, 690, 570, cla, img, 0.8)
+                        imgs_ = imgs_set_(130, 340, 700, 730, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
+
+                            print("checked", imgs_)
+
+
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_for(130, 550, 830, 730, cla, img, 0.8)
+                            imgs_ = imgs_set_(590, 470, 690, 570, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_for(130, 550, 830, 730, cla, img, 0.8)
+                                imgs_ = imgs_set_(130, 550, 700, 730, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_for = imgs_set_for(130, 550, 830, 730, cla, img, 0.8)
+                                    if imgs_for is not None and imgs_for != False:
+                                        if len(imgs_for) > 0:
+                                            click_x = imgs_for[len(imgs_for) - 1][0]
+                                            click_y = imgs_for[len(imgs_for) - 1][1]
+                                            click_pos_reg(click_x + 80, click_y, cla)
+
+
+                                else:
+                                    click_pos_2(200, 595, cla)
+                            else:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_for = imgs_set_for(130, 340, 830, 730, cla, img, 0.8)
+                                if imgs_for is not None and imgs_for != False:
+                                    print("checked_for", imgs_for)
+
                                     if len(imgs_for) > 0:
                                         click_x = imgs_for[len(imgs_for) - 1][0]
                                         click_y = imgs_for[len(imgs_for) - 1][1]
                                         click_pos_reg(click_x + 80, click_y, cla)
-
-
-                            else:
-                                click_pos_2(200, 595, cla)
                         else:
+                            click_pos_2(200, 510, cla)
+                    else:
+                        break
+                else:
+                    click_pos_2(755, y_point, cla)
+                QTest.qWait(200)
+        elif data == "twenty_one":
+            print("twenty_one")
+
+
+
+
+
+            for c in range(5):
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(is_picture) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("get_event_click : pic_num", is_picture)
+
+                    result_point = event_get_reg(cla, y_point)
+                    if result_point == True:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(130, 340, 700, 730, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+
+                            print("checked", imgs_)
+
+                            # 먼저 두번째줄 끝에 체크되어있는지
+
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_for = imgs_set_for(130, 340, 830, 730, cla, img, 0.8)
-                            if imgs_for is not None and imgs_for != False:
-                                print("checked_for", imgs_for)
+                            imgs_ = imgs_set_(590, 515, 690, 610, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(130, 600, 700, 700, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_for = imgs_set_for(130, 600, 830, 700, cla, img, 0.8)
+                                    if imgs_for is not None and imgs_for != False:
+                                        if len(imgs_for) > 0:
+                                            click_x = imgs_for[len(imgs_for) - 1][0]
+                                            click_y = imgs_for[len(imgs_for) - 1][1]
+                                            click_pos_reg(click_x + 80, click_y, cla)
 
-                                if len(imgs_for) > 0:
-                                    click_x = imgs_for[len(imgs_for) - 1][0]
-                                    click_y = imgs_for[len(imgs_for) - 1][1]
-                                    click_pos_reg(click_x + 80, click_y, cla)
+
+                                else:
+                                    click_pos_2(200, 645, cla)
+                            else:
+
+                                # 두번째줄 끝에 체크되어 있지 않다면, 첫번째줄 끝에 체크 되어 있는지지
+
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(590, 425, 690, 520, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(130, 515, 700, 610, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_for = imgs_set_for(130, 515, 830, 610, cla, img, 0.8)
+                                        if imgs_for is not None and imgs_for != False:
+                                            if len(imgs_for) > 0:
+                                                click_x = imgs_for[len(imgs_for) - 1][0]
+                                                click_y = imgs_for[len(imgs_for) - 1][1]
+                                                click_pos_reg(click_x + 80, click_y, cla)
+
+
+                                    else:
+                                        click_pos_2(200, 555, cla)
+                                else:
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_for = imgs_set_for(130, 340, 830, 730, cla, img, 0.8)
+                                    if imgs_for is not None and imgs_for != False:
+                                        print("checked_for", imgs_for)
+
+                                        if len(imgs_for) > 0:
+                                            click_x = imgs_for[len(imgs_for) - 1][0]
+                                            click_y = imgs_for[len(imgs_for) - 1][1]
+                                            click_pos_reg(click_x + 80, click_y, cla)
+
+
+
+                        else:
+                            click_pos_2(200, 465, cla)
                     else:
-                        click_pos_2(200, 510, cla)
+                        break
                 else:
-                    break
+                    click_pos_2(755, y_point, cla)
+                QTest.qWait(200)
         elif data == "length_five":
 
             print("length_five")
@@ -965,9 +1079,23 @@ def get_event_click(cla, is_picture, y_point):
 
             print("length_five")
 
-            allget_btn_click(cla)
+            for c in range(5):
 
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(is_picture) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("get_event_click : pic_num", is_picture)
 
+                    result_point = event_get_reg(cla, y_point)
+                    if result_point == True:
+                        allget_btn_click(cla)
+                    else:
+                        break
+                else:
+                    click_pos_2(755, y_point, cla)
+                QTest.qWait(200)
 
 
     except Exception as e:

@@ -12,6 +12,7 @@ this_game = "rf_o_n"
 game_folder = "rf_o_n"
 data_folder = "data_rf"
 ready_count = 0
+daily_mission_ready = True
 
 # 버젼
 

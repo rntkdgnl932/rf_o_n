@@ -34,7 +34,7 @@ def go_test():
     elif cla == "six":
         plus = 960 * 5
 
-    from function_game import imgs_set_, click_pos_2, click_pos_reg, imgs_set_reg, macro_out, drag_pos, text_check_get_black_white
+    from function_game import imgs_set_, click_pos_2, click_pos_reg, imgs_set_reg, macro_out, drag_pos, text_check_get_black_white, imgs_set_for
     from tuto import tuto_start, tuto_skip
     from action import confirm_all, juljun_off_setting, go_maul, attack_on, juljun_check
     from character_select_and_game_start import game_start_screen
@@ -47,6 +47,9 @@ def go_test():
     from jadong import jadong_in, jadong_mode
     from clean_screen import clean_screen_start
     from dead_die import dead_check
+    from auction_game import auction_low_num, auction_qun_num, auction_start
+    from mission import mission_get, mission_get_des
+
     try:
         print("test")
 
@@ -67,12 +70,51 @@ def go_test():
 
         # get_sangjum_sohwan_start(cla)
 
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\auction\\ten.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(480, 610, 540, 640, cla, img, 0.99)
+        if imgs_ is not None and imgs_ != False:
+            print("ten", imgs_)
+
+        # mission_get(cla)
+
+        # print("가격 읽어오고 팔자")
+        # result_low = auction_low_num(cla)
+        # print("==========================================================================")
+        #
+        # result_qun = auction_qun_num(cla, 605, 640)
+        #
+        # result_ = int(result_low * result_qun)
+        #
+        # print("==========================================================================")
+        #
+        # print("result_result_result_result_result_result_result_result_result_", result_)
+
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\googa_out_btn.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(710, 100, 745, 175, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             print("googa_out_btn", imgs_)
+
+        # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\soolock_mission_checked.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_for(40, 150, 270, 860, cla, img, 0.85)
+        # if imgs_ is not None and imgs_ != False:
+        #     print("soolock_mission_checked", imgs_)
+        #
+        #     if len(imgs_) > 0:
+        #         y_reg = imgs_[len(imgs_) - 1][1]
+        #         print("y_reg", y_reg)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\confirm_all\\confirm_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(410, 500, 700, 800, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("confirm_1", imgs_)
 
 
         # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\out_zero.PNG"
