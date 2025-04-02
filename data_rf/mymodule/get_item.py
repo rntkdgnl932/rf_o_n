@@ -540,7 +540,7 @@ def get_event(cla):
     import numpy as np
     import cv2
 
-    from function_game import imgs_set_, click_pos_2, click_pos_reg
+    from function_game import imgs_set_, click_pos_2, click_pos_reg, drag_pos
     from action import menu_open_pure
 
     # 폴더 내 파일 개수
@@ -610,7 +610,21 @@ def get_event(cla):
                                 break
 
                 else:
-                    is_get = True
+
+                    is_point = False
+                    for i in range(3):
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(790, 370, 830, 730, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            is_point = True
+                            break
+                        else:
+                            drag_pos(770, 700, 770, 400, cla)
+                        QTest.qWait(500)
+                    if is_point == False:
+                        is_get = True
 
             else:
 
