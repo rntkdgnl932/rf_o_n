@@ -463,6 +463,10 @@ def boonhae_go(cla):
                         imgs_ = imgs_set_(440, 200, 610, 345, cla, img, 0.9)
                         if imgs_ is not None and imgs_ != False:
                             print("common_clicked", imgs_)
+
+                            click_pos_2(645, 245, cla)
+                            time.sleep(0.5)
+
                             click_pos_2(870, 1020, cla)
                             is_data = True
                         else:
