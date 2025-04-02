@@ -845,6 +845,7 @@ def allget_btn_click(cla):
                 time.sleep(0.5)
                 click_pos_reg(imgs_.x, imgs_.y, cla)
                 time.sleep(0.5)
+        click_pos_2(640, 420, cla)
     except Exception as e:
         print(e)
         return 0
@@ -865,23 +866,27 @@ def get_event_click(cla, is_picture, y_point):
 
         # - :
 
-        # 1 : rf론칭기념!스페셜출석이벤트(fourteen)
+        # 1 : rf론칭기념!스페셜출석이벤트(fourteen) o
 
-        # 2 : 격전지집결!홀리가스교환이벤트(length_five)
+        # 2 : 격전지집결!홀리가스교환이벤트(length_five) o
 
-        # 3 : 아크레시아의지령!길드로집결하라!(all_get)
+        # 3 : 아크레시아의지령!길드로집결하라!(all_get) o
 
-        # 4 : 지치지않는용병!(all_get)
+        # 4 : 지치지않는용병!(all_get) o
 
-        # 5 : 아케인의유산!(all_get)
+        # 5 : 아케인의유산!(all_get) o
 
-        # 6 : rf패스시즌1(all_get)
+        # 6 : rf패스시즌1(all_get, pass) o
 
-        # 7 : 데일리출석이벤트!(twenty_one)
+        # 7 : 데일리출석이벤트!(twenty_one) o
+
+        # 8 : 장비성장지원이벤트!(all_get) 8
+
+        # 9 : 스킬성장지원이벤트!(all_get) 9
 
 
-        # ?? :
-        # ? :
+        # ?? : 장비성장지원이벤트!(all_get) 8
+        # ?? : 스킬성장지원이벤트!(all_get) 9
         # ?? :
         # ?? :
 
@@ -892,7 +897,7 @@ def get_event_click(cla, is_picture, y_point):
             data = "twenty_one"
         elif is_picture == "2":
             data = "length_five"
-        elif is_picture == "3" or is_picture == "4" or is_picture == "5" or is_picture == "6":
+        elif is_picture == "3" or is_picture == "4" or is_picture == "5" or is_picture == "6" or is_picture == "8" or is_picture == "9":
             data = "all_get"
 
 
