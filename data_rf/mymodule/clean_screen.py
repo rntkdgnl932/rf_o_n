@@ -51,104 +51,109 @@ def clean_screen_go(cla):
     from game_check import out_check
     from action import juljun_off
     from stop_event18 import _stop_please
+    from dead_die import dead_check
 
     try:
         print("clean_screen_go")
 
-        juljun_off(cla)
+        result_dead = dead_check(cla)
 
-        _stop_please(cla)
+        if result_dead == False:
 
-        clean = False
-        clean_count = 0
-        while clean is False:
-            clean_count += 1
-            if clean_count > 2:
-                break
+            juljun_off(cla)
 
-            clean = True
+            _stop_please(cla)
 
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                print("menu_setting", imgs_)
-                clean = False
-                click_pos_2(930, 50, cla)
-                QTest.qWait(500)
-            else:
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_1.PNG"
+            clean = False
+            clean_count = 0
+            while clean is False:
+                clean_count += 1
+                if clean_count > 2:
+                    break
+
+                clean = True
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+                imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
+                    print("menu_setting", imgs_)
                     clean = False
-                    print("close_1", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    click_pos_2(930, 50, cla)
                     QTest.qWait(500)
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
-                if imgs_ is not None and imgs_ != False:
-                    clean = False
-                    print("close_2", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    QTest.qWait(500)
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        clean = False
+                        print("close_1", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        QTest.qWait(500)
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        clean = False
+                        print("close_2", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        QTest.qWait(500)
 
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_3.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
-                if imgs_ is not None and imgs_ != False:
-                    clean = False
-                    print("close_3", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    QTest.qWait(500)
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_3.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        clean = False
+                        print("close_3", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        QTest.qWait(500)
 
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_4.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
-                if imgs_ is not None and imgs_ != False:
-                    clean = False
-                    print("close_4", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    QTest.qWait(500)
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_4.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        clean = False
+                        print("close_4", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        QTest.qWait(500)
 
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_5.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
-                if imgs_ is not None and imgs_ != False:
-                    clean = False
-                    print("close_5", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    QTest.qWait(500)
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_5.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        clean = False
+                        print("close_5", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        QTest.qWait(500)
 
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\out_btn_1.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(900, 30, 960, 200, cla, img, 0.9)
-                if imgs_ is not None and imgs_ != False:
-                    clean = False
-                    print("out_btn_1", imgs_)
-                    click_pos_2(940, 60, cla)
-                    QTest.qWait(500)
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\out_btn_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(900, 30, 960, 200, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        clean = False
+                        print("out_btn_1", imgs_)
+                        click_pos_2(940, 60, cla)
+                        QTest.qWait(500)
 
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\get_sotang.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(470, 430, 570, 490, cla, img, 0.85)
-                if imgs_ is not None and imgs_ != False:
-                    clean = False
-                    print("get_sotang", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    QTest.qWait(500)
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\get_sotang.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(470, 430, 570, 490, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        clean = False
+                        print("get_sotang", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        QTest.qWait(500)
 
 
-            QTest.qWait(1000)
+                QTest.qWait(1000)
 
 
 

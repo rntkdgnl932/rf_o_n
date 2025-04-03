@@ -68,7 +68,7 @@ def dead_check(cla):
 
             dead_recovery(cla)
 
-
+        return is_data
     except Exception as e:
         print(e)
 
