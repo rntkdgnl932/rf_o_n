@@ -29,28 +29,34 @@ def tuto_start(cla):
 
         quest_complete(cla)
 
-        dead_check(cla)
+        result_daed = dead_check(cla)
 
-        # 스토리모드부터 확인
-        result_story = tuto_story(cla)
-        if result_story == False:
-            result_quest_on = quest_on_check(cla)
-            if result_quest_on == False:
+        if result_daed == False:
 
-                result_out = out_check(cla)
-                if result_out == False:
-                    clean_screen_start(cla)
-                    click_pos_2(895, 100, cla)
-                else:
-                    drag_pos(820, 100, 820, 160, cla)
-                    time.sleep(1)
-                    click_pos_2(895, 100, cla)
+            # 스토리모드부터 확인
+            result_story = tuto_story(cla)
+            if result_story == False:
+                result_quest_on = quest_on_check(cla)
+                if result_quest_on == False:
 
-                for i in range(5):
-                    result_confirm = confirm_all(cla)
-                    if result_confirm == True:
-                        break
-                    QTest.qWait(500)
+                    result_out = out_check(cla)
+                    if result_out == False:
+                        clean_screen_start(cla)
+                        click_pos_2(895, 100, cla)
+                    else:
+                        drag_pos(820, 100, 820, 160, cla)
+                        time.sleep(1)
+                        click_pos_2(895, 100, cla)
+
+                    for i in range(5):
+                        result_confirm = confirm_all(cla)
+                        if result_confirm == True:
+                            break
+                        else:
+                            result_dead = dead_check(cla)
+                            if result_dead == True:
+                                break
+                        QTest.qWait(500)
 
 
     except Exception as e:
