@@ -30,10 +30,13 @@ def tuto_start(cla):
         quest_complete(cla)
 
         result_daed = dead_check(cla)
-
+        print("result_daed", result_daed)
         if result_daed == False:
 
             # 스토리모드부터 확인
+
+            print("result_daed..........", result_daed)
+
             result_story = tuto_story(cla)
             if result_story == False:
                 result_quest_on = quest_on_check(cla)
