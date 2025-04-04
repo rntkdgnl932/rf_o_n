@@ -98,7 +98,7 @@ def dead_recovery(cla):
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\boohwal_btn.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(650, 30, 750, 80, cla, img, 0.85)
+        imgs_ = imgs_set_(650, 30, 750, 80, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("boohwal_btn", imgs_)
 
