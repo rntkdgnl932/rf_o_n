@@ -73,6 +73,7 @@ def dead_check(cla):
                 myQuest_play_add(cla, result_schedule_)
 
             dead_recovery(cla)
+            QTest.qWait(500)
 
         return is_data
     except Exception as e:
