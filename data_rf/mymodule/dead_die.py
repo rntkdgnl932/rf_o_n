@@ -17,6 +17,7 @@ def dead_check(cla):
     from schedule import myQuest_play_add, myQuest_play_check
     from function_game import imgs_set_, macro_out
     from massenger import line_to_me
+    from clean_screen import clean_screen_start
 
     try:
         print("dead_check")
@@ -72,6 +73,7 @@ def dead_check(cla):
             if "튜토육성" in result_schedule_ or "퀘스트" in result_schedule_:
                 myQuest_play_add(cla, result_schedule_)
 
+            clean_screen_start(cla)
             dead_recovery(cla)
             QTest.qWait(500)
 
