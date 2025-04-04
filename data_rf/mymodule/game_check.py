@@ -199,8 +199,8 @@ def out_check(cla):
 
             click_pos_2(480, 620, cla)
 
-            why = "장시간인데 로그인 되는지 확인하라"
-            line_to_me(cla, why)
+            # why = "장시간인데 로그인 되는지 확인하라"
+            # line_to_me(cla, why)
 
         else:
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"

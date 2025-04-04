@@ -33,7 +33,9 @@ def clean_screen_start(cla):
             if result_out == True:
                 clean = True
             else:
-                clean_screen_go(cla)
+                dead = clean_screen_go(cla)
+                if dead == True:
+                    clean = True
 
             QTest.qWait(1000)
 
@@ -55,6 +57,8 @@ def clean_screen_go(cla):
 
     try:
         print("clean_screen_go")
+
+
 
         result_dead = dead_check(cla)
 
@@ -154,9 +158,7 @@ def clean_screen_go(cla):
 
 
                 QTest.qWait(1000)
-
-
-
+        return result_dead
     except Exception as e:
         print(e)
 
