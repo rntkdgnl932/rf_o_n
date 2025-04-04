@@ -34,6 +34,7 @@ def go_test():
     elif cla == "six":
         plus = 960 * 5
 
+    from datetime import datetime
     from function_game import imgs_set_, click_pos_2, click_pos_reg, imgs_set_reg, macro_out, drag_pos, text_check_get_black_white, imgs_set_for
     from tuto import tuto_start, tuto_skip
     from action import confirm_all, juljun_off_setting, go_maul, attack_on, juljun_check
@@ -69,6 +70,15 @@ def go_test():
         # pyautogui.screenshot("asd.png", region=pos)
 
         # get_sangjum_sohwan_start(cla)
+        # nowMinute = datetime.today().strftime("%Y%m%d_%H:%M:%S")
+        # print("nowMinute", nowMinute)
+        #
+        # v_.dead_count_msg += str(nowMinute) + "//"
+        #
+        # why = "하루 5번 죽었다 \n" + v_.dead_count_msg
+        # line_to_me(cla, why)
+        #
+        # print("nowMinute", nowMinute)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\fix_server_2.PNG"
         img_array = np.fromfile(full_path, np.uint8)

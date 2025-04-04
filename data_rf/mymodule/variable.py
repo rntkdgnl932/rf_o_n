@@ -6,6 +6,7 @@ now_arduino = "none"
 
 # 해당 게임 관련
 dead_count = 0
+dead_count_msg = "//"
 
 # 게임 및 폴더 관련
 this_game = "rf_o_n"
@@ -13,6 +14,7 @@ game_folder = "rf_o_n"
 data_folder = "data_rf"
 ready_count = 0
 daily_mission_ready = True
+
 
 # 버젼
 

@@ -12,8 +12,7 @@ sys.path.append('C:/my_games/' + str(v_.game_folder) + '/' + str(v_.data_folder)
 def dead_check(cla):
     import numpy as np
     import cv2
-    import pyautogui
-    import random
+    from datetime import datetime
 
     from schedule import myQuest_play_add, myQuest_play_check
     from function_game import imgs_set_, macro_out
@@ -57,8 +56,15 @@ def dead_check(cla):
             result_schedule_ = result_schedule[0][2]
 
             v_.dead_count += 1
+
+            nowMinute = datetime.today().strftime("%Y%m%d_%H:%M:%S")
+            print("nowMinute", nowMinute)
+
+
+            v_.dead_count_msg += str(nowMinute) + "//\n"
+
             if v_.dead_count > 4:
-                why = "하루 5번 죽었다"
+                why = "하루 5번 죽었다 \n" + v_.dead_count_msg
                 line_to_me(cla, why)
                 macro_out(cla)
 
