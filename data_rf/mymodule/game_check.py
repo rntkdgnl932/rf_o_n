@@ -60,6 +60,17 @@ def game_check_start(cla):
                         why = "서버점검"
                         line_to_me(cla, why)
                         macro_out(cla)
+                    else:
+                        # 구글 로그인 화면
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\google_login.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(200, 300, 900, 900, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("google_login")
+                            why = "구글 로그인 화면이다"
+                            line_to_me(cla, why)
+                            macro_out(cla)
 
     except Exception as e:
         print(e)
