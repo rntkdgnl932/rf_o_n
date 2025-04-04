@@ -44,6 +44,7 @@ def tuto_start(cla):
 
                     result_out = out_check(cla)
                     if result_out == False:
+                        print("tuto_start : result_out", result_out)
                         clean_screen_start(cla)
                         click_pos_2(895, 100, cla)
                     else:
@@ -196,6 +197,13 @@ def tuto_story(cla):
                                 click_pos_2(935, 60, cla)
                             else:
                                 click_pos_2(890, 1020, cla)
+                                time.sleep(0.5)
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\quest.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(20, 30, 200, 100, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(940, 50, cla)
 
 
 
