@@ -12,7 +12,7 @@ sys.path.append('C:/my_games/' + str(v_.game_folder) + '/' + str(v_.data_folder)
 def dead_check(cla):
     import numpy as np
     import cv2
-    from datetime import datetime
+
 
     from schedule import myQuest_play_add, myQuest_play_check
     from function_game import imgs_set_, macro_out
@@ -56,19 +56,6 @@ def dead_check(cla):
             character_id = result_schedule[0][1]
             result_schedule_ = result_schedule[0][2]
 
-            v_.dead_count += 1
-
-            nowMinute = datetime.today().strftime("%Y%m%d_%H:%M:%S")
-            print("nowMinute", nowMinute)
-
-
-            v_.dead_count_msg += str(nowMinute) + "//\n"
-
-            if v_.dead_count > 4:
-                why = "하루 5번 죽었다 \n" + v_.dead_count_msg
-                line_to_me(cla, why)
-                macro_out(cla)
-
 
             if "튜토육성" in result_schedule_ or "퀘스트" in result_schedule_:
                 myQuest_play_add(cla, result_schedule_)
@@ -85,9 +72,10 @@ def dead_check(cla):
 def dead_recovery(cla):
     import numpy as np
     import cv2
-    import pyautogui
-    import random
+    from datetime import datetime
 
+    from schedule import myQuest_play_check
+    from massenger import line_to_me
     from function_game import macro_out, click_pos_reg, click_pos_2
     from function_game import imgs_set_
     from potion import potion_buy
@@ -101,6 +89,18 @@ def dead_recovery(cla):
         imgs_ = imgs_set_(650, 30, 750, 80, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("boohwal_btn", imgs_)
+
+            v_.dead_count += 1
+
+            nowMinute = datetime.today().strftime("%Y%m%d_%H:%M:%S")
+            print("nowMinute", nowMinute)
+
+            v_.dead_count_msg += str(nowMinute) + "//\n"
+
+            if v_.dead_count > 4:
+                why = "하루 5번 죽었다 \n" + v_.dead_count_msg
+                line_to_me(cla, why)
+                macro_out(cla)
 
 
             is_penalty = True
