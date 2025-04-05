@@ -195,30 +195,26 @@ def auction_sell(cla):
                 imgs_ = imgs_set_(0, 990, 80, 1040, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
 
-                    # is_recall = False
-                    #
-                    # for i in range(10):
-                    #     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\auction\\recall_btn.PNG"
-                    #     img_array = np.fromfile(full_path, np.uint8)
-                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    #     imgs_ = imgs_set_(555, 150, 700, 900, cla, img, 0.85)
-                    #     if imgs_ is not None and imgs_ != False:
-                    #         print("recall_btn", imgs_)
-                    #         click_pos_reg(imgs_.x, imgs_.y, cla)
-                    #         is_recall = True
-                    #         time.sleep(0.5)
-                    #         confirm_all(cla)
-                    #     else:
-                    #         break
-                    #     QTest.qWait(500)
-                    #
-                    # if is_recall == False:
-                    #     is_action = True
-                    #     # 팔아버리자
-                    #     auction_sell_item(cla)
+                    is_recall = False
 
-                    is_action = True
-                    auction_sell_item(cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\auction\\recall_btn.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(500, 140, 610, 440, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("recall_btn", imgs_)
+                            click_pos_2(510, 1015, cla)
+                            time.sleep(0.5)
+                        else:
+                            is_recall = True
+                            break
+                        QTest.qWait(500)
+
+                    if is_recall == False:
+                        is_action = True
+                        # 팔아버리자
+                        auction_sell_item(cla)
 
 
                 else:
