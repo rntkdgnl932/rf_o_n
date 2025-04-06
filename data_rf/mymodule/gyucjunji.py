@@ -109,7 +109,7 @@ def gyucjunji_check(cla, data):
                 else:
                     gyucjunji_in_ready(cla, data)
                     gyucjunji_in(cla, data)
-                    gyucjunji_jadong_in(cla, data)
+                    # gyucjunji_jadong_in(cla, data)
             else:
 
                 dead_check(cla)
@@ -342,9 +342,23 @@ def gyucjunji_in(cla, data):
     import numpy as np
     import cv2
 
-    from function_game import click_pos_reg, imgs_set_
+    from function_game import click_pos_reg, imgs_set_, click_pos_2
     from action import menu_open, confirm_all
     from game_check import loading_check, out_check, move_check, move_check_pure
+    from schedule import myQuest_play_add
+
+    if cla == "one":
+        plus = 0
+    elif cla == "two":
+        plus = 960
+    elif cla == "three":
+        plus = 960 * 2
+    elif cla == "four":
+        plus = 960 * 3
+    elif cla == "five":
+        plus = 960 * 4
+    elif cla == "six":
+        plus = 960 * 5
 
     try:
         print("gyucjunji_in", data)
@@ -379,14 +393,75 @@ def gyucjunji_in(cla, data):
 
                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
+                    full = False
+
                     for i in range(10):
-                        result_out = out_check(cla)
-                        if result_out == True:
-                            is_dun = False
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\full_notice.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(300, 60, 700, 130, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("full_notice", imgs_)
+                            full = True
                             break
                         else:
-                            loading_check(cla)
-                        time.sleep(0.5)
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\enter_btn.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(300, 710, 400, 755, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.1)
+
+                    if full == False:
+
+                        for i in range(10):
+                            result_out = out_check(cla)
+                            if result_out == True:
+                                is_dun = False
+                                gyucjunji_jadong_in(cla, data)
+                                break
+                            else:
+                                loading_check(cla)
+                            time.sleep(0.5)
+                    else:
+
+                        if "제국군" in read_data[1] or "연방군" in read_data[1] or "동맹군" in read_data[1]:
+                            myQuest_play_add(cla, data)
+                            is_dun = False
+                        else:
+                            x_reg = 0
+
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\full_honjab.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(280, 680, 530, 710, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("full_honjab", imgs_)
+                                x_reg = imgs_.x
+                            else:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\full_wonhwal.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(280, 680, 530, 710, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("full_wonhwal", imgs_)
+                                    x_reg = imgs_.x
+
+                            # 360, 460
+                            if 0 < x_reg:
+                                if x_reg - plus < 360:
+                                    gyuc_name = "acrecia"
+                                    y_reg = 155
+                                elif 360 < x_reg - plus < 460:
+                                    gyuc_name = "bellato"
+                                    y_reg = 245
+                                elif x_reg - plus > 460:
+                                    gyuc_name = "kora"
+                                    y_reg = 335
+
+                                gyucjunji_in_setting(cla, gyuc_name, y_reg)
+
 
 
             else:
@@ -479,10 +554,182 @@ def gyucjunji_in_ready(cla, data):
     try:
         print("gyucjunji_in_ready", data)
 
+        # 격전지_[45]제국군통제지역
+
+        read_data = data.split("_")
+
+        is_dun = True
+        is_dun_count = 0
+        while is_dun is True:
+            is_dun_count += 1
+            if is_dun_count > 15:
+                is_dun = False
+
+
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\national_card.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 30, 200, 100, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("national_card", imgs_)
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\clicked.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(225, 90, 330, 120, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("clicked", imgs_)
+
+
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\clicked_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(700, 995, 745, 1035, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("clicked_2", imgs_)
+
+
+
+                        for i in range(10):
+
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\ganghwa_end_btn.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(820, 995, 940, 1035, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("ganghwa_end_btn", imgs_)
+                                is_dun_count = 0
+                                time.sleep(3)
+                            else:
+
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\lack_item_notice.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(350, 60, 700, 130, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("lack_item_notice", imgs_)
+                                    is_dun = False
+                                    break
+                                else:
+                                    click_pos_2(865, 1015, cla)
+                            QTest.qWait(200)
+
+                    else:
+                        click_pos_2(755, 1015, cla)
+
+
+                else:
+
+                    # 3개를 나누자
+                    # 격전지_[45]제국군통제지역
+
+                    if "제국군" in read_data[1]:
+                        gyuc_name = "acrecia"
+                        y_reg = 155
+                    elif "연방군" in read_data[1]:
+                        gyuc_name = "bellato"
+                        y_reg = 245
+                    elif "동맹군" in read_data[1]:
+                        gyuc_name = "kora"
+                        y_reg = 335
+
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\" + str(gyuc_name) + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(280, 105, 450, 160, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("str(gyuc_name)", str(gyuc_name), imgs_)
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\id_card_wearing_btn.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(410, 990, 540, 1040, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("id_card_wearing_btn", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\wearing_btn.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(410, 990, 540, 1040, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("wearing_btn", imgs_)
+                                click_pos_2(880, 1020, cla)
+
+                    else:
+                        click_pos_2(150, y_reg, cla)
+
+
+
+
+            else:
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\no_have_id_card.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(360, 500, 600, 550, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    confirm_all(cla)
+
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\menu_national_card.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(810, 125, 880, 195, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        menu_open(cla)
+            QTest.qWait(1000)
+
+
+
+
+    except Exception as e:
+        print(e)
+
+
+
+def gyucjunji_in_setting(cla, gyuc_name, y_reg):
+    import numpy as np
+    import cv2
+
+    from function_game import click_pos_reg, click_pos_2, imgs_set_
+    from action import menu_open, confirm_all
+    try:
+        print("gyucjunji_in_setting", gyuc_name, y_reg)
+
+        for i in range(5):
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\national_card.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 30, 200, 100, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("national_card", imgs_)
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\" + str(gyuc_name) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(280, 105, 450, 160, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("str(gyuc_name)", str(gyuc_name), imgs_)
+                    break
+                else:
+                    click_pos_2(150, y_reg, cla)
+
+
+
+            else:
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\gyucjunji.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 30, 200, 100, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(125, 735, cla)
+            time.sleep(0.5)
+
         # 격전지_45
         # 격전지_60
 
-        read_data = data.split("_")
 
         is_dun = True
         is_dun_count = 0

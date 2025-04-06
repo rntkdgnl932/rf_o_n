@@ -99,18 +99,18 @@ def go_test():
         #
         # print("result_result_result_result_result_result_result_result_result_", result_)
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\jadong\\immediately_move_btn_1_1.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\full_honjab.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(200, 110, 740, 940, cla, img, 0.8)
+        imgs_ = imgs_set_(280, 680, 530, 710, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
-            print("immediately_move_btn_1_1", imgs_)
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\jadong\\immediately_move_btn_1_2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(200, 110, 740, 940, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("immediately_move_btn_1_2", imgs_)
+            print("full_honjab", imgs_)
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\full_wonhwal.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(280, 680, 530, 710, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("full_wonhwal", imgs_)
 
         # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\soolock_mission_checked.PNG"
         # img_array = np.fromfile(full_path, np.uint8)
