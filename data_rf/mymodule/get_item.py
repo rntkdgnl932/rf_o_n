@@ -587,9 +587,9 @@ def get_event(cla):
 
                         y_point = imgs_.y
 
-                        click_pos_reg(imgs_.x - 50, imgs_.y + 20, cla)
+                        click_pos_reg(imgs_.x - 50, imgs_.y, cla)
                         time.sleep(0.5)
-                        click_pos_reg(imgs_.x - 50, imgs_.y + 20, cla)
+                        click_pos_reg(imgs_.x - 50, imgs_.y, cla)
                         time.sleep(0.5)
 
                         # 그림 파악하기
