@@ -61,6 +61,7 @@ from jadong import jadong_check
 from quest import quest_start
 from auction_game import auction_start
 from mission import mission_start
+from gyucjunji import gyucjunji_check
 
 from server import game_start
 import variable as v_
@@ -1139,7 +1140,7 @@ class FirstTab(QWidget):
         file_path1 = dir_path + "\\jadong\\bellato.txt"
         file_path2 = dir_path + "\\jadong\\acrecia.txt"
         file_path3 = dir_path + "\\jadong\\kora.txt"
-        file_path4 = dir_path + "\\jadong\\moon_yourokina.txt"
+        file_path4 = dir_path + "\\jadong\\gyucjunji.txt"
 
         if os.path.isfile(file_path1) == True:
             with open(file_path1, "r", encoding='utf-8-sig') as file:
@@ -1171,8 +1172,8 @@ class FirstTab(QWidget):
                 list5555 = []
                 for i in range(len(read_yourokina)):
                     read_2_ready = read_yourokina[i].split("_")
-                    list5555.append(read_2_ready[0])
-                list5555.insert(0, "< 유로키나산맥 >")
+                    list5555.append(read_2_ready[2])
+                list5555.insert(0, "< 격전지 >")
 
             # with open(file_path3, "r", encoding='utf-8-sig') as file:
             #     read_1 = file.read()
@@ -1205,7 +1206,7 @@ class FirstTab(QWidget):
         cb5555 = QComboBox()
         # list555 = ['자동 사냥터 선택3', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
         cb5555.addItems(list5555)
-        jadong4 = QPushButton('유로키나산맥 추가')
+        jadong4 = QPushButton('격전지 추가')
         jadong4.clicked.connect(self.onActivated_hunt_add_4)
 
 
@@ -1693,7 +1694,7 @@ class FirstTab(QWidget):
 
     def onActivated_hunt(self, text):
         global onHunt
-        if text != 0 and text != '< 세라보그 >':
+        if text != 0 and text != '< 벨라토 >':
             onHunt = text
             print('onHunt', onHunt)
         else:
@@ -1702,7 +1703,7 @@ class FirstTab(QWidget):
             print("자동 사냥터를 선택해 주세요.")
     def onActivated_hunt2(self, text):
         global onHunt2
-        if text != 0 and text != '< 바란 >':
+        if text != 0 and text != '< 아크레시아 >':
             onHunt2 = text
             print('onHunt2', onHunt2)
         else:
@@ -1711,7 +1712,7 @@ class FirstTab(QWidget):
             print("자동 사냥터를 선택해 주세요.")
     def onActivated_hunt3(self, text):
         global onHunt3
-        if text != 0 and text != '< 국경지대 >':
+        if text != 0 and text != '< 코라 >':
             onHunt3 = text
             print('onHunt3', onHunt3)
         else:
@@ -1721,7 +1722,7 @@ class FirstTab(QWidget):
 
     def onActivated_hunt4(self, text):
         global onHunt4
-        if text != 0 and text != '< 유로키나산맥 >':
+        if text != 0 and text != '< 격전지 >':
             onHunt4 = text
             print('onHunt4', onHunt4)
         else:
@@ -1930,12 +1931,12 @@ class FirstTab(QWidget):
     def onActivated_hunt_add_4(self):
         global onCharacter, onHunt4
         char_ = onCharacter
-        hun_ = "사냥/yourokina/" + onHunt4
+        hun_ = "격전지_" + onHunt4
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt4 == '< 유로키나산맥 >' or onHunt4 == 'none':
+        elif onHunt4 == '< 격전지 >' or onHunt4 == 'none':
             pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt4 != '< 유로키나산맥 >':
+        elif onCharacter != 0 and onHunt4 != '< 격전지 >':
             print('char_', char_)
             print('dun_', hun_)
 
@@ -3927,6 +3928,8 @@ class game_Playing(QThread):
                                     dungeon_start(v_.now_cla, result_schedule_)
                                 elif "자동" in result_schedule_:
                                     jadong_check(v_.now_cla, result_schedule_)
+                                elif "격전지" in result_schedule_:
+                                    gyucjunji_check(v_.now_cla, result_schedule_)
 
 
                                 time.sleep(0.5)

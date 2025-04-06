@@ -50,6 +50,7 @@ def go_test():
     from dead_die import dead_check
     from auction_game import auction_low_num, auction_qun_num, auction_start
     from mission import mission_get, mission_get_des
+    from gyucjunji import gyucjunji_in
 
     try:
         print("test")
@@ -80,12 +81,9 @@ def go_test():
         #
         # print("nowMinute", nowMinute)
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\cancle_all\\cancel_btn_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(300, 500, 700, 800, cla, img, 0.85)
-        if imgs_ is not None and imgs_ != False:
-            print("cancel_btn_1", imgs_)
+        # gyucjunji_in(cla, "data")
+
+
 
         # mission_get(cla)
 
@@ -101,12 +99,18 @@ def go_test():
         #
         # print("result_result_result_result_result_result_result_result_result_", result_)
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\googa_out_btn.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\jadong\\immediately_move_btn_1_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(710, 100, 745, 175, cla, img, 0.85)
+        imgs_ = imgs_set_(200, 110, 740, 940, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("googa_out_btn", imgs_)
+            print("immediately_move_btn_1_1", imgs_)
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\jadong\\immediately_move_btn_1_2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(200, 110, 740, 940, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("immediately_move_btn_1_2", imgs_)
 
         # full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\soolock_mission_checked.PNG"
         # img_array = np.fromfile(full_path, np.uint8)
