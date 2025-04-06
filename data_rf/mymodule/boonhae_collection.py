@@ -36,7 +36,7 @@ def collection_start(cla):
     import random
 
     from function_game import imgs_set_, click_pos_reg, click_pos_2, macro_out
-    from action import menu_open_pure, confirm_all
+    from action import menu_open_pure, confirm_all, cancle_all
     from massenger import line_to_me
 
     try:
@@ -57,6 +57,8 @@ def collection_start(cla):
 
                 is_get = True
 
+                is_cancle = False
+
                 # 콜렉....
                 for i in range(20):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\collection_point_1.PNG"
@@ -87,7 +89,10 @@ def collection_start(cla):
 
                                     why = "레어이상 등록하려 한다."
                                     line_to_me(cla, why)
-                                    macro_out(cla)
+                                    # macro_out(cla)
+                                    cancle_all(cla)
+                                    is_cancle = True
+                                    break
                                 else:
                                     result_confirm = confirm_all(cla)
                                     if result_confirm == True:
@@ -105,7 +110,10 @@ def collection_start(cla):
 
                                         why = "나보다 높은 등급을 등록하려 한다."
                                         line_to_me(cla, why)
-                                        macro_out(cla)
+                                        # macro_out(cla)
+                                        cancle_all(cla)
+                                        is_cancle = True
+                                        break
                                     else:
                                         result_confirm = confirm_all(cla)
                                         if result_confirm == True:
@@ -135,89 +143,93 @@ def collection_start(cla):
                     else:
                         break
                     QTest.qWait(500)
+                if is_cancle == False:
+                    # 장비만 업글해서 콜렉하기
+                    collection_go(cla)
 
-                # 장비만 업글해서 콜렉하기
-                collection_go(cla)
-
-                # 마지막으로 한번 더 확인하기
-                # 콜렉....
-                for i in range(20):
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\collection_point_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(100, 100, 140, 500, cla, img, 0.9)
-                    if imgs_ is not None and imgs_ != False:
-
-                        y_point = imgs_.y
-
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\have_item.PNG"
+                    # 마지막으로 한번 더 확인하기
+                    # 콜렉....
+                    for i in range(20):
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\collection_point_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(870, 200, 950, 700, cla, img, 0.9)
+                        imgs_ = imgs_set_(100, 100, 140, 500, cla, img, 0.9)
                         if imgs_ is not None and imgs_ != False:
-                            print("have_item", imgs_)
-                            click_pos_2(890, 1020, cla)
-                            time.sleep(1)
 
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\rare_more_notice.PNG"
+                            y_point = imgs_.y
+
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\have_item.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(330, 470, 430, 520, cla, img, 0.9)
+                            imgs_ = imgs_set_(870, 200, 950, 700, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("rare_more_notice", imgs_)
+                                print("have_item", imgs_)
+                                click_pos_2(890, 1020, cla)
+                                time.sleep(1)
 
-                                if y_point < 245:
-
-                                    why = "레어이상 등록하려 한다."
-                                    line_to_me(cla, why)
-                                    macro_out(cla)
-                                else:
-                                    result_confirm = confirm_all(cla)
-                                    if result_confirm == True:
-                                        time.sleep(0.5)
-                                        click_pos_2(60, 275, cla)
-                            else:
-                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\more_grade_jangbi_notice.PNG"
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\rare_more_notice.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(330, 400, 800, 860, cla, img, 0.9)
+                                imgs_ = imgs_set_(330, 470, 430, 520, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("more_grade_jangbi_notice", imgs_)
+                                    print("rare_more_notice", imgs_)
 
                                     if y_point < 245:
 
-                                        why = "나보다 높은 등급을 등록하려 한다."
+                                        why = "레어이상 등록하려 한다."
                                         line_to_me(cla, why)
-                                        macro_out(cla)
+                                        # macro_out(cla)
+                                        cancle_all(cla)
+                                        break
                                     else:
                                         result_confirm = confirm_all(cla)
                                         if result_confirm == True:
                                             time.sleep(0.5)
                                             click_pos_2(60, 275, cla)
-
                                 else:
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\more_grade_jangbi_notice.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(330, 400, 800, 860, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("more_grade_jangbi_notice", imgs_)
 
-                                    click_pos_2(890, 1020, cla)
+                                        if y_point < 245:
+
+                                            why = "나보다 높은 등급을 등록하려 한다."
+                                            line_to_me(cla, why)
+                                            # macro_out(cla)
+                                            cancle_all(cla)
+                                            break
+                                        else:
+                                            result_confirm = confirm_all(cla)
+                                            if result_confirm == True:
+                                                time.sleep(0.5)
+                                                click_pos_2(60, 275, cla)
+
+                                    else:
+
+                                        click_pos_2(890, 1020, cla)
+                                        time.sleep(0.5)
+                                        click_pos_2(890, 1020, cla)
+                                        time.sleep(0.5)
+                            else:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\collection_point_1.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(100, 100, 140, 500, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("collection_point_1", imgs_)
+                                    click_pos_2(70, 130, cla)
                                     time.sleep(0.5)
-                                    click_pos_2(890, 1020, cla)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
                                     time.sleep(0.5)
+                                    click_pos_2(250, 150, cla)
+                                    QTest.qWait(500)
+
                         else:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\collection_point_1.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(100, 100, 140, 500, cla, img, 0.9)
-                            if imgs_ is not None and imgs_ != False:
-                                print("collection_point_1", imgs_)
-                                click_pos_2(70, 130, cla)
-                                time.sleep(0.5)
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                time.sleep(0.5)
-                                click_pos_2(250, 150, cla)
-                                QTest.qWait(500)
-
-                    else:
-                        break
-                    QTest.qWait(500)
+                            break
+                        QTest.qWait(500)
 
 
             else:
