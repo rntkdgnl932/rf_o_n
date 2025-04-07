@@ -27,7 +27,7 @@ def clean_screen_start(cla):
             clean_count += 1
             if clean_count > 5:
                 clean = True
-
+            print("clean_count", clean_count)
             result_out = out_check(cla)
 
             if result_out == True:

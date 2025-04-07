@@ -3795,7 +3795,7 @@ class game_Playing(QThread):
             while self.isCheck is True:
 
                 v_.ready_count += 1
-                if v_.ready_count % 300:
+                if v_.ready_count % 300 == 0:
                     print("게임 실행 모드(ver " + version + ")")
                     print("now_arduino", v_.now_arduino)
                 result_game = game_start()

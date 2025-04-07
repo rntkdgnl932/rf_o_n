@@ -15,7 +15,7 @@ def dead_check(cla):
 
 
     from schedule import myQuest_play_add, myQuest_play_check
-    from function_game import imgs_set_, macro_out
+    from function_game import imgs_set_, click_pos_reg
     from massenger import line_to_me
     from clean_screen import clean_screen_start
 
@@ -60,7 +60,28 @@ def dead_check(cla):
             if "튜토육성" in result_schedule_ or "퀘스트" in result_schedule_:
                 myQuest_play_add(cla, result_schedule_)
 
-            clean_screen_start(cla)
+            # clean_screen_start(cla)
+
+            for i in range(10):
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\dead_notice.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(330, 60, 700, 540, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("dead_notice", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\dead_notice2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(330, 60, 700, 540, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("dead_notice2", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        break
+                QTest.qWait(500)
+
             dead_recovery(cla)
             QTest.qWait(500)
 

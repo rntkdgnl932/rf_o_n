@@ -83,7 +83,7 @@ def go_test():
 
         # gyucjunji_in(cla, "data")
 
-
+        clean_screen_start(cla)
 
         # mission_get(cla)
 
