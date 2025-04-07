@@ -3976,7 +3976,7 @@ class game_Playing(QThread):
                                 os.execl(sys.executable, sys.executable, *sys.argv)
 
 
-                time.sleep(5)
+                QTest.qWait(500)
 
 
 
