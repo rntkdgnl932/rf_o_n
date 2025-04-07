@@ -78,10 +78,12 @@ def dead_recovery(cla):
     from massenger import line_to_me
     from function_game import macro_out, click_pos_reg, click_pos_2
     from function_game import imgs_set_
-    from potion import potion_buy
+    from action import juljun_off
 
     try:
         print("dead_recovery")
+
+        juljun_off(cla)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dead_die\\boohwal_btn.PNG"
         img_array = np.fromfile(full_path, np.uint8)
