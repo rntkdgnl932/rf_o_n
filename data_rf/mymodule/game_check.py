@@ -238,8 +238,6 @@ def out_check(cla):
         if is_data == True:
             is_data = close_check(cla)
 
-            if is_data == True:
-                dead_check(cla)
         else:
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\next.PNG"
             img_array = np.fromfile(full_path, np.uint8)

@@ -481,6 +481,7 @@ def boonhae_go(cla):
 
                             click_pos_2(870, 1020, cla)
                             is_data = True
+                            break
                         else:
                             print("안보야")
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\rare_on_clicked.PNG"
