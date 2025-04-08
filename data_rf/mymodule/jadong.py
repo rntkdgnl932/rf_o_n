@@ -357,7 +357,7 @@ def jadong_mode(cla):
     import numpy as np
     import cv2
 
-    from function_game import click_pos_reg, imgs_set_, click_pos_2, macro_out
+    from function_game import click_pos_reg, imgs_set_, click_pos_2, macro_out, drag_pos
     from potion import potion_buy
     from massenger import line_to_me
 
@@ -443,6 +443,7 @@ def jadong_mode(cla):
                                     jadong_mode = False
 
                 if click_ready == True:
+                    print("click_ready")
                     for i in range(30):
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\jabhwa_btn.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -462,9 +463,36 @@ def jadong_mode(cla):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         QTest.qWait(200)
+
                 if potion_need == True:
-                    potion_buy(cla)
-                    jadong_mode = False
+                    print("potion_need")
+
+                    for i in range(30):
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\jabhwa_btn.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(40, 40, 190, 210, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("jabhwa_btn", imgs_)
+                            jadong_mode = False
+                            potion_buy(cla)
+                            break
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\juljun\\juljun_on.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(350, 80, 580, 130, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                drag_pos(480, 520, 860, 520, cla)
+                            else:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(630, 980, 675, 1030, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                        QTest.qWait(300)
+
 
                 if jangsigan == True:
                     jadong_mode = False
