@@ -58,7 +58,7 @@ def dead_check(cla):
             result_schedule_ = result_schedule[0][2]
 
 
-            if "튜토육성" in result_schedule_ or "퀘스트" in result_schedule_:
+            if "튜토육성" in result_schedule_ or "퀘스트" in result_schedule_ or result_schedule_ == "일일미션":
                 myQuest_play_add(cla, result_schedule_)
 
             # clean_screen_start(cla)

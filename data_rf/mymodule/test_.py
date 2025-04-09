@@ -40,7 +40,7 @@ def go_test():
     from action import confirm_all, juljun_off_setting, go_maul, attack_on, juljun_check
     from character_select_and_game_start import game_start_screen
     from schedule import myQuest_play_check
-    from get_item import get_post, get_upjuk, get_event, get_item_start, get_sangjum_sohwan, allget_btn_click, get_sangjum_sohwan_start
+    from get_item import get_post, get_upjuk, get_event, get_item_start, get_sangjum_sohwan, allget_btn_click, get_sangjum_sohwan_start, jaelyo_jejak
     from game_check import out_check, move_check, attack_check
     from boonhae_collection import collection_start, boonhae_go, boonhae_collection_start, collection_go
     from massenger import line_to_me
@@ -83,7 +83,7 @@ def go_test():
 
         # gyucjunji_in(cla, "data")
 
-        clean_screen_start(cla)
+        jaelyo_jejak(cla)
 
         # mission_get(cla)
 

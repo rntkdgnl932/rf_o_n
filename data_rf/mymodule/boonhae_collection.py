@@ -456,7 +456,7 @@ def boonhae_go(cla):
             if imgs_ is not None and imgs_ != False:
                 print("boonhae_title", imgs_)
 
-
+                is_data = True
 
                 for i in range(10):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\boonhae_complete.PNG"
@@ -480,7 +480,6 @@ def boonhae_go(cla):
                             time.sleep(0.5)
 
                             click_pos_2(870, 1020, cla)
-                            is_data = True
                             break
                         else:
                             print("안보야")
@@ -498,6 +497,19 @@ def boonhae_go(cla):
                             click_pos_2(530, 310, cla)
                             time.sleep(0.5)
                     time.sleep(0.5)
+
+                for i in range(5):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\boonhae_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(540, 60, 620, 110, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("boonhae_title...out", imgs_)
+                        click_pos_2(945, 85, cla)
+                    else:
+                        break
+                    time.sleep(1)
+
             else:
                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\bag_open\\is_bag.PNG"
                 img_array = np.fromfile(full_path, np.uint8)

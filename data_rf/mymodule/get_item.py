@@ -28,6 +28,10 @@ def get_item_start(cla):
         get_post(cla)
         get_upjuk(cla)
 
+        # 재료제작하기
+        jaelyo_jejak(cla)
+
+
     except Exception as e:
         print(e)
 
@@ -535,6 +539,150 @@ def get_upjuk(cla):
         print(e)
 
 
+def jaelyo_jejak(cla):
+    import numpy as np
+    import cv2
+
+    from function_game import imgs_set_, click_pos_2, click_pos_reg
+    from action import menu_open_pure
+
+    try:
+
+
+
+        print("jaelyo_jejak")
+
+        is_get = False
+        is_get_count = 0
+        while is_get is False:
+            is_get_count += 1
+            if is_get_count > 7:
+                is_get = True
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\jejak.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 30, 160, 100, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                print("title : jejak")
+
+                is_get = True
+
+                # 재료 클릭하기
+                for i in range(3):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\jaelyo_jejak\\clicked.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(450, 90, 540, 120, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        print("clicked", imgs_)
+                        break
+                    else:
+                        click_pos_2(495, 95, cla)
+                    QTest.qWait(500)
+
+                # 재료 제작하기 (추후 업뎃하기)
+                for i in range(5):
+
+                    list = i + 1
+
+                    for t in range(15):
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\jaelyo_jejak\\jaelyo_lack_notice.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 70, 570, 120, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("jaelyo_lack_notice", imgs_)
+                            break
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\jaelyo_jejak\\jejak_result_btn.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(470, 440, 540, 490, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("jejak_result_btn", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\jaelyo_jejak\\right\\" + str(
+                                    list) + ".PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(680, 140, 840, 180, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(925, 985, cla)
+                                    time.sleep(0.5)
+                                    click_pos_2(820, 1020, cla)
+                                else:
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\jaelyo_jejak\\left\\" + str(
+                                        list) + ".PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(90, 110, 260, 1020, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("left : str(list)", str(list), imgs_)
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
+                        QTest.qWait(500)
+                    QTest.qWait(500)
+
+                    for t in range(10):
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\jaelyo_jejak\\jaelyo_lack_notice.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 70, 570, 120, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("jaelyo_lack_notice...wait", imgs_)
+                        else:
+                            break
+                        QTest.qWait(1000)
+
+                for i in range(5):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\jejak.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(30, 30, 160, 100, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        print("title : jejak...out")
+                        click_pos_2(25, 60, cla)
+                    else:
+                        break
+                    time.sleep(1)
+
+
+
+
+
+
+
+            else:
+
+                is_in = False
+                for i in range(5):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\jejak.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(30, 30, 160, 80, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        is_in = True
+                        break
+                    else:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\jaelyo_jejak\\menu_jejak.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(850, 185, 920, 250, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            menu_open_pure(cla)
+                    time.sleep(1)
+                if is_in == False:
+                    is_get = True
+            time.sleep(1)
+
+
+    except Exception as e:
+        print(e)
 
 def get_event(cla):
     import numpy as np
@@ -894,13 +1042,15 @@ def get_event_click(cla, is_picture, y_point):
 
         # 7 : 데일리출석이벤트!(twenty_one) o
 
-        # 8 : 장비성장지원이벤트!(all_get) 8
+        # 8 : 장비성장지원이벤트!(all_get) o
 
-        # 9 : 스킬성장지원이벤트!(all_get) 9
+        # 9 : 스킬성장지원이벤트!(all_get) o
+
+        # 10 : 꽝없는뽑기이벤트(twenty_five) 10
 
 
-        # ?? : 장비성장지원이벤트!(all_get) 8
-        # ?? : 스킬성장지원이벤트!(all_get) 9
+        # ?? : 꽝없는뽑기이벤트(twenty_five) 10
+        # ?? :
         # ?? :
         # ?? :
 
@@ -909,7 +1059,9 @@ def get_event_click(cla, is_picture, y_point):
             data = "fourteen"
         elif is_picture == "7":
             data = "twenty_one"
-        elif is_picture == "2":
+        elif is_picture == "7":
+            data = "twenty_five"
+        elif is_picture == "10":
             data = "length_five"
         elif is_picture == "3" or is_picture == "4" or is_picture == "5" or is_picture == "6" or is_picture == "8" or is_picture == "9":
             data = "all_get"
@@ -1083,6 +1235,34 @@ def get_event_click(cla, is_picture, y_point):
                 else:
                     click_pos_2(755, y_point, cla)
                 QTest.qWait(200)
+        elif data == "twenty_five":
+
+            print("twenty_five")
+
+            for i in range(10):
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\twenty_five\\anymore_ticket_notice.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(150, 420, 420, 690, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("anymore_ticket_notice", imgs_)
+                    break
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\twenty_five\\bbobgi_btn.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(150, 420, 420, 690, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("bbobgi_btn", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.2)
+                    else:
+                        click_pos_2(290, 560, cla)
+                time.sleep(0.5)
+
+
         elif data == "length_five":
 
             print("length_five")
@@ -1093,6 +1273,8 @@ def get_event_click(cla, is_picture, y_point):
                 time.sleep(0.5)
                 click_pos_2(460, y_reg, cla)
                 time.sleep(0.5)
+
+
 
         elif data == "all_get":
 
