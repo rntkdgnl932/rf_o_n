@@ -331,7 +331,7 @@ def dun_in(cla, data):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\num\\" + str(step) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(300, 430, 325, 680, cla, img, 0.9)
+                    imgs_ = imgs_set_(280, 430, 325, 680, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
                         print("step", str(step), imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -387,7 +387,7 @@ def dun_in(cla, data):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\clicked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(240, 100, 500, 170, cla, img, 0.85)
+                    imgs_ = imgs_set_(200, 130, 500, 200, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         print("clicked", imgs_)
 
