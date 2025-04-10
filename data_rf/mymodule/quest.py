@@ -241,6 +241,26 @@ def quest_get(cla, data):
                             break
                     if is_btn == False:
                         myQuest_play_add(cla, add_data)
+                    else:
+                        if data == "서브":
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\quest.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(30, 30, 160, 80, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                myQuest_play_add(cla, add_data)
+
+                                for i in range(5):
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\quest.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(30, 30, 160, 80, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_2(30, 60, cla)
+                                    else:
+                                        break
+                                    time.sleep(1)
+
 
             else:
 
