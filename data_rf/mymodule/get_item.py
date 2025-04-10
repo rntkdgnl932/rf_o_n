@@ -28,6 +28,8 @@ def get_item_start(cla):
         get_post(cla)
         get_upjuk(cla)
 
+        # 길드 추가하기기
+
         # 재료제작하기
         jaelyo_jejak(cla)
 
@@ -1059,9 +1061,9 @@ def get_event_click(cla, is_picture, y_point):
             data = "fourteen"
         elif is_picture == "7":
             data = "twenty_one"
-        elif is_picture == "7":
-            data = "twenty_five"
         elif is_picture == "10":
+            data = "twenty_five"
+        elif is_picture == "2":
             data = "length_five"
         elif is_picture == "3" or is_picture == "4" or is_picture == "5" or is_picture == "6" or is_picture == "8" or is_picture == "9":
             data = "all_get"
