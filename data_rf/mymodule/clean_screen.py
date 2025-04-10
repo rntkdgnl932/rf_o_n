@@ -54,11 +54,12 @@ def clean_screen_go(cla):
     from action import juljun_off
     from stop_event18 import _stop_please
     from dead_die import dead_check
+    from tuto import tuto_skip
 
     try:
         print("clean_screen_go")
 
-
+        tuto_skip(cla)
 
         result_dead = dead_check(cla)
 

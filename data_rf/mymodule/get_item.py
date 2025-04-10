@@ -1019,7 +1019,7 @@ def get_event_click(cla, is_picture, y_point):
     import cv2
 
     from function_game import imgs_set_, click_pos_2, click_pos_reg, imgs_set_for
-    from action import menu_open_pure
+    from tuto import tuto_skip
 
     try:
 
@@ -1300,7 +1300,7 @@ def get_event_click(cla, is_picture, y_point):
                     click_pos_2(755, y_point, cla)
                 QTest.qWait(200)
 
-
+        tuto_skip(cla)
     except Exception as e:
         print(e)
 
