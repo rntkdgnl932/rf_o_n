@@ -30,52 +30,52 @@ def mission_start(cla):
 
         quest_complete(cla)
 
-        dead_check(cla)
+        result_dead = dead_check(cla)
+
+        if result_dead == False:
 
 
+            result_quest_on = quest_on_check(cla)
+            if result_quest_on == False:
+
+                # 여기에서
+                # 일일미션 (이것으로 주간 및 월간 전부 받기)
+
+                result_confirm = confirm_all(cla)
+
+                if result_confirm == False:
+
+                    if v_.daily_mission_ready == True:
+                        mission_get(cla)
+                        v_.daily_mission_ready = False
+                    else:
+                        mission_get_des(cla, "daily")
 
 
-        result_quest_on = quest_on_check(cla)
-        if result_quest_on == False:
+                    for i in range(5):
+                        result_confirm = confirm_all(cla)
+                        if result_confirm == True:
+                            break
+                        QTest.qWait(500)
+            else:
+                result_move = move_check_pure(cla)
 
-            # 여기에서
-            # 일일미션 (이것으로 주간 및 월간 전부 받기)
+                if result_move == True:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\googa_out_btn.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(710, 100, 745, 175, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("googa_out_btn", imgs_)
+                        click_pos_2(900, imgs_.y, cla)
 
-            result_confirm = confirm_all(cla)
+                    for i in range(3):
+                        result_confirm = confirm_all(cla)
+                        if result_confirm == True:
+                            break
+                        QTest.qWait(500)
 
-            if result_confirm == False:
-
-                if v_.daily_mission_ready == True:
-                    mission_get(cla)
-                    v_.daily_mission_ready = False
-                else:
-                    mission_get_des(cla, "daily")
-
-
-                for i in range(5):
-                    result_confirm = confirm_all(cla)
-                    if result_confirm == True:
-                        break
-                    QTest.qWait(500)
-        else:
-            result_move = move_check_pure(cla)
-
-            if result_move == True:
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\googa_out_btn.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(710, 100, 745, 175, cla, img, 0.85)
-                if imgs_ is not None and imgs_ != False:
-                    print("googa_out_btn", imgs_)
-                    click_pos_2(900, imgs_.y, cla)
-
-                for i in range(3):
-                    result_confirm = confirm_all(cla)
-                    if result_confirm == True:
-                        break
-                    QTest.qWait(500)
-
-        quide_quest_check(cla)
+            quide_quest_check(cla)
 
 
     except Exception as e:
