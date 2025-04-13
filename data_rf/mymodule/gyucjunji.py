@@ -101,7 +101,7 @@ def gyucjunji_check(cla, data):
                     result_attack = attack_check(cla)
                     if result_attack == True:
                         # potion_check(cla)
-                        jadong_mode(cla)
+                        jadong_mode(cla, title_map, des_map)
                     else:
                         juljun_off(cla)
                         click_pos_2(920, 925, cla)
