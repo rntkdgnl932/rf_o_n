@@ -394,23 +394,27 @@ def jadong_mode(cla, title_map, des_map):
                 potion_need = False
                 jangsigan = False
 
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\jadong\\juljun_map\\" + str(title_map) + "\\" + str(des_map) + ".PNG"
+
+
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(700, 510, 900, 555, cla, img, 0.9)
+                imgs_ = imgs_set_(630, 980, 675, 1030, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
+                    print("maul_move_btn", imgs_)
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    click_ready = True
 
+                else:
 
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\jadong\\juljun_map\\" + str(
+                        title_map) + "\\" + str(des_map) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(630, 980, 675, 1030, cla, img, 0.85)
+                    imgs_ = imgs_set_(700, 510, 900, 555, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
-                        print("maul_move_btn", imgs_)
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        click_ready = True
 
-                    else:
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\juljun_zero.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -426,42 +430,75 @@ def jadong_mode(cla, title_map, des_map):
                             if imgs_ is not None and imgs_ != False:
                                 print("juljun_zero_2", imgs_)
                                 potion_need = True
-                            else:
-                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(330, 500, 500, 700, cla, img, 0.85)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("jangsigan_1", imgs_)
+                    else:
 
-                                    click_pos_2(480, 620, cla)
+                        why = "자동전투 중 꺼짐 1"
+                        line_to_me(cla, why)
 
-                                    jangsigan = True
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(330, 500, 500, 700, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("jangsigan_1", imgs_)
 
-                                    time.sleep(1)
-                                else:
-                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\re_join_btn.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(330, 500, 500, 700, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("re_join_btn", imgs_)
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        jadong_mode = False
+                            click_pos_2(480, 620, cla)
 
-                    if click_ready == True:
-                        print("click_ready")
-                        for i in range(30):
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\jabhwa_btn.PNG"
+                            jangsigan = True
+
+                            time.sleep(1)
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\re_join_btn.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(40, 40, 190, 210, cla, img, 0.85)
+                            imgs_ = imgs_set_(330, 500, 500, 700, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
-                                print("jabhwa_btn", imgs_)
+                                print("re_join_btn", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
                                 jadong_mode = False
-                                potion_buy(cla)
-                                break
 
+                if click_ready == True:
+                    print("click_ready")
+                    for i in range(30):
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\jabhwa_btn.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(40, 40, 190, 210, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("jabhwa_btn", imgs_)
+                            jadong_mode = False
+                            potion_buy(cla)
+                            break
+
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(630, 980, 675, 1030, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        QTest.qWait(200)
+
+                if potion_need == True:
+                    print("potion_need")
+
+                    for i in range(30):
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\jabhwa_btn.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(40, 40, 190, 210, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("jabhwa_btn", imgs_)
+                            jadong_mode = False
+                            potion_buy(cla)
+                            break
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\juljun\\juljun_on.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(350, 80, 580, 130, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                drag_pos(480, 520, 860, 520, cla)
                             else:
                                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
@@ -469,53 +506,22 @@ def jadong_mode(cla, title_map, des_map):
                                 imgs_ = imgs_set_(630, 980, 675, 1030, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
-                            QTest.qWait(200)
-
-                    if potion_need == True:
-                        print("potion_need")
-
-                        for i in range(30):
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\jabhwa_btn.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(40, 40, 190, 210, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                print("jabhwa_btn", imgs_)
-                                jadong_mode = False
-                                potion_buy(cla)
-                                break
-                            else:
-                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\juljun\\juljun_on.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(350, 80, 580, 130, cla, img, 0.85)
-                                if imgs_ is not None and imgs_ != False:
-                                    drag_pos(480, 520, 860, 520, cla)
-                                else:
-                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(630, 980, 675, 1030, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                            QTest.qWait(300)
+                        QTest.qWait(300)
 
 
-                    if jangsigan == True:
-                        jadong_mode = False
+                if jangsigan == True:
+                    jadong_mode = False
 
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            print("jangsigan_1", imgs_)
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("jangsigan_1", imgs_)
 
-                            click_pos_2(480, 620, cla)
+                        click_pos_2(480, 620, cla)
 
-                else:
-                    why = "자동전투 중 꺼짐 1"
-                    line_to_me(cla, why)
+
 
 
             else:

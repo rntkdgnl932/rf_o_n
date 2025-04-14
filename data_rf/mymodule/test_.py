@@ -83,7 +83,12 @@ def go_test():
 
         # gyucjunji_in(cla, "data")
 
-        jaelyo_jejak(cla)
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(330, 500, 500, 700, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("jangsigan_1", imgs_)
 
         # mission_get(cla)
 
