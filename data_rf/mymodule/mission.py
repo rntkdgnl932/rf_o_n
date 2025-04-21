@@ -204,6 +204,7 @@ def mission_get_des(cla, data):
     from function_game import imgs_set_, click_pos_reg, click_pos_2, imgs_set_for
     from action import menu_open_pure, confirm_all
     from schedule import myQuest_play_add
+    from clean_screen import clean_screen_start
 
     try:
         print("mission_get_des", data)
@@ -360,6 +361,7 @@ def mission_get_des(cla, data):
                         print("soolock_mission_checked", imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.5)
+                        QTest.qWait(200)
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\jinhang_btn.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -368,6 +370,22 @@ def mission_get_des(cla, data):
                             print("jinhang_btn", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             is_get = True
+                        else:
+                            clean_screen_start(cla)
+
+
+                            for i in range(5):
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\exit_btn.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("exit_btn", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                else:
+                                    click_pos_2(25, 175, cla)
+                                QTest.qWait(1000)
+
                     else:
                         myQuest_play_add(cla, "일일미션")
 
