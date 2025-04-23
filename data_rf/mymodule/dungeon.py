@@ -52,12 +52,15 @@ def dungeon_start(cla, data):
                     print("ScienceTrainingCenter", imgs_)
                     dun_ing(cla, data)
                     is_dun = True
-            elif read_data[1] == "폐기장" or read_data[1] == "비밀기지":
+            elif read_data[1] == "폐기장" or read_data[1] == "비밀기지" or read_data[1] == "채굴장":
                 if read_data[1] == "폐기장":
                     dun_name = "pyegijang"
 
                 elif read_data[1] == "비밀기지":
                     dun_name = "secret_base"
+
+                elif read_data[1] == "채굴장":
+                    dun_name = "chaegool"
 
                 result_juljun = juljun_check(cla)
                 if result_juljun == True:
@@ -71,6 +74,9 @@ def dungeon_start(cla, data):
 
                         elif read_data[1] == "비밀기지":
                             print("secret_base", imgs_)
+
+                        elif read_data[1] == "채굴장":
+                            print("chaegool", imgs_)
 
                         is_dun = True
 
@@ -293,12 +299,13 @@ def dun_in(cla, data):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
                             menu_open(cla)
-            elif read_data[1] == "폐기장" or read_data[1] == "비밀기지":
+            elif read_data[1] == "폐기장" or read_data[1] == "비밀기지" or read_data[1] == "채굴장":
 
                 # 던전_바이오슈트
                 # 던전_신기
                 # 던전_폐기장_8
                 # 던전_비밀기지_3
+                # 던전_채굴장_3
 
                 # read_data = data.split("_")
 
@@ -312,17 +319,23 @@ def dun_in(cla, data):
                     dun_name = "secret_base"
                     if int(read_data[2]) > 2:
                         step = "3"
+                elif read_data[1] == "채굴장":
+                    dun_name = "chaegool"
+                    if int(read_data[2]) > 2:
+                        step = "3"
 
 
                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(400, 390, 560, 430, cla, img, 0.9)
+                imgs_ = imgs_set_(400, 380, 560, 430, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
                     if read_data[1] == "폐기장":
                         print("title : pyegijang", imgs_)
                     elif read_data[1] == "비밀기지":
                         print("title : secret_base", imgs_)
+                    elif read_data[1] == "채굴장":
+                        print("title : chaegool", imgs_)
 
 
 
@@ -423,6 +436,8 @@ def dun_in(cla, data):
                                 click_pos_2(100, 155, cla)
                             elif read_data[1] == "비밀기지":
                                 click_pos_2(100, 220, cla)
+                            elif read_data[1] == "채굴장":
+                                click_pos_2(100, 285, cla)
                             time.sleep(0.5)
                         else:
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\menu_dun.PNG"

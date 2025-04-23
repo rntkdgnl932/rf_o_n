@@ -1117,7 +1117,7 @@ class FirstTab(QWidget):
         dun_g3_name = QComboBox()
         # list4 = ['던전 선택', '일반_업보', '일반_지옥', '일반_죄악', '일반_저주', '특수_마족', '특수_아르카스', '파티_묘지']
         # dun_g3_list = ['데이모스전장', '모리아기지', 'coming soon']
-        dun_g3_list = ['던전 선택', '폐기장', '비밀기지']
+        dun_g3_list = ['던전 선택', '폐기장', '비밀기지', '채굴장']
         dun_g3_name.addItems(dun_g3_list)
 
         dun_g3_stair = QComboBox()

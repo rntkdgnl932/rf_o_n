@@ -195,7 +195,6 @@ def auction_sell(cla):
                 imgs_ = imgs_set_(0, 990, 80, 1040, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
 
-                    is_recall = False
 
                     for i in range(10):
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\auction\\recall_btn.PNG"
@@ -207,14 +206,13 @@ def auction_sell(cla):
                             click_pos_2(510, 1015, cla)
                             time.sleep(0.5)
                         else:
-                            is_recall = True
+                            is_action = True
+                            # 팔아버리자
+                            auction_sell_item(cla)
                             break
                         QTest.qWait(500)
 
-                    if is_recall == False:
-                        is_action = True
-                        # 팔아버리자
-                        auction_sell_item(cla)
+
 
 
                 else:
