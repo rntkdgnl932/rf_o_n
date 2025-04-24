@@ -337,10 +337,24 @@ def auction_sell_item_start(cla, click_x, click_y):
 
                 else:
                     print("가격 읽어오고 팔자")
-                    result_low = auction_low_num(cla)
-                    print("==========================================================================")
+
+                    for i in range(5):
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\auction\\clicked_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(355, 570, 480, 620, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("clicked_1", imgs_)
+                            break
+                        else:
+                            click_pos_2(500, 600, cla)
+                        QTest.qWait(500)
 
                     result_qun = auction_qun_num(cla, 605, 640)
+
+                    print("==========================================================================")
+
+                    result_low = auction_low_num(cla)
 
                     result_ = int(result_low * result_qun)
                     if result_ > 10:
@@ -755,11 +769,19 @@ def sell_click(cla, result_price):
     try:
         print("sell_click", result_price)
 
+        for i in range(5):
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\auction\\clicked_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(355, 600, 480, 650, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("clicked_1", imgs_)
+                break
+            else:
+                click_pos_2(500, 625, cla)
+            QTest.qWait(500)
 
-        click_pos_2(500, 625, cla)
-        time.sleep(0.2)
-        click_pos_2(500, 625, cla)
-        time.sleep(0.2)
+
 
         anymore_sell = False
 
