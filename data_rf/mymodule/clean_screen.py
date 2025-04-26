@@ -54,7 +54,7 @@ def clean_screen_go(cla):
     from action import juljun_off
     from stop_event18 import _stop_please
     from dead_die import dead_check
-    from tuto import tuto_skip
+    from tuto import tuto_skip, quest_complete
 
     try:
         print("clean_screen_go")
@@ -68,6 +68,8 @@ def clean_screen_go(cla):
             juljun_off(cla)
 
             _stop_please(cla)
+
+            quest_complete(cla)
 
             clean = False
             clean_count = 0

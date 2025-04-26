@@ -51,7 +51,7 @@ def go_test():
     from auction_game import auction_low_num, auction_qun_num, auction_start
     from mission import mission_get, mission_get_des
     from gyucjunji import gyucjunji_in
-
+    from dungeon import dun_in
 
     try:
         print("test")
@@ -72,6 +72,14 @@ def go_test():
         if imgs_ is not None and imgs_ != False:
             print("clicked_2", imgs_)
 
+        dun_in(cla, "던전_채굴장_1")
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\num\\" + str(step) + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(280, 430, 325, 680, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("step", str(step), imgs_)
 
         # data = "자동_[22/24]바이로사시추기지"
         #

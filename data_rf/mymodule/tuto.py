@@ -75,13 +75,15 @@ def quest_complete(cla):
     try:
         print("quest_complete")
 
+        is_data = False
+
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\out_complete_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(820, 80, 920, 250, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("out_complete_1", imgs_)
-            click_pos_reg(imgs_.x, imgs_.y, cla)
+            is_data = True
         else:
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\out_complete_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -89,28 +91,28 @@ def quest_complete(cla):
             imgs_ = imgs_set_(450, 450, 530, 500, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 print("out_complete_2", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
+                is_data = True
 
-
-        for i in range(10):
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\out_complete_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(820, 80, 920, 250, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("out_complete_1", imgs_)
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-            else:
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\out_complete_2.PNG"
+        if is_data == True:
+            for i in range(10):
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\out_complete_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(450, 450, 530, 500, cla, img, 0.8)
+                imgs_ = imgs_set_(820, 80, 920, 250, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
-                    print("out_complete_2", imgs_)
+                    print("out_complete_1", imgs_)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.5)
-            time.sleep(0.3)
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\tuto\\out_complete_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(450, 450, 530, 500, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("out_complete_2", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+                time.sleep(0.3)
 
 
     except Exception as e:
