@@ -556,25 +556,25 @@ def character_change(cla, character_id):
 
                     # 메뉴 열기
                     menu_open(cla)
-                    full_path = "c:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder) + "\\imgs\\action\\menu_character_select.PNG"
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(670, 470, 960, 670, cla, img, 0.8)
+                    imgs_ = imgs_set_(670, 970, 960, 1040, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         for i in range(10):
                             # 로딩중 확인
-                            full_path = "c:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder) + "\\imgs\\action\\loding_1.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\loading\\loading_tip.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(250, 920, 650, 1040, cla, img, 0.8)
+                            imgs_ = imgs_set_(0, 960, 120, 1040, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
                                 loading_check(cla)
                             else:
-                                full_path = "c:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder) + "\\imgs\\game_start\\character_select_title.PNG"
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\character_select_title.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(20, 30, 150, 100, cla, img, 0.8)
+                                imgs_ = imgs_set_(20, 30, 200, 100, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     break
                             time.sleep(1)
