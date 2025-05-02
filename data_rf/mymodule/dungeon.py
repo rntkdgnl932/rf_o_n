@@ -18,7 +18,7 @@ def dungeon_start(cla, data):
     from massenger import line_to_me
     from function_game import imgs_set_, macro_out, click_pos_2
     from game_check import out_check, attack_check
-    from action import juljun_check, juljun_on, attack_on, juljun_off
+    from action import juljun_check, juljun_on, attack_on, juljun_off, go_random
     from clean_screen import clean_screen_start
     from potion import potion_check
     from schedule import myQuest_play_add
