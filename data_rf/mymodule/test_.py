@@ -72,7 +72,14 @@ def go_test():
         if imgs_ is not None and imgs_ != False:
             print("clicked_2", imgs_)
 
-        dun_in(cla, "던전_채굴장_1")
+        for i in range(3):
+            step = i +1
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\num\\" + str(step) + ".PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(250, 430, 325, 680, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                print("step", str(step), imgs_)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\num\\" + str(step) + ".PNG"
         img_array = np.fromfile(full_path, np.uint8)

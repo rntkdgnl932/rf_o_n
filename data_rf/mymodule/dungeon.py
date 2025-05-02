@@ -85,6 +85,7 @@ def dungeon_start(cla, data):
                             potion_check(cla)
                         else:
                             juljun_off(cla)
+                            go_random(cla)
                             click_pos_2(920, 925, cla)
                             juljun_on(cla)
                     else:
