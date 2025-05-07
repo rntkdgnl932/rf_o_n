@@ -40,9 +40,9 @@ def go_test():
     from action import confirm_all, juljun_off_setting, go_maul, attack_on, juljun_check
     from character_select_and_game_start import game_start_screen
     from schedule import myQuest_play_check
-    from get_item import get_post, get_upjuk, get_event, get_item_start, get_sangjum_sohwan, allget_btn_click, get_sangjum_sohwan_start, jaelyo_jejak
+    from get_item import get_post, get_upjuk, get_event, get_item_start, get_sangjum_sohwan, allget_btn_click, get_sangjum_sohwan_start, jaelyo_jejak, get_memorychip
     from game_check import out_check, move_check, attack_check
-    from boonhae_collection import collection_start, boonhae_go, boonhae_collection_start, collection_go
+    from boonhae_collection import collection_start, boonhae_go, boonhae_collection_start, collection_go, boonhae_go_memorychip
     from massenger import line_to_me
     from potion import potion_buy
     from jadong import jadong_in, jadong_mode
@@ -56,7 +56,28 @@ def go_test():
     try:
         print("test")
 
-        # auction_start(cla)
+        boonhae_go_memorychip(cla)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\post_point_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(90, 85, 700, 1030, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("des post_point_1", imgs_)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\post_point_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(90, 85, 700, 1030, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("des post_point_1", imgs_)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\memorychip_clicked.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(160, 680, 800, 800, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("des memorychip_clicked", imgs_)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\auction\\clicked_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)

@@ -208,6 +208,7 @@ def dun_in(cla, data):
     from game_check import loading_check, out_check
     from schedule import myQuest_play_add
     from clean_screen import clean_screen_start
+    from potion import potion_buy
 
     try:
         print("dun_in", data)
@@ -216,6 +217,33 @@ def dun_in(cla, data):
         # 던전_신기
         # 던전_폐기장_8
         # 던전_비밀기지
+
+        dir_path = "C:\\my_games"
+        file_path = dir_path + "\\line\\line.txt"
+
+        isLine = False
+        while isLine is False:
+            if os.path.isfile(file_path) == True:
+                with open(file_path, "r", encoding='utf-8-sig') as file:
+                    read_ = file.read()
+                if read_ == "":
+                    print("empty")
+                    line_data = "ccocco:뿌에에에에에엥"
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
+                        file.write(line_data)
+                else:
+                    isLine = True
+                    print("read_", read_)
+            else:
+                line_data = "ccocco:메롱메롱"
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    file.write(line_data)
+
+        read_result = read_.split(":")
+
+        if read_result[0] == "suko":
+            potion_buy(cla)
+
 
         read_data = data.split("_")
 

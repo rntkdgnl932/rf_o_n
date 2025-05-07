@@ -17,6 +17,7 @@ def get_item_start(cla):
 
     from function_game import macro_out
     from massenger import line_to_me
+    from boonhae_collection import boonhae_go_memorychip
 
     try:
         print("get_item_start")
@@ -27,6 +28,11 @@ def get_item_start(cla):
 
         get_post(cla)
         get_upjuk(cla)
+
+        get_memorychip(cla)
+
+        # 메모리칩 분해하기
+        boonhae_go_memorychip(cla)
 
         # 길드 추가하기기
 
@@ -540,6 +546,181 @@ def get_upjuk(cla):
     except Exception as e:
         print(e)
 
+
+
+
+def get_memorychip(cla):
+    import numpy as np
+    import cv2
+
+    from function_game import imgs_set_, click_pos_2, click_pos_reg
+    from action import menu_open_pure
+
+    try:
+
+
+
+        print("get_memorychip")
+        this_point_x = 940
+        this_point_y = 255
+        plus_minus = 20
+
+        is_get = False
+        is_get_count = 0
+        while is_get is False:
+            is_get_count += 1
+            if is_get_count > 7:
+                is_get = True
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\memorychip.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 30, 160, 100, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                print("title : memorychip")
+
+
+                is_point = False
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\post_point_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(60, 60, 100, 350, cla, img, 0.9)
+                if imgs_ is not None and imgs_ != False:
+                    print("post_point_1", imgs_)
+
+                    is_point = True
+
+                    click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                    time.sleep(0.2)
+                    click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                    time.sleep(0.2)
+
+                if is_point == False:
+                    is_get = True
+                else:
+                    # 진입
+                    for i in range(5):
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\momorychip_hyogwa.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(865, 1000, 960, 1040, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("des momorychip_hyogwa", imgs_)
+                            break
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\post_point_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(90, 85, 700, 1030, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("des post_point_1", imgs_)
+                                click_pos_reg(imgs_.x - 35, imgs_.y + 35, cla)
+                                time.sleep(0.2)
+                            else:
+                                click_pos_2(160, 160, cla)
+                        QTest.qWait(500)
+                    # 등록하기
+                    for i in range(10):
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\momorychip_hyogwa.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(865, 1000, 960, 1040, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("des momorychip_hyogwa", imgs_)
+
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\memorychip_clicked.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(160, 680, 800, 800, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("des memorychip_clicked", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y - 25, cla)
+                                time.sleep(0.2)
+                                click_pos_reg(imgs_.x, imgs_.y - 25, cla)
+                                time.sleep(2)
+
+                            else:
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\memorychip_registration_btn.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(160, 680, 800, 800, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("des memorychip_registration_btn", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(2)
+                                else:
+                                    break
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\momorychip_complete.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 400, 600, 600, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("des momorychip_complete", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        QTest.qWait(500)
+                    # 나가기
+                    for i in range(10):
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\momorychip_hyogwa.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(865, 1000, 960, 1040, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("des momorychip_hyogwa", imgs_)
+                            click_pos_2(25, 60, cla)
+
+
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\memorychip.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(30, 30, 160, 100, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+
+                        QTest.qWait(500)
+
+
+
+
+            else:
+
+                is_in = False
+                for i in range(5):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\memorychip.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(30, 30, 160, 80, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        is_in = True
+                        break
+                    else:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
+                                              this_point_x + plus_minus, this_point_y + plus_minus, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("menu_point_1")
+                                click_pos_reg(imgs_.x - 20, imgs_.y + 10, cla)
+                        else:
+                            menu_open_pure(cla)
+                    time.sleep(1)
+                if is_in == False:
+                    is_get = True
+            time.sleep(1)
+
+
+    except Exception as e:
+        print(e)
 
 def jaelyo_jejak(cla):
     import numpy as np
