@@ -1008,6 +1008,91 @@ def get_event(cla):
         print(e)
 
 
+def get_event_open(cla):
+    import numpy as np
+    import cv2
+
+    from function_game import imgs_set_, click_pos_2, click_pos_reg, drag_pos
+    from action import menu_open_pure
+
+    # 폴더 내 파일 개수
+    folder_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title"
+    file_list = os.listdir(folder_path)
+    file_count = len(file_list)
+
+    try:
+
+
+
+        print("get_event_open")
+        this_point_x = 767
+        this_point_y = 45
+        plus_minus = 20
+
+        is_get = False
+        is_get_count = 0
+        while is_get is False:
+            is_get_count += 1
+            if is_get_count > 10:
+                is_get = True
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                print("title : close_2")
+
+                is_get = True
+
+            else:
+
+                is_in = False
+                for i in range(5):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        is_in = True
+                        break
+                    else:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(850, 950, 960, 1040, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
+                                              this_point_x + plus_minus, this_point_y + plus_minus, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("menu_point_1")
+                                click_pos_reg(imgs_.x - 10, imgs_.y + 10, cla)
+                            else:
+                                break
+                        else:
+                            menu_open_pure(cla)
+                    time.sleep(1)
+                if is_in == False:
+                    is_get = True
+            time.sleep(1)
+
+
+        # 마지막 나가기
+        for i in range(5):
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.9)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                break
+            time.sleep(0.5)
+
+    except Exception as e:
+        print(e)
 
 def get_promotion(cla):
     import numpy as np
@@ -1201,6 +1286,7 @@ def get_event_click(cla, is_picture, y_point):
 
     from function_game import imgs_set_, click_pos_2, click_pos_reg, imgs_set_for
     from tuto import tuto_skip
+    from clean_screen import clean_screen_start
 
     try:
 
@@ -1219,22 +1305,22 @@ def get_event_click(cla, is_picture, y_point):
 
         # 4 : 아케인의유산(all_get) o
 
-        # 5 :
+        # 5 : 몬스터의습격!(all_get) 5
 
         # 6 : rf패스시즌2(all_get, pass) o
 
         # 7 : 데일리출석이벤트!(twenty_one)
 
-        # 8 :
+        # 8 : 가정의달!카네이션교환이벤트(pass) 8
 
-        # 9 :
+        # 9 : 아케인노드성장지원이벤트(all_get) 9
 
         # 10 :
 
 
-        # ?? : rf패스시즌2(all_get, pass) 6
-        # ?? : 전투력성장지원이벤트(all_get) 3
-        # ?? : 아케인의유산(all_get) 4
+        # ?? : 몬스터의습격!(all_get) 5
+        # ?? : 아케인노드성장지원이벤트(all_get) 9
+        # ?? : 가정의달!카네이션교환이벤트(pass) 8
         # ?? :
 
 
@@ -1246,8 +1332,10 @@ def get_event_click(cla, is_picture, y_point):
             data = "twenty_five"
         elif is_picture == "0":
             data = "length_five"
-        elif is_picture == "3" or is_picture == "4" or is_picture == "6":
+        elif is_picture == "3" or is_picture == "4" or is_picture == "5" or is_picture == "6" or is_picture == "9":
             data = "all_get"
+        elif is_picture == "8":
+            data = "pass"
 
 
         if data == "fourteen":
@@ -1480,6 +1568,11 @@ def get_event_click(cla, is_picture, y_point):
                 else:
                     click_pos_2(755, y_point, cla)
                 QTest.qWait(200)
+
+        elif data == "pass":
+            print("pass")
+            clean_screen_start(cla)
+            get_event_open(cla)
 
         tuto_skip(cla)
     except Exception as e:
