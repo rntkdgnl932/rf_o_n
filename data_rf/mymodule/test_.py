@@ -52,11 +52,13 @@ def go_test():
     from mission import mission_get, mission_get_des
     from gyucjunji import gyucjunji_in
     from dungeon import dun_in
+    from server import server_get_version
 
     try:
         print("test")
 
         # boonhae_go_memorychip(cla)
+        server_get_version()
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\jadong\\jadong_2.PNG"
         img_array = np.fromfile(full_path, np.uint8)

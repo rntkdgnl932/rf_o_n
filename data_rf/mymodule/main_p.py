@@ -3899,8 +3899,7 @@ class game_Playing(QThread):
 
 
 
-                                # 죽었는지 파악
-                                dead_check(v_.now_cla)
+
 
 
 
@@ -3912,24 +3911,31 @@ class game_Playing(QThread):
 
                                 # 오토 시작
 
-                                if result_schedule_ == "튜토육성":
-                                    tuto_start(v_.now_cla)
-                                elif result_schedule_ == "일일미션":
-                                    mission_start(v_.now_cla)
-                                elif "퀘스트" in result_schedule_:
-                                    quest_start(v_.now_cla, result_schedule_)
-                                elif result_schedule_ == "각종템받기":
-                                    get_item_start(v_.now_cla)
-                                    myQuest_play_add(v_.now_cla, result_schedule_)
-                                elif result_schedule_ == "거래소등록":
-                                    auction_start(v_.now_cla)
-                                    myQuest_play_add(v_.now_cla, result_schedule_)
-                                elif "던전" in result_schedule_:
-                                    dungeon_start(v_.now_cla, result_schedule_)
-                                elif "자동" in result_schedule_:
-                                    jadong_check(v_.now_cla, result_schedule_)
-                                elif "격전지" in result_schedule_:
-                                    gyucjunji_check(v_.now_cla, result_schedule_)
+                                if v_.dead_is_no_have_item == True:
+                                    jadong_check(v_.now_cla, "자동_[17/19]로우드숲")
+                                else:
+
+                                    # 죽었는지 파악
+                                    dead_check(v_.now_cla)
+
+                                    if result_schedule_ == "튜토육성":
+                                        tuto_start(v_.now_cla)
+                                    elif result_schedule_ == "일일미션":
+                                        mission_start(v_.now_cla)
+                                    elif "퀘스트" in result_schedule_:
+                                        quest_start(v_.now_cla, result_schedule_)
+                                    elif result_schedule_ == "각종템받기":
+                                        get_item_start(v_.now_cla)
+                                        myQuest_play_add(v_.now_cla, result_schedule_)
+                                    elif result_schedule_ == "거래소등록":
+                                        auction_start(v_.now_cla)
+                                        myQuest_play_add(v_.now_cla, result_schedule_)
+                                    elif "던전" in result_schedule_:
+                                        dungeon_start(v_.now_cla, result_schedule_)
+                                    elif "자동" in result_schedule_:
+                                        jadong_check(v_.now_cla, result_schedule_)
+                                    elif "격전지" in result_schedule_:
+                                        gyucjunji_check(v_.now_cla, result_schedule_)
 
 
                                 time.sleep(0.5)

@@ -7,6 +7,7 @@ now_arduino = "none"
 # 해당 게임 관련
 dead_count = 0
 dead_count_msg = "//"
+dead_is_no_have_item = False
 
 # 게임 및 폴더 관련
 this_game = "rf_o_n"

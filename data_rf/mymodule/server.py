@@ -9,6 +9,9 @@ import variable as v_
 sys.path.append('C:/my_games/' + str(v_.game_folder) + '/' + str(v_.data_folder) + '/mymodule')
 
 def game_start():
+
+    from massenger import line_to_me
+
     try:
         play_game = False
         # 먼저 서버 파일 등 있는지 파악 후 없다면 생성 후 실행
@@ -30,6 +33,30 @@ def game_start():
             else:
                 os.makedirs(dir_path)
 
+        ##############
+
+        dir_path_server = "C:\\my_games"
+        file_path_server = dir_path_server + "\\line\\line.txt"
+
+        if os.path.isdir(dir_path_server) == False:
+            os.makedirs(dir_path_server)
+        isFile = False
+        while isFile is False:
+            if os.path.isfile(file_path_server) == True:
+                isFile = True
+                # 파일 읽기
+                with open(file_path_server, "r", encoding='utf-8-sig') as file:
+                    line = file.read()
+                    line_ = line.split(":")
+                    print('line', line)
+            else:
+                print('line 파일 없당')
+                with open(file_path_server, "w", encoding='utf-8-sig') as file:
+                    file.write("ccocco:메롱")
+
+
+        ##########
+
 
         # 게임 클라 선택 및 실행시 yes로 바뀌고, 정지 할 경우에만 no로 바뀜. 자동업데이트는 안바뀜. 수동 업데이트는 no로 바뀜.
         if start_get == "yes":
@@ -40,6 +67,23 @@ def game_start():
             if result_my_server_read == 'start':
                 print("게임 gogo")
                 play_game = True
+
+                if line_[1] == "ko":
+                    file_path = "C:\\my_games\\" + str(v_.game_folder) + "\\" + str(
+                        v_.data_folder) + "\\mymodule\\version.txt"
+                    with open(file_path, "r", encoding='utf-8-sig') as file:
+                        my_version = file.read()
+
+                    server_version = server_get_version()
+                    print("my_version", my_version)
+                    print("server_version", server_version)
+
+                    if str(my_version) != str(server_version):
+                        print("버젼 달라서 업데이트")
+                        why = "석호야 버젼 다르다."
+                        line_to_me(v_.now_cla, why)
+
+
             elif result_my_server_read == 'update':
 
                 file_path = "C:\\my_games\\" + str(v_.game_folder) + "\\" + str(v_.data_folder) + "\\mymodule\\version.txt"
