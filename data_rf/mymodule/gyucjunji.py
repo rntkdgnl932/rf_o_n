@@ -510,7 +510,7 @@ def gyucjunji_in(cla, data):
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\menu_gyucjunji.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(810, 290, 880, 360, cla, img, 0.85)
+                        imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
 
@@ -674,7 +674,7 @@ def gyucjunji_in_ready(cla, data):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\menu_national_card.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(810, 125, 880, 195, cla, img, 0.85)
+                    imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                     else:
@@ -820,7 +820,7 @@ def gyucjunji_in_setting(cla, gyuc_name, y_reg):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\menu_national_card.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(810, 125, 880, 195, cla, img, 0.85)
+                    imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                     else:

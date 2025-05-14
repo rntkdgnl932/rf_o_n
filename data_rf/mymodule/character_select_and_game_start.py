@@ -559,7 +559,7 @@ def character_change(cla, character_id):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\menu_character.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(670, 970, 960, 1040, cla, img, 0.8)
+                    imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         for i in range(10):

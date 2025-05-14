@@ -48,7 +48,7 @@ def game_start():
                 with open(file_path_server, "r", encoding='utf-8-sig') as file:
                     line = file.read()
                     line_ = line.split(":")
-                    print('line', line)
+                    # print('line', line)
             else:
                 print('line 파일 없당')
                 with open(file_path_server, "w", encoding='utf-8-sig') as file:
