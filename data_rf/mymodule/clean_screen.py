@@ -46,7 +46,7 @@ def clean_screen_start(cla):
 def clean_screen_go(cla):
     import numpy as np
     import cv2
-    import pyautogui
+    import os
     import random
 
     from function_game import imgs_set_, click_pos_reg, click_pos_2
@@ -55,6 +55,10 @@ def clean_screen_go(cla):
     from stop_event18 import _stop_please
     from dead_die import dead_check
     from tuto import tuto_skip, quest_complete
+
+    folder_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title"
+    file_list = os.listdir(folder_path)
+
 
     try:
         print("clean_screen_go")
@@ -79,6 +83,23 @@ def clean_screen_go(cla):
                     break
 
                 clean = True
+
+                for n in range(len(file_list)):
+
+                    pic_num_ready = file_list[n]
+                    pic_num = pic_num_ready.split(".")[0]
+
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(pic_num) + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("pic_num", pic_num)
+                        clean = False
+                        click_pos_2(815, 365, cla)
+                        QTest.qWait(500)
+                        break
+
 
                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
