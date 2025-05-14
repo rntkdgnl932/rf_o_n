@@ -58,54 +58,12 @@ def go_test():
         print("test")
 
         # boonhae_go_memorychip(cla)
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\quest\\menu_quest.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
+        imgs_ = imgs_set_(790, 370, 830, 730, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
-            print("menu_quest", imgs_)
-
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\jadong\\jadong_2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(25, 75, 61, 110, cla, img, 0.85)
-        if imgs_ is not None and imgs_ != False:
-            print("jadong_2", imgs_)
-
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\post_point_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(90, 85, 700, 1030, cla, img, 0.9)
-        if imgs_ is not None and imgs_ != False:
-            print("des post_point_1", imgs_)
-
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\post_point_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(90, 85, 700, 1030, cla, img, 0.9)
-        if imgs_ is not None and imgs_ != False:
-            print("des post_point_1", imgs_)
-
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\memorychip_clicked.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(160, 680, 800, 800, cla, img, 0.9)
-        if imgs_ is not None and imgs_ != False:
-            print("des memorychip_clicked", imgs_)
-
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\auction\\clicked_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(355, 570, 480, 620, cla, img, 0.85)
-        if imgs_ is not None and imgs_ != False:
-            print("clicked_1", imgs_)
-
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\auction\\clicked_1.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(355, 600, 480, 650, cla, img, 0.85)
-        if imgs_ is not None and imgs_ != False:
-            print("clicked_2", imgs_)
+            print("event_point_1", imgs_)
 
         for i in range(3):
             step = i +1
