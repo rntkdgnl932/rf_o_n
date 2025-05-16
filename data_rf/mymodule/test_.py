@@ -58,12 +58,31 @@ def go_test():
         print("test")
 
         # boonhae_go_memorychip(cla)
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_1.PNG"
+        data = "일일미션_5"
+        mission_get_des(cla, "month", data)
+        mission_get_des(cla, "week", data)
+        mission_get_des(cla, "daily", data)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\chapter_lock.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(790, 370, 830, 730, cla, img, 0.9)
+        imgs_ = imgs_set_(50, 135, 110, 600, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
-            print("event_point_1", imgs_)
+            print("chapter_lock", imgs_)
+
+            for i in range(6):
+                lock_reg = 165 + 25 + (50 * i)
+
+                print("lock_reg", lock_reg)
+
+                if imgs_.y < lock_reg:
+                    is_lock = str(i)
+                    break
+
+        else:
+            is_lock = "6"
+
+        print("is_lock", is_lock)
 
         for i in range(3):
             step = i +1
