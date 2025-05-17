@@ -58,7 +58,7 @@ def go_test():
         print("test")
 
         # boonhae_go_memorychip(cla)
-        data = "일일미션_5"
+        data = "일일미션"
         mission_get_des(cla, "month", data)
         mission_get_des(cla, "week", data)
         mission_get_des(cla, "daily", data)

@@ -3920,8 +3920,8 @@ class game_Playing(QThread):
 
                                     if result_schedule_ == "튜토육성":
                                         tuto_start(v_.now_cla)
-                                    elif result_schedule_ == "일일미션":
-                                        mission_start(v_.now_cla)
+                                    elif "일일미션" in result_schedule_:
+                                        mission_start(v_.now_cla, result_schedule_)
                                     elif "퀘스트" in result_schedule_:
                                         quest_start(v_.now_cla, result_schedule_)
                                     elif result_schedule_ == "각종템받기":
