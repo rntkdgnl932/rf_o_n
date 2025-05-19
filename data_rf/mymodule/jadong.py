@@ -442,35 +442,56 @@ def jadong_mode(cla, title_map, des_map):
 
                         else:
 
-                            why = "자동전투 중 꺼짐 1"
-
-
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\juljun\\juljun_on.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(330, 500, 500, 700, cla, img, 0.85)
+                            imgs_ = imgs_set_(350, 80, 580, 130, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
-                                print("jangsigan_1", imgs_)
 
-                                click_pos_2(480, 620, cla)
+                                is_map_in = False
 
-                                why = "자동전투 중 꺼짐 장시간"
+                                for i in range(5):
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\jadong\\juljun_map\\" + str(
+                                        title_map) + "\\" + str(des_map) + ".PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(700, 510, 900, 555, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        is_map_in = True
+                                        jadong_mode = False
+                                        break
+                                    time.sleep(0.2)
 
-                                jangsigan = True
+                                if is_map_in == False:
+                                    why = "자동전투 중 꺼짐 : 사냥터가 아니다."
 
-                                time.sleep(1)
                             else:
-                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\re_join_btn.PNG"
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(330, 500, 500, 700, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("re_join_btn", imgs_)
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    print("jangsigan_1", imgs_)
 
-                                    why = "자동전투 중 꺼짐 재접속"
+                                    click_pos_2(480, 620, cla)
 
-                                    jadong_mode = False
+                                    why = "자동전투 중 꺼짐 장시간"
+
+                                    jangsigan = True
+
+                                    time.sleep(1)
+                                else:
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\re_join_btn.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(330, 500, 500, 700, cla, img, 0.85)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("re_join_btn", imgs_)
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                                        why = "자동전투 중 꺼짐 재접속"
+
+                                        jadong_mode = False
 
                             line_to_me(cla, why)
                 if click_ready == True:

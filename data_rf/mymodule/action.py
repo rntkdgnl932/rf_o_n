@@ -282,6 +282,7 @@ def juljun_check(cla):
     import random
 
     from function_game import click_pos_reg, imgs_set_
+    from boonhae_collection import boonhae_collection_start
 
     try:
         print("juljun_check")
@@ -295,6 +296,15 @@ def juljun_check(cla):
         if imgs_ is not None and imgs_ != False:
             print("juljun_on", imgs_)
             is_data = True
+
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\juljun\\max.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(10, 145, 100, 190, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("max", imgs_)
+                boonhae_collection_start(cla)
+                juljun_on(cla)
 
         return is_data
     except Exception as e:

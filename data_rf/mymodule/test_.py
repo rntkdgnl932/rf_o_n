@@ -59,9 +59,11 @@ def go_test():
 
         # boonhae_go_memorychip(cla)
         data = "일일미션"
-        mission_get_des(cla, "month", data)
-        mission_get_des(cla, "week", data)
-        mission_get_des(cla, "daily", data)
+        # mission_get_des(cla, "month", data)
+        # mission_get_des(cla, "week", data)
+        # mission_get_des(cla, "daily", data)
+
+        boonhae_collection_start(cla)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\chapter_lock.PNG"
         img_array = np.fromfile(full_path, np.uint8)
