@@ -1318,16 +1318,16 @@ def get_event_click(cla, is_picture, y_point):
         # 10 :
 
 
-        # ?? : 외행성던전업데이트기념출석보상(fourteen) 1
-        # ?? : 외행성서버점령이벤트(all_get) 2
-        # ?? : 격전지집결!홀리가스교환이벤트(pass) 3
+        # ?? : 프라임럭키드로우(length_five) 4
+        # ?? :
+        # ?? :
 
 
         if is_picture == "1" or is_picture == "0":
             data = "fourteen"
         elif is_picture == "7":
             data = "twenty_one"
-        elif is_picture == "0":
+        elif is_picture == "4":
             data = "twenty_five"
         elif is_picture == "0":
             data = "length_five"
