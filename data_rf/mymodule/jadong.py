@@ -441,7 +441,7 @@ def jadong_mode(cla, title_map, des_map):
                             time.sleep(10)
 
                         else:
-
+                            why = "알 수 없는 오류...."
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\juljun\\juljun_on.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

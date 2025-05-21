@@ -44,7 +44,7 @@ def game_check_start(cla):
                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\new_path_notice.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
+                imgs_ = imgs_set_(330, 500, 700, 600, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
                     print("new_path_notice", imgs_)
                     why = "새로운 패치...."
@@ -54,34 +54,44 @@ def game_check_start(cla):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\fix_server_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
+                    imgs_ = imgs_set_(330, 500, 700, 600, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         print("fix_server_2", imgs_)
                         why = "서버점검"
                         line_to_me(cla, why)
                         macro_out(cla)
                     else:
-                        # 구글 로그인 화면
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\google_login.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\fix_server_3.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(200, 300, 900, 900, cla, img, 0.85)
+                        imgs_ = imgs_set_(330, 500, 700, 600, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            print("google_login")
-                            why = "구글 로그인 화면이다"
+                            print("fix_server_2", imgs_)
+                            why = "서버점검"
                             line_to_me(cla, why)
                             macro_out(cla)
                         else:
-                            # update
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\update_title.PNG"
+                            # 구글 로그인 화면
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\google_login.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(200, 300, 900, 900, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
-                                print("update_title")
-                                why = "update ready"
+                                print("google_login")
+                                why = "구글 로그인 화면이다"
                                 line_to_me(cla, why)
                                 macro_out(cla)
+                            else:
+                                # update
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\update_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(200, 300, 900, 900, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("update_title")
+                                    why = "update ready"
+                                    line_to_me(cla, why)
+                                    macro_out(cla)
 
     except Exception as e:
         print(e)
