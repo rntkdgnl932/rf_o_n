@@ -249,6 +249,17 @@ def game_ready(cla):
                                     game_ready = False
                 time.sleep(1)
 
+        else:
+            # 갑자기 데이터 다운...
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\data_down_btn.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(300, 500, 500, 700, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                why = "패치 있다. 다운 받아야한다."
+                line_to_me(cla, why)
+                macro_out(cla)
+
         if game_ready == True:
 
             game_ready_count = 0
