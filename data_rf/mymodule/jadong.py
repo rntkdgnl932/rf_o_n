@@ -360,7 +360,7 @@ def jadong_mode(cla, title_map, des_map):
     from function_game import click_pos_reg, imgs_set_, click_pos_2, macro_out, drag_pos
     from potion import potion_buy
     from massenger import line_to_me
-
+    from game_check import game_check_start
 
 
     try:
@@ -393,6 +393,8 @@ def jadong_mode(cla, title_map, des_map):
                 click_ready = False
                 potion_need = False
                 jangsigan = False
+
+                game_check_start(cla)
 
 
 
