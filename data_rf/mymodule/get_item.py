@@ -1295,17 +1295,17 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - : 1 ,3, 4
+        # - : 2, 5
 
-        # 1 : 현충일(pass) 1
+        # 1 : 현충일(pass) o
 
-        # 2 : 전투력성장지원미션이벤트(all_get) o
+        # 2 :
 
-        # 3 : 현충일기념특별미션이벤트(all_get) 3
+        # 3 : 현충일기념특별미션이벤트(all_get) o
 
         # 4 :
 
-        # 5 : 아티팩트강화미션이벤트(all_get) o
+        # 5 :
 
         # 6 : rf패스시즌3(all_get, pass) o
 
@@ -1318,8 +1318,8 @@ def get_event_click(cla, is_picture, y_point):
         # 10 :
 
 
-        # ?? : 현충일(pass) 1
-        # ?? : 현충일기념특별미션이벤트(all_get) 3
+        # ?? : 길드코인지원미션이벤트(all_get) 2
+        # ?? : 지역던전//격전지추가혜택이벤트(pass) 4
         # ?? :
 
 
@@ -1331,9 +1331,9 @@ def get_event_click(cla, is_picture, y_point):
             data = "twenty_five"
         elif is_picture == "0":
             data = "length_five"
-        elif is_picture == "2" or is_picture == "5" or is_picture == "3" or is_picture == "6":
+        elif is_picture == "2" or is_picture == "0" or is_picture == "3" or is_picture == "6":
             data = "all_get"
-        elif is_picture == "1":
+        elif is_picture == "1" or is_picture == "4":
             data = "pass"
 
 
