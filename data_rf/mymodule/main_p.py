@@ -877,13 +877,13 @@ class FirstTab(QWidget):
         # 콜렉션 온오프(수집 온오프)
         self.onActivated_slelect_collection_toggle_read()
 
-        self.collection_on_off = QGroupBox('수집 On/Off')
+        self.collection_on_off = QGroupBox('레어수집분해 On/Off')
         print("dark_demention", v_.onCollection)
         if v_.onCollection == True:
             tgl_now = "On"
         else:
             tgl_now = "Off"
-        self.now_toggle = QLabel("수집 : " + tgl_now + "\n")
+        self.now_toggle = QLabel("레어 : " + tgl_now + "\n")
         # 토글 버튼
         self.tgl = QCheckBox("On / Off")
         self.tgl.adjustSize()
@@ -1563,7 +1563,7 @@ class FirstTab(QWidget):
             tgl_now = "On"
         else:
             tgl_now = "Off"
-        self.now_toggle.setText("다크디멘션 : " + str(tgl_now) + "\n")
+        self.now_toggle.setText("레어 : " + str(tgl_now) + "\n")
         self.tgl.setChecked(v_.onCollection)
         #self.set_rand_int()
 

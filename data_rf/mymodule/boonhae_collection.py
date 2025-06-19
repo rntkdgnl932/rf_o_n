@@ -91,17 +91,23 @@ def collection_start(cla):
                             if imgs_ is not None and imgs_ != False:
                                 print("rare_more_notice", imgs_)
 
-                                if y_point < 245:
+                                if 200 < y_point < 245:
 
-                                    why = "레어이상 등록하려 한다."
-                                    line_to_me(cla, why)
-                                    # macro_out(cla)
-                                    cancle_all(cla)
-                                    is_cancle = True
+                                    if v_.onCollection == False:
 
-                                    reg_y = 245
+                                        why = "레어이상 등록하려 한다."
+                                        line_to_me(cla, why)
+                                        # macro_out(cla)
+                                        cancle_all(cla)
+                                        is_cancle = True
 
-                                    # break
+                                        reg_y = 245
+
+                                    else:
+                                        result_confirm = confirm_all(cla)
+                                        if result_confirm == True:
+                                            time.sleep(0.5)
+                                            click_pos_2(60, 275, cla)
                                 else:
                                     result_confirm = confirm_all(cla)
                                     if result_confirm == True:
@@ -115,7 +121,7 @@ def collection_start(cla):
                                 if imgs_ is not None and imgs_ != False:
                                     print("more_grade_jangbi_notice", imgs_)
 
-                                    if y_point < 245:
+                                    if 200 < y_point < 245:
 
                                         why = "나보다 높은 등급을 등록하려 한다."
                                         line_to_me(cla, why)
@@ -186,24 +192,28 @@ def collection_start(cla):
                                 if imgs_ is not None and imgs_ != False:
                                     print("rare_more_notice", imgs_)
 
-                                    why = "레어이상 등록하려 한다."
-                                    line_to_me(cla, why)
-                                    # macro_out(cla)
-                                    cancle_all(cla)
-                                    reg_y_2 = 245
+                                    if 200 < y_point < 245:
 
-                                    # if y_point < 245:
-                                    #
-                                    #     why = "레어이상 등록하려 한다."
-                                    #     line_to_me(cla, why)
-                                    #     # macro_out(cla)
-                                    #     cancle_all(cla)
-                                    #     break
-                                    # else:
-                                    #     result_confirm = confirm_all(cla)
-                                    #     if result_confirm == True:
-                                    #         time.sleep(0.5)
-                                    #         click_pos_2(60, 275, cla)
+                                        if v_.onCollection == False:
+
+                                            why = "레어이상 등록하려 한다."
+                                            line_to_me(cla, why)
+                                            # macro_out(cla)
+                                            cancle_all(cla)
+                                            is_cancle = True
+
+                                            reg_y = 245
+
+                                        else:
+                                            result_confirm = confirm_all(cla)
+                                            if result_confirm == True:
+                                                time.sleep(0.5)
+                                                click_pos_2(60, 275, cla)
+                                    else:
+                                        result_confirm = confirm_all(cla)
+                                        if result_confirm == True:
+                                            time.sleep(0.5)
+                                            click_pos_2(60, 275, cla)
                                 else:
                                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\more_grade_jangbi_notice.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -212,24 +222,22 @@ def collection_start(cla):
                                     if imgs_ is not None and imgs_ != False:
                                         print("more_grade_jangbi_notice", imgs_)
 
-                                        why = "나보다 높은 등급을 등록하려 한다."
-                                        line_to_me(cla, why)
-                                        # macro_out(cla)
-                                        cancle_all(cla)
-                                        reg_y_2 = 245
+                                        if 200 < y_point < 245:
 
-                                        # if y_point < 245:
-                                        #
-                                        #     why = "나보다 높은 등급을 등록하려 한다."
-                                        #     line_to_me(cla, why)
-                                        #     # macro_out(cla)
-                                        #     cancle_all(cla)
-                                        #     break
-                                        # else:
-                                        #     result_confirm = confirm_all(cla)
-                                        #     if result_confirm == True:
-                                        #         time.sleep(0.5)
-                                        #         click_pos_2(60, 275, cla)
+                                            why = "나보다 높은 등급을 등록하려 한다."
+                                            line_to_me(cla, why)
+                                            # macro_out(cla)
+                                            cancle_all(cla)
+                                            is_cancle = True
+
+                                            reg_y = 245
+
+                                            # break
+                                        else:
+                                            result_confirm = confirm_all(cla)
+                                            if result_confirm == True:
+                                                time.sleep(0.5)
+                                                click_pos_2(60, 275, cla)
 
                                     else:
 
@@ -493,33 +501,135 @@ def boonhae_go(cla):
                         break
                     else:
 
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\common_clicked.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(440, 200, 610, 345, cla, img, 0.9)
-                        if imgs_ is not None and imgs_ != False:
-                            print("common_clicked", imgs_)
+                        if v_.onCollection == False:
 
-                            click_pos_2(645, 245, cla)
-                            time.sleep(0.5)
-
-                            click_pos_2(870, 1020, cla)
-                            break
-                        else:
-                            print("안보야")
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\rare_on_clicked.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\common_clicked.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(440, 200, 610, 345, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("rare_on_clicked", imgs_)
-                                click_pos_2(530, 270, cla)
+                                print("common_clicked", imgs_)
+
+                                click_pos_2(645, 245, cla)
                                 time.sleep(0.5)
 
-                            click_pos_2(530, 245, cla)
-                            time.sleep(0.5)
-                            click_pos_2(530, 310, cla)
-                            time.sleep(0.5)
+                                click_pos_2(870, 1020, cla)
+                                break
+                            else:
+                                print("안보야")
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\rare_on_clicked.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(440, 200, 610, 345, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("rare_on_clicked", imgs_)
+                                    click_pos_2(530, 270, cla)
+                                    time.sleep(0.5)
+
+                                    # 일반
+                                    clicked = False
+
+                                    for c in range(2):
+                                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
+                                            c + 1) + ".PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(440, 220, 530, 265, cla, img, 0.9)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("clicked 1 : ", c + 1, imgs_)
+                                            clicked = True
+                                            break
+
+                                    if clicked == False:
+                                        click_pos_2(530, 245, cla)
+                                        time.sleep(0.5)
+
+                                    # 장비
+                                    clicked = False
+
+                                    for c in range(2):
+                                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
+                                            c + 1) + ".PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(440, 290, 530, 330, cla, img, 0.9)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("clicked 3 : ", c + 1, imgs_)
+                                            clicked = True
+                                            break
+
+                                    if clicked == False:
+                                        click_pos_2(530, 310, cla)
+                                        time.sleep(0.5)
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\rare_clicked.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(440, 200, 610, 345, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("rare_clicked", imgs_)
+
+                                click_pos_2(645, 245, cla)
+                                time.sleep(0.5)
+
+                                click_pos_2(870, 1020, cla)
+                                break
+                            else:
+                                print("안보야")
+
+                                # 일반
+                                clicked = False
+
+                                for c in range(2):
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
+                                        c + 1) + ".PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(440, 220, 530, 265, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("clicked 1 : ", c + 1, imgs_)
+                                        clicked = True
+                                        break
+
+                                if clicked == False:
+                                    click_pos_2(530, 245, cla)
+                                    time.sleep(0.5)
+
+                                # 희귀
+                                clicked = False
+
+                                for c in range(2):
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
+                                        c + 1) + ".PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(440, 250, 530, 285, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("clicked 2 : ", c + 1, imgs_)
+                                        clicked = True
+                                        break
+
+                                if clicked == False:
+                                    click_pos_2(530, 270, cla)
+                                    time.sleep(0.5)
+
+                                # 장비
+                                clicked = False
+
+                                for c in range(2):
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
+                                        c + 1) + ".PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(440, 290, 530, 330, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("clicked 3 : ", c + 1, imgs_)
+                                        clicked = True
+                                        break
+
+                                if clicked == False:
+                                    click_pos_2(530, 310, cla)
+                                    time.sleep(0.5)
                     time.sleep(0.5)
 
                 for i in range(5):
@@ -630,12 +740,60 @@ def boonhae_go_memorychip(cla):
                                 click_pos_2(530, 270, cla)
                                 time.sleep(0.5)
 
-                            click_pos_2(530, 245, cla)
-                            time.sleep(0.5)
-                            click_pos_2(530, 310, cla)
-                            time.sleep(0.5)
-                            click_pos_2(530, 340, cla)
-                            time.sleep(0.5)
+                                # 일반
+                                clicked = False
+
+                                for c in range(2):
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
+                                        c + 1) + ".PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(440, 220, 530, 265, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("clicked 1 : ", c + 1, imgs_)
+                                        clicked = True
+                                        break
+
+                                if clicked == False:
+                                    click_pos_2(530, 245, cla)
+                                    time.sleep(0.5)
+
+                                # 장비
+                                clicked = False
+
+                                for c in range(2):
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
+                                        c + 1) + ".PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(440, 290, 530, 330, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("clicked 3 : ", c + 1, imgs_)
+                                        clicked = True
+                                        break
+
+                                if clicked == False:
+                                    click_pos_2(530, 310, cla)
+                                    time.sleep(0.5)
+
+                                # 메모리칩
+                                clicked = False
+
+                                for c in range(2):
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
+                                        c + 1) + ".PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(440, 315, 530, 360, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("clicked 3 : ", c + 1, imgs_)
+                                        clicked = True
+                                        break
+
+                                if clicked == False:
+                                    click_pos_2(530, 340, cla)
+                                    time.sleep(0.5)
+
                     time.sleep(0.5)
 
                 for i in range(5):

@@ -18,6 +18,7 @@ def game_check_start(cla):
 
     try:
         print("game_check")
+
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\fix_notice_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -376,25 +377,41 @@ def attack_check(cla):
 
         result_juljun = juljun_check(cla)
         if result_juljun == True:
-            result_exp_1 = text_check_get_black_white(33, 125, 135, 155, cla)
 
-            # a = 33
-            # b = 125
-            # c = 135
-            # d = 155
-            #
-            # pos = (a + plus, b, c - a, d - b)
-            # pyautogui.screenshot("asd.png", region=pos)
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\attack\\attack_ready.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(400, 100, 550, 150, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("attack_ready", imgs_)
+            else:
+                result_exp_1 = text_check_get_black_white(33, 125, 135, 155, cla)
+
+                # a = 33
+                # b = 125
+                # c = 135
+                # d = 155
+                #
+                # pos = (a + plus, b, c - a, d - b)
+                # pyautogui.screenshot("asd.png", region=pos)
 
 
-            for i in range(20):
-                result_exp_2 = text_check_get_black_white(33, 125, 135, 155, cla)
+                for i in range(20):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\attack\\attack_ready.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 100, 550, 150, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("attack_ready", imgs_)
+                        break
+                    else:
+                        result_exp_2 = text_check_get_black_white(33, 125, 135, 155, cla)
 
-                if result_exp_1 != result_exp_2:
-                    is_data = True
-                    break
+                        if result_exp_1 != result_exp_2:
+                            is_data = True
+                            break
 
-                QTest.qWait(1000)
+                    QTest.qWait(1000)
 
         else:
             result_out = out_check(cla)
