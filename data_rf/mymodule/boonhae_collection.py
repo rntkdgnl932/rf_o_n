@@ -464,7 +464,7 @@ def boonhae_go(cla):
     import random
 
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action import menu_open_pure
+    from action import confirm_all
     from game_check import out_check
     from clean_screen import clean_screen_start
 
@@ -491,6 +491,9 @@ def boonhae_go(cla):
                 is_data = True
 
                 for i in range(10):
+
+                    confirm_all(cla)
+
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\boonhae_complete.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -514,7 +517,6 @@ def boonhae_go(cla):
                                 time.sleep(0.5)
 
                                 click_pos_2(870, 1020, cla)
-                                break
                             else:
                                 print("안보야")
                                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\rare_on_clicked.PNG"
@@ -572,8 +574,8 @@ def boonhae_go(cla):
                                 click_pos_2(645, 245, cla)
                                 time.sleep(0.5)
 
+                                # click_pos_2(870, 1020, cla)
                                 click_pos_2(870, 1020, cla)
-                                break
                             else:
                                 print("안보야")
 
@@ -649,6 +651,7 @@ def boonhae_go(cla):
                             print("boonhae_complete", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
+                            confirm_all(cla)
                             break
                     time.sleep(1)
 
@@ -680,7 +683,7 @@ def boonhae_go_memorychip(cla):
     import random
 
     from function_game import imgs_set_, click_pos_reg, click_pos_2
-    from action import menu_open_pure
+    from action import confirm_all
     from game_check import out_check
     from clean_screen import clean_screen_start
 
@@ -707,6 +710,9 @@ def boonhae_go_memorychip(cla):
                 is_data = True
 
                 for i in range(10):
+
+                    confirm_all(cla)
+
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\boonhae_complete.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -728,7 +734,6 @@ def boonhae_go_memorychip(cla):
                             time.sleep(0.5)
 
                             click_pos_2(870, 1020, cla)
-                            break
                         else:
                             print("안보야")
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\rare_on_clicked.PNG"
@@ -805,7 +810,16 @@ def boonhae_go_memorychip(cla):
                         print("boonhae_title...out", imgs_)
                         click_pos_2(945, 85, cla)
                     else:
-                        break
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\boonhae_complete.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 480, 540, 540, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("boonhae_complete", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            confirm_all(cla)
+                            break
                     time.sleep(1)
 
             else:

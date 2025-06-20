@@ -62,22 +62,7 @@ def go_test():
         # mission_get_des(cla, "month", data)
         # mission_get_des(cla, "week", data)
         # mission_get_des(cla, "daily", data)
-        clicked = False
-
-        for c in range(2):
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
-                c + 1) + ".PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(440, 315, 530, 360, cla, img, 0.9)
-            if imgs_ is not None and imgs_ != False:
-                print("clicked 3 : ", c + 1, imgs_)
-                clicked = True
-                break
-
-        if clicked == False:
-            click_pos_2(530, 340, cla)
-            time.sleep(0.5)
+        boonhae_go(cla)
 
         # boonhae_collection_start(cla)
         #
