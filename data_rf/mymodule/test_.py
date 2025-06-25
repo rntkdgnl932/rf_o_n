@@ -62,7 +62,26 @@ def go_test():
         # mission_get_des(cla, "month", data)
         # mission_get_des(cla, "week", data)
         # mission_get_des(cla, "daily", data)
-        boonhae_go(cla)
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_allget_btn\\allget_btn_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(130, 340, 830, 730, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("allget_btn_1", imgs_)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_allget_btn\\allget_btn_2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(130, 340, 830, 730, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("allget_btn_2", imgs_)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_allget_btn\\allget_btn_3.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(130, 340, 830, 730, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("allget_btn_3", imgs_)
 
         # boonhae_collection_start(cla)
         #

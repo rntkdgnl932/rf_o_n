@@ -1295,35 +1295,37 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - :
+        # - : 1, 2, 3, 6
 
-        # 1 : 현충일(pass) o
+        # 1 : 100일축제출석이벤트(fourteen) 1
 
-        # 2 : 길드코인지원미션이벤트(all_get) o
+        # 2 : 당신의행운을터트리세요!(all_get) 2
 
-        # 3 : 현충일기념특별미션이벤트(all_get) o
+        # 3 : 100일축제골든워커를잡아라!(pass) 3
 
         # 4 : 지역던전//격전지추가혜택이벤트(pass) o
 
-        # 5 : 멈추지않는여정,용병의길(all_get) 5
+        # 5 : 멈추지않는여정,용병의길(all_get) o
 
-        # 6 : rf패스시즌3(all_get, pass)
+        # 6 : 100일축제7일미션이벤트(all_get) 6
 
         # 7 : 데일리출석이벤트!(twenty_one) o
 
-        # 8 :
+        # 8 : 아케인의유산!(all_get) 8
 
         # 9 :
 
         # 10 :
 
 
-        # ?? : 멈추지않는여정,용병의길(all_get) 5
-        # ?? :
-        # ?? :
+        # ?? : 100일축제출석이벤트(fourteen) 1
+        # ?? : 당신의행운을터트리세요!(all_get) 2
+        # ?? : 100일축제골든워커를잡아라!(pass) 3
+        # ?? : 100일축제7일미션이벤트(all_get) 6
+        # ?? : 아케인의유산!(all_get) 8
 
 
-        if is_picture == "0" or is_picture == "0":
+        if is_picture == "1" or is_picture == "0":
             data = "fourteen"
         elif is_picture == "7":
             data = "twenty_one"
@@ -1331,9 +1333,9 @@ def get_event_click(cla, is_picture, y_point):
             data = "twenty_five"
         elif is_picture == "0":
             data = "length_five"
-        elif is_picture == "2" or is_picture == "5" or is_picture == "3" or is_picture == "6":
+        elif is_picture == "2" or is_picture == "5" or is_picture == "6" or is_picture == "8":
             data = "all_get"
-        elif is_picture == "1" or is_picture == "4":
+        elif is_picture == "3" or is_picture == "4":
             data = "pass"
 
 
