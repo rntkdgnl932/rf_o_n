@@ -60,12 +60,12 @@ def go_test():
         # boonhae_go_memorychip(cla)
         data = "일일미션"
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\confirm_all\\confirm_1.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\attack\\attack_ready.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(410, 500, 700, 800, cla, img, 0.85)
+        imgs_ = imgs_set_(400, 100, 550, 150, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("confirm_1", imgs_)
+            print("attack_ready", imgs_)
 
         # mission_get_des(cla, "month", data)
         # mission_get_des(cla, "week", data)

@@ -385,7 +385,9 @@ def attack_check(cla):
             if imgs_ is not None and imgs_ != False:
                 print("attack_ready", imgs_)
             else:
-                result_exp_1 = text_check_get_black_white(33, 125, 135, 155, cla)
+                # result_exp_1 = text_check_get_black_white(33, 125, 135, 155, cla)
+
+                result_exp_1 = text_check_get_black_white(33, 105, 135, 130, cla)
 
                 # a = 33
                 # b = 125
@@ -405,7 +407,7 @@ def attack_check(cla):
                         print("attack_ready", imgs_)
                         break
                     else:
-                        result_exp_2 = text_check_get_black_white(33, 125, 135, 155, cla)
+                        result_exp_2 = text_check_get_black_white(33, 105, 135, 130, cla)
 
                         if result_exp_1 != result_exp_2:
                             is_data = True
