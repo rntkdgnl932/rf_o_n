@@ -52,7 +52,7 @@ from stop_event18 import _stop_please
 
 from test_ import go_test
 
-from tuto import tuto_start
+from tuto import tuto_start, tuto_skip
 from character_select_and_game_start import game_start_screen
 from get_item import get_item_start
 from dead_die import dead_check
@@ -3897,7 +3897,8 @@ class game_Playing(QThread):
 
 
 
-
+                                # 업뎃으로 인한 skip
+                                tuto_skip(v_.now_cla)
 
 
 

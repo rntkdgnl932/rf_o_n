@@ -341,6 +341,15 @@ def tuto_skip(cla):
                             print("get_notice", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             is_data_count = 0
+                        else:
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\boonhae_complete.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 480, 540, 540, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("boonhae_complete", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                is_data_count = 0
 
 
             if is_data_count > 3:
