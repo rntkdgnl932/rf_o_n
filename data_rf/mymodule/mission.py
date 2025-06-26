@@ -420,6 +420,15 @@ def mission_get_des(cla, data, chapter):
                                                     print("anymore_misson_notice_2", imgs_)
                                                     is_get = True
                                                     break
+                                                else:
+                                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\chogwa_1.PNG"
+                                                    img_array = np.fromfile(full_path, np.uint8)
+                                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                                    imgs_ = imgs_set_(400, 70, 670, 120, cla, img, 0.85)
+                                                    if imgs_ is not None and imgs_ != False:
+                                                        print("chogwa_1", imgs_)
+                                                        is_get = True
+                                                        break
                                             time.sleep(0.1)
                                 if is_get == True:
                                     break
