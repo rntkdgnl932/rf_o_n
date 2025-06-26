@@ -516,6 +516,9 @@ def boonhae_go(cla):
                                 click_pos_2(645, 245, cla)
                                 time.sleep(0.5)
 
+                                click_pos_2(645, 415, cla)
+                                time.sleep(0.5)
+
                                 click_pos_2(870, 1020, cla)
                             else:
                                 print("안보야")
@@ -574,7 +577,9 @@ def boonhae_go(cla):
                                 click_pos_2(645, 245, cla)
                                 time.sleep(0.5)
 
-                                # click_pos_2(870, 1020, cla)
+                                click_pos_2(645, 415, cla)
+                                time.sleep(0.5)
+
                                 click_pos_2(870, 1020, cla)
                             else:
                                 print("안보야")
@@ -731,6 +736,9 @@ def boonhae_go_memorychip(cla):
                             print("memorychip_clicked", imgs_)
 
                             click_pos_2(645, 245, cla)
+                            time.sleep(0.5)
+
+                            click_pos_2(645, 415, cla)
                             time.sleep(0.5)
 
                             click_pos_2(870, 1020, cla)

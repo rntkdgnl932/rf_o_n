@@ -354,16 +354,29 @@ def mission_get_des(cla, data, chapter):
                             for i in range(len(file_list)):
 
                                 y_reg = 150
-                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\soolock_mission_checked.PNG"
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\soolock_mission_checked1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_for(40, 150, 270, 860, cla, img, 0.85)
+                                imgs_ = imgs_set_for(40, 150, 270, 860, cla, img, 0.75)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("soolock_mission_checked", imgs_)
+                                    print("soolock_mission_checked1", imgs_)
 
                                     if len(imgs_) > 0:
                                         y_reg = imgs_[len(imgs_) - 1][1] + 30
                                         print("y_reg", y_reg)
+
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\soolock_mission_checked2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_for(40, 150, 270, 860, cla, img, 0.75)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("soolock_mission_checked2", imgs_)
+
+                                        if len(imgs_) > 0:
+                                            y_reg_prepare = imgs_[len(imgs_) - 1][1] + 30
+                                            if y_reg < y_reg_prepare:
+                                                y_reg = y_reg_prepare
+                                            print("y_reg...", y_reg)
 
                                 this_list = file_list[len(file_list) - 1 - i]
 
@@ -435,12 +448,12 @@ def mission_get_des(cla, data, chapter):
                                 QTest.qWait(200)
 
 
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\soolock_mission_checked.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\soolock_mission_checked1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(40, 150, 270, 860, cla, img, 0.85)
+                            imgs_ = imgs_set_(40, 150, 270, 860, cla, img, 0.75)
                             if imgs_ is not None and imgs_ != False:
-                                print("soolock_mission_checked", imgs_)
+                                print("soolock_mission_checked1", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(0.5)
                                 QTest.qWait(200)
@@ -469,7 +482,40 @@ def mission_get_des(cla, data, chapter):
                                         QTest.qWait(1000)
 
                             else:
-                                myQuest_play_add(cla, chapter)
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\soolock_mission_checked2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(40, 150, 270, 860, cla, img, 0.75)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("soolock_mission_checked2", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.5)
+                                    QTest.qWait(200)
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\jinhang_btn.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(830, 990, 940, 1040, cla, img, 0.85)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("jinhang_btn", imgs_)
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        is_get = True
+                                    else:
+                                        clean_screen_start(cla)
+
+                                        for i in range(5):
+                                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\exit_btn.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.85)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("exit_btn", imgs_)
+                                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            else:
+                                                click_pos_2(25, 175, cla)
+                                            QTest.qWait(1000)
+
+                                else:
+                                    myQuest_play_add(cla, chapter)
 
             else:
 
