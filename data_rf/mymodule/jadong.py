@@ -197,10 +197,10 @@ def jadong_in(cla, data):
 
             if result_data[1] == "벨라토":
                 title_map = "bellato"
-                y_plus = 335 - 25
+                y_plus = 385 - 25
             elif result_data[1] == "아크레시아":
                 title_map = "acrecia"
-                y_plus = 380 - 25
+                y_plus = 385 - 25
             elif result_data[1] == "코라":
                 title_map = "kora"
                 y_plus = 360 - 25
