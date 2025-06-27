@@ -64,21 +64,33 @@ def dungeon_start(cla, data):
 
                 result_juljun = juljun_check(cla)
                 if result_juljun == True:
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\" + str(dun_name) + ".PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        if read_data[1] == "폐기장":
-                            print("pyegijang", imgs_)
 
-                        elif read_data[1] == "비밀기지":
-                            print("secret_base", imgs_)
+                    is_dun = False
 
-                        elif read_data[1] == "채굴장":
-                            print("chaegool", imgs_)
+                    for i in range(10):
 
-                        is_dun = True
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\" + str(dun_name) + ".PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            if read_data[1] == "폐기장":
+                                print("pyegijang", imgs_)
+
+                            elif read_data[1] == "비밀기지":
+                                print("secret_base", imgs_)
+
+                            elif read_data[1] == "채굴장":
+                                print("chaegool", imgs_)
+
+                            is_dun = True
+
+                            break
+
+                        QTest.qWait(500)
+
+                    if is_dun == True:
 
                         result_attack = attack_check(cla)
                         if result_attack == True:

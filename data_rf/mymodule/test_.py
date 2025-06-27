@@ -60,14 +60,32 @@ def go_test():
         # boonhae_go_memorychip(cla)
         data = "일일미션"
 
-        potion_check(cla)
+        dun_name = "pyegijang"
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\jabhwa_btn.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\" + str(dun_name) + ".PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(40, 40, 190, 210, cla, img, 0.85)
+        imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
-            print("jabhwa_btn", imgs_)
+            print("pyegijang", imgs_)
+
+        dun_name = "secret_base"
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\" + str(dun_name) + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("secret_base", imgs_)
+
+        dun_name = "chaegool"
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\" + str(dun_name) + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("chaegool", imgs_)
 
         # mission_get_des(cla, "month", data)
         # mission_get_des(cla, "week", data)
