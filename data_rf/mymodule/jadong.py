@@ -605,7 +605,7 @@ def jadong_mode(cla, title_map, des_map):
     from potion import potion_buy
     from massenger import line_to_me
     from game_check import game_check_start
-    from action import juljun_off
+    from action import juljun_off, attack_on
 
 
     try:
@@ -646,7 +646,17 @@ def jadong_mode(cla, title_map, des_map):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(350, 80, 580, 130, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    print("자동사냥중??")
+
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\attack\\attack_ready.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 100, 550, 150, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("attack_ready", imgs_)
+                        attack_on(cla)
+                    else:
+
+                        print("자동사냥중??")
                 else:
                     is_data = False
                     for i in range(3):
