@@ -309,7 +309,7 @@ def juljun_check(cla):
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\juljun\\max.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(10, 145, 100, 190, cla, img, 0.85)
+            imgs_ = imgs_set_(10, 125, 100, 170, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 print("max", imgs_)
                 boonhae_collection_start(cla)
@@ -478,34 +478,38 @@ def go_maul(cla):
             if imgs_ is not None and imgs_ != False:
                 is_data = False
             else:
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\guild_btn.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(40, 40, 190, 210, cla, img, 0.85)
-                if imgs_ is not None and imgs_ != False:
-                    drag_pos(120, 80, 120, 190, cla)
+                result_juljun = juljun_check(cla)
+                if result_juljun == True:
+                    juljun_off(cla)
                 else:
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\guild_btn.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(630, 980, 675, 1030, cla, img, 0.85)
+                    imgs_ = imgs_set_(40, 40, 190, 210, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                        already_maul = False
-                        for i in range(10):
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\already_maul_notice.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(330, 70, 600, 120, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                already_maul = True
-                                break
-                            time.sleep(0.1)
-                        if already_maul == True:
-                            click_pos_2(24, 52, cla)
+                        drag_pos(120, 80, 120, 190, cla)
                     else:
-                        clean_screen_start(cla)
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\maul_move_btn.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(630, 980, 675, 1030, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            already_maul = False
+                            for i in range(10):
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_maul\\already_maul_notice.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(330, 70, 600, 120, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    already_maul = True
+                                    break
+                                time.sleep(0.1)
+                            if already_maul == True:
+                                click_pos_2(24, 52, cla)
+                        else:
+                            clean_screen_start(cla)
             QTest.qWait(1000)
 
     except Exception as e:
