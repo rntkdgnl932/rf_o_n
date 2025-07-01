@@ -523,8 +523,11 @@ def go_random(cla):
     from function_game import drag_pos, imgs_set_, click_pos_reg, click_pos_2
     from clean_screen import clean_screen_start
     from game_check import out_check
+    from potion import potion_buy
     try:
         print("go_random")
+
+        is_have = True
 
 
         is_data = True
@@ -536,26 +539,38 @@ def go_random(cla):
 
             result_out = out_check(cla)
             if result_out == True:
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_random\\random_move_btn.PNG"
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_random\\no_have_random_item.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(580, 980, 630, 1030, cla, img, 0.85)
+                imgs_ = imgs_set_(580, 980, 630, 1030, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    print("no_have_random_item")
+                    is_have = False
+                    is_data = False
+                    potion_buy(cla)
+                else:
 
-                    time.sleep(5)
-                    for i in range(10):
-                        result_out = out_check(cla)
-                        if result_out == True:
-                            is_data = False
-                            break
-                        QTest.qWait(1000)
+
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_random\\random_move_btn.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(580, 980, 630, 1030, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                        time.sleep(5)
+                        for i in range(10):
+                            result_out = out_check(cla)
+                            if result_out == True:
+                                is_data = False
+                                break
+                            QTest.qWait(1000)
 
             else:
                 clean_screen_start(cla)
 
             QTest.qWait(1000)
-
+        return is_have
     except Exception as e:
         print(e)
 

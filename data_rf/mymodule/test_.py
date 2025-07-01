@@ -60,12 +60,13 @@ def go_test():
         # boonhae_go_memorychip(cla)
         data = "일일미션"
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\all_get_point_1.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_random\\no_have_random_item.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(150, 450, 680, 500, cla, img, 0.9)
+        imgs_ = imgs_set_(580, 980, 630, 1030, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
-            print("all_get_point_1", imgs_)
+            print("no_have_random_item", imgs_)
+
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\post_point_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)

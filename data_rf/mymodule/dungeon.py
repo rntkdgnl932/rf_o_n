@@ -97,9 +97,12 @@ def dungeon_start(cla, data):
                             potion_check(cla)
                         else:
                             juljun_off(cla)
-                            go_random(cla)
-                            click_pos_2(920, 925, cla)
-                            juljun_on(cla)
+                            result_random = go_random(cla)
+                            if result_random == True:
+                                click_pos_2(920, 925, cla)
+                                juljun_on(cla)
+                            else:
+                                is_dun = False
                     else:
                         is_dun = False
                 else:
@@ -410,10 +413,13 @@ def dun_in(cla, data):
                             imgs_ = imgs_set_(300, 480, 525, 525, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
                                 clean_screen_start(cla)
-                                go_random(cla)
-                                click_pos_2(920, 925, cla)
-                                juljun_on(cla)
-                                break
+                                result_random = go_random(cla)
+                                if result_random == True:
+                                    click_pos_2(920, 925, cla)
+                                    juljun_on(cla)
+                                    break
+                                else:
+                                    break
                             else:
                                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\time_lack_notice.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
@@ -427,10 +433,13 @@ def dun_in(cla, data):
                                 else:
                                     result_out = out_check(cla)
                                     if result_out == True:
-                                        go_random(cla)
-                                        click_pos_2(920, 925, cla)
-                                        juljun_on(cla)
-                                        break
+                                        result_random = go_random(cla)
+                                        if result_random == True:
+                                            click_pos_2(920, 925, cla)
+                                            juljun_on(cla)
+                                            break
+                                        else:
+                                            break
                                     else:
                                         loading_check(cla)
                             QTest.qWait(300)
