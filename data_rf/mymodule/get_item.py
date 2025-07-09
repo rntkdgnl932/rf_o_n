@@ -1515,7 +1515,7 @@ def get_event_click(cla, is_picture, y_point):
                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\twenty_five\\anymore_ticket_notice.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(150, 420, 420, 690, cla, img, 0.8)
+                imgs_ = imgs_set_(150, 60, 660, 110, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("anymore_ticket_notice", imgs_)
                     break
