@@ -1311,7 +1311,7 @@ def get_event_click(cla, is_picture, y_point):
 
         # 7 : 데일리출석이벤트!(twenty_one) o
 
-        # 8 : 아케인의유산!(all_get) o
+        # 8 : 아케인의유산!(all_get_2) o
 
         # 9 : rf패스시즌4(all_get) o
 
@@ -1333,8 +1333,10 @@ def get_event_click(cla, is_picture, y_point):
             data = "twenty_five"
         elif is_picture == "0":
             data = "length_five"
-        elif is_picture == "3" or is_picture == "4" or is_picture == "8" or is_picture == "9":
+        elif is_picture == "3" or is_picture == "4" or is_picture == "9":
             data = "all_get"
+        elif is_picture == "8":
+            data = "all_get_2"
         elif is_picture == "5" or is_picture == "0":
             data = "pass"
 
@@ -1574,6 +1576,58 @@ def get_event_click(cla, is_picture, y_point):
                             time.sleep(0.5)
 
                         allget_btn_click(cla)
+                    else:
+                        break
+                else:
+                    click_pos_2(755, y_point, cla)
+                QTest.qWait(200)
+
+        elif data == "all_get":
+
+            print("length_five")
+
+            for c in range(5):
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(is_picture) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("get_event_click : pic_num", is_picture)
+
+                    result_point = event_get_reg(cla, y_point)
+                    if result_point == True:
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(150, 450, 680, 500, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("menu_point_1", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
+
+                        allget_btn_click(cla)
+
+                        time.sleep(0.5)
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\all_get_point_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(150, 450, 680, 720, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("all_get_point_1", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\all_get_point_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(150, 450, 680, 720, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("all_get_point_2", imgs_)
+
+
                     else:
                         break
                 else:
