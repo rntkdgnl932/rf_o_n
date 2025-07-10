@@ -1582,7 +1582,7 @@ def get_event_click(cla, is_picture, y_point):
                     click_pos_2(755, y_point, cla)
                 QTest.qWait(200)
 
-        elif data == "all_get":
+        elif data == "all_get_2":
 
             print("length_five")
 
