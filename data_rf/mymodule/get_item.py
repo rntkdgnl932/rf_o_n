@@ -1626,6 +1626,10 @@ def get_event_click(cla, is_picture, y_point):
                         imgs_ = imgs_set_(150, 450, 680, 720, cla, img, 0.9)
                         if imgs_ is not None and imgs_ != False:
                             print("all_get_point_2", imgs_)
+                            click_pos_reg(imgs_.x + 90, imgs_.y + 10, cla)
+                            time.sleep(0.5)
+                            click_pos_reg(imgs_.x + 90 + 40, imgs_.y + 10, cla)
+                            time.sleep(0.5)
 
 
                     else:

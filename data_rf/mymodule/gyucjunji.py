@@ -92,12 +92,20 @@ def gyucjunji_check(cla, data):
 
             result_juljun = juljun_check(cla)
             if result_juljun == True:
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\juljun_map\\" + str(title_map) + "\\" + str(des_map) + ".PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(700, 510, 900, 555, cla, img, 0.9)
-                if imgs_ is not None and imgs_ != False:
-                    print("this map", str(title_map), str(des_map), imgs_)
+
+                is_gyucjunji = False
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\juljun_map\\" + str(
+                        title_map) + "\\" + str(des_map) + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(700, 510, 900, 555, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        print("this map", str(title_map), str(des_map), imgs_)
+                        is_gyucjunji = True
+
+                if is_gyucjunji == True:
                     result_attack = attack_check(cla)
                     if result_attack == True:
                         # potion_check(cla)

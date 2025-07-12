@@ -66,6 +66,8 @@ def go_test():
         imgs_ = imgs_set_(150, 450, 680, 720, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("all_get_point_1", imgs_)
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(0.5)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\all_get_point_2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -73,6 +75,10 @@ def go_test():
         imgs_ = imgs_set_(150, 450, 680, 720, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("all_get_point_2", imgs_)
+            click_pos_reg(imgs_.x + 90, imgs_.y + 10, cla)
+            time.sleep(0.5)
+            click_pos_reg(imgs_.x + 90 + 40, imgs_.y + 10, cla)
+            time.sleep(0.5)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\go_random\\no_have_random_item.PNG"
         img_array = np.fromfile(full_path, np.uint8)
