@@ -206,6 +206,7 @@ def mission_get_des(cla, data, chapter):
     from action import menu_open_pure, confirm_all
     from schedule import myQuest_play_add
     from clean_screen import clean_screen_start
+    from boonhae_collection import boonhae_collection_start
 
     try:
         print("mission_get_des", data)
@@ -311,7 +312,15 @@ def mission_get_des(cla, data, chapter):
                             time.sleep(0.5)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
-                            break
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\full_bag_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(200, 30, 860, 300, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("full_bag_1", imgs_)
+                                boonhae_collection_start(cla)
+                            else:
+                                break
                         QTest.qWait(200)
 
 
@@ -453,7 +462,15 @@ def mission_get_des(cla, data, chapter):
                                     time.sleep(0.5)
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                 else:
-                                    break
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\mission\\full_bag_1.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(200, 30, 860, 300, cla, img, 0.85)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("full_bag_1", imgs_)
+                                        boonhae_collection_start(cla)
+                                    else:
+                                        break
                                 QTest.qWait(200)
 
 
