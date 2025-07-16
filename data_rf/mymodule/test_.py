@@ -40,7 +40,7 @@ def go_test():
     from action import confirm_all, juljun_off_setting, go_maul, attack_on, juljun_check
     from character_select_and_game_start import game_start_screen
     from schedule import myQuest_play_check
-    from get_item import get_post, get_upjuk, get_event, get_item_start, get_sangjum_sohwan, allget_btn_click, get_sangjum_sohwan_start, jaelyo_jejak, get_memorychip
+    from get_item import get_post, get_upjuk, get_event, get_item_start, get_sangjum_sohwan, allget_btn_click, get_sangjum_sohwan_start, jaelyo_jejak, get_memorychip, guild_start
     from game_check import out_check, move_check, attack_check
     from boonhae_collection import collection_start, boonhae_go, boonhae_collection_start, collection_go, boonhae_go_memorychip
     from massenger import line_to_me
@@ -59,6 +59,36 @@ def go_test():
 
         # boonhae_go_memorychip(cla)
         data = "일일미션"
+
+        guild_start(cla)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\guild\\guild_point_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("guild_point_1", imgs_)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("close_2", imgs_)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_3.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("close_3", imgs_)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_4.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("close_4", imgs_)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\all_get_point_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
