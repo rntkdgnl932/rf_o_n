@@ -60,7 +60,7 @@ def go_test():
         # boonhae_go_memorychip(cla)
         data = "일일미션"
 
-        guild_start(cla)
+        get_sangjum_sohwan(cla)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\guild\\guild_point_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)

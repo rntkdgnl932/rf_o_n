@@ -176,7 +176,7 @@ def get_sangjum_sohwan_start(cla):
         while is_get is False:
             is_get_count += 1
             print("is_get_count", is_get_count)
-            if is_get_count > 30:
+            if is_get_count > 60:
                 is_get = True
             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_3.PNG"
             img_array = np.fromfile(full_path, np.uint8)
