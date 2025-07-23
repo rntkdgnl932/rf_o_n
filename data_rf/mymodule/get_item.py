@@ -1296,49 +1296,51 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - : 2, 3, 4, 5, 6
+        # - : 1, 2, 3, 4, 5, 8
 
-        # 1 : 100일축제스페셜출석이벤트(fourteen) o
+        # 1 : 여름바캉스스페셜출석이벤트(fourteen) 1
 
-        # 2 : 꽝없는뽑기이벤트(twenty_five) 2
+        # 2 : 여른바캉스썸머코인교환이벤트(gyohwan) 2
 
-        # 3 : 전투력성장지원미션이벤트(all_get) 3
+        # 3 : 아티팩트강화미션이벤트(all_get) 3
 
-        # 4 : 몬스터소탕컬렉션이벤트(all_get) 4
+        # 4 : 길드기부보상UP이벤트(pass) 4
 
-        # 5 : 일일미션횟수추가이벤트(pass) 5
+        # 5 : 썸머룰렛이벤트(all_get_2) 5
 
         # 6 :
 
         # 7 : 데일리출석이벤트!(twenty_one) o
 
-        # 8 : 아케인의유산!(all_get_2) o
+        # 8 :
 
         # 9 : rf패스시즌4(all_get) o
 
         # 10 :
 
 
-        # ?? : 꽝없는뽑기이벤트(twenty_five) 2
-        # ?? : 전투력성장지원미션이벤트(all_get) 3
-        # ?? : 몬스터소탕컬렉션이벤트(all_get) 4
-        # ?? : 일일미션횟수추가이벤트(pass) 5
-        # ?? :
+        # ?? : 여름바캉스스페셜출석이벤트(fourteen) 1
+        # ?? : 여른바캉스썸머코인교환이벤트(gyohwan) 2
+        # ?? : 아티팩트강화미션이벤트(all_get) 3
+        # ?? : 길드기부보상UP이벤트(pass) 4
+        # ?? : 썸머룰렛이벤트(all_get_2) 5
 
 
         if is_picture == "1" or is_picture == "0":
             data = "fourteen"
         elif is_picture == "7":
             data = "twenty_one"
-        elif is_picture == "2":
+        elif is_picture == "0":
             data = "twenty_five"
         elif is_picture == "0":
             data = "length_five"
-        elif is_picture == "3" or is_picture == "4" or is_picture == "9":
+        elif is_picture == "3" or is_picture == "9":
             data = "all_get"
-        elif is_picture == "8":
+        elif is_picture == "5":
             data = "all_get_2"
-        elif is_picture == "5" or is_picture == "0":
+        elif is_picture == "2":
+            data = "gyohwan"
+        elif is_picture == "4" or is_picture == "0":
             data = "pass"
 
 
@@ -1585,7 +1587,10 @@ def get_event_click(cla, is_picture, y_point):
 
         elif data == "all_get_2":
 
-            print("length_five")
+            print("all_get_2")
+
+
+
 
             for c in range(5):
 
@@ -1605,6 +1610,15 @@ def get_event_click(cla, is_picture, y_point):
                         imgs_ = imgs_set_(150, 450, 680, 500, cla, img, 0.9)
                         if imgs_ is not None and imgs_ != False:
                             print("menu_point_1", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\roulette\\contact_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(130, 340, 830, 730, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("contact_1", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                             time.sleep(0.5)
 
@@ -1631,6 +1645,41 @@ def get_event_click(cla, is_picture, y_point):
                             time.sleep(0.5)
                             click_pos_reg(imgs_.x + 90 + 40, imgs_.y + 10, cla)
                             time.sleep(0.5)
+
+
+                    else:
+                        break
+                else:
+                    click_pos_2(755, y_point, cla)
+                QTest.qWait(200)
+
+        elif data == "gyohwan":
+
+            print("gyohwan")
+
+
+
+
+            for c in range(5):
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(is_picture) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("get_event_click : pic_num", is_picture)
+
+                    result_point = event_get_reg(cla, y_point)
+                    if result_point == True:
+
+                        click_pos_2(580, 420, cla)
+                        time.sleep(0.5)
+                        click_pos_2(580, 490, cla)
+                        time.sleep(0.5)
+                        click_pos_2(580, 560, cla)
+                        time.sleep(0.5)
+                        click_pos_2(580, 630, cla)
+                        time.sleep(0.5)
 
 
                     else:
