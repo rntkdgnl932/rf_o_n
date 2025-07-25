@@ -60,7 +60,12 @@ def go_test():
         # boonhae_go_memorychip(cla)
         data = "일일미션"
 
-        boonhae_go_memorychip(cla)
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 380, 560, 430, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("title : pyegijang", imgs_)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\confirm_all\\post_confirm.PNG"
         img_array = np.fromfile(full_path, np.uint8)
