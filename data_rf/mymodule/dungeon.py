@@ -388,9 +388,9 @@ def dun_in(cla, data):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\num\\" + str(step) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(250, 430, 325, 680, cla, img, 0.8)
+                    imgs_ = imgs_set_(250, 430, 325, 680, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
-                        print("step", str(step), imgs_)
+                        print("step 1", str(step), imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.2)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -398,11 +398,25 @@ def dun_in(cla, data):
                         click_pos_2(660, 660, cla)
                         is_dun = False
                     else:
-                        if read_data[1] == "폐기장":
-                            if int(read_data[2]) < 5:
-                                drag_pos(290, 460, 290, 660, cla)
-                            else:
-                                drag_pos(290, 660, 290, 460, cla)
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\num2\\" + str(
+                            step) + ".PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(250, 430, 325, 680, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("step 2", str(step), imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            click_pos_2(660, 660, cla)
+                            is_dun = False
+                        else:
+                            if read_data[1] == "폐기장":
+                                if int(read_data[2]) < 5:
+                                    drag_pos(290, 460, 290, 660, cla)
+                                else:
+                                    drag_pos(290, 660, 290, 460, cla)
 
 
                     if is_dun == False:
