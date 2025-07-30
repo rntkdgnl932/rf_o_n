@@ -60,6 +60,7 @@ def go_test():
         # boonhae_go_memorychip(cla)
         data = "일일미션"
 
+        get_event(cla)
         # my_item = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title"
         # file_list = os.listdir(my_item)
         #

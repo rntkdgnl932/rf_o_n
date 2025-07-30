@@ -1694,34 +1694,36 @@ def get_event_click(cla, is_picture, y_point):
                     result_point = event_get_reg(cla, y_point)
                     if result_point == True:
 
-
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan\\gyohwan_btn.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(350, 600, 600, 730, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            print("gyohwan_btn", imgs_)
-                            x_reg = imgs_.x
-                            y_reg = imgs_.y
-
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan\\max.PNG"
+                        for xx in range(10):
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan\\gyohwan_btn.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(500, 500, 650, 600, cla, img, 0.8)
+                            imgs_ = imgs_set_(350, 600, 600, 730, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
-                                print("max", imgs_)
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                print("gyohwan_btn", imgs_)
+                                x_reg = imgs_.x
+                                y_reg = imgs_.y
+
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan\\max.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(500, 500, 650, 600, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("max", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.5)
+                                click_pos_reg(x_reg, y_reg, cla)
+                                time.sleep(1)
+                                click_pos_reg(x_reg, y_reg, cla)
                                 time.sleep(0.5)
-                            click_pos_reg(x_reg, y_reg, cla)
-                            time.sleep(1)
-                            click_pos_reg(x_reg, y_reg, cla)
+                            else:
+                                # 420, 490, 560, 630...70차이
+                                y_count += 1
+                                y_reg_2 = 350 + (70 * y_count)
+                                click_pos_2(580, y_reg_2, cla)
+                                time.sleep(0.5)
                             time.sleep(0.5)
-                        else:
-                            # 420, 490, 560, 630...70차이
-                            y_count += 1
-                            y_reg_2 = 350 + (70 * y_count)
-                            click_pos_2(580, y_reg_2, cla)
-                            time.sleep(0.5)
+
 
 
                     else:
