@@ -60,12 +60,60 @@ def go_test():
         # boonhae_go_memorychip(cla)
         data = "일일미션"
 
+        # my_item = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title"
+        # file_list = os.listdir(my_item)
+        #
+        # for i in range(len(file_list)):
+        #     result_file_list = file_list[i].split(".")
+        #     read_data = result_file_list[0]
+        #     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\" + str(read_data) + ".PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(30, 30, 160, 100, cla, img, 0.9)
+        #     if imgs_ is not None and imgs_ != False:
+        #         print("title : ", str(read_data))
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\memorychip_clicked.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(160, 680, 800, 800, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("des memorychip_clicked", imgs_)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\memorychip_clicked2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(160, 680, 800, 800, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("des memorychip_clicked2", imgs_)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\memorychip_registration_btn.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(160, 680, 800, 800, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("des memorychip_registration_btn", imgs_)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\ilgwal_buy.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(150, 1000, 280, 1040, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("ilgwal_buy", imgs_)
+
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\title.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(400, 380, 560, 430, cla, img, 0.7)
         if imgs_ is not None and imgs_ != False:
             print("title : pyegijang", imgs_)
+
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\\secret_base\\title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 380, 560, 430, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            print("title : ecret_base", imgs_)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\confirm_all\\post_confirm.PNG"
         img_array = np.fromfile(full_path, np.uint8)

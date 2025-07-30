@@ -643,16 +643,38 @@ def get_memorychip(cla):
                                 time.sleep(2)
 
                             else:
-                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\memorychip_registration_btn.PNG"
+
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\memorychip_clicked2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(160, 680, 800, 800, cla, img, 0.9)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("des memorychip_registration_btn", imgs_)
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    print("des memorychip_clicked2", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y - 25, cla)
+                                    time.sleep(0.2)
+                                    click_pos_reg(imgs_.x, imgs_.y - 25, cla)
                                     time.sleep(2)
+
                                 else:
-                                    break
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\memorychip_registration_btn.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(160, 680, 800, 800, cla, img, 0.9)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("des memorychip_registration_btn", imgs_)
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        time.sleep(2)
+                                    else:
+                                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\memorychip_registration_btn2.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(160, 680, 800, 800, cla, img, 0.9)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("des memorychip_registration_btn2", imgs_)
+                                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                                            time.sleep(2)
+                                        else:
+                                            break
                         else:
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\momorychip_complete.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
@@ -1296,17 +1318,17 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - : 1, 2, 3, 4, 5, 8
+        # - : 4, 5
 
-        # 1 : 여름바캉스스페셜출석이벤트(fourteen) 1
+        # 1 : 여름바캉스스페셜출석이벤트(fourteen) o
 
-        # 2 : 여른바캉스썸머코인교환이벤트(gyohwan) 2
+        # 2 : 여른바캉스썸머코인교환이벤트(gyohwan) o
 
-        # 3 : 아티팩트강화미션이벤트(all_get) 3
+        # 3 : 아티팩트강화미션이벤트(all_get) o
 
-        # 4 : 길드기부보상UP이벤트(pass) 4
+        # 4 : 지역던전/격전지추가혜택이벤트(pass) 4
 
-        # 5 : 썸머룰렛이벤트(all_get_2) 5
+        # 5 : 일일미션을하자!미션이벤트!(all_get) 5
 
         # 6 :
 
@@ -1314,16 +1336,16 @@ def get_event_click(cla, is_picture, y_point):
 
         # 8 :
 
-        # 9 : rf패스시즌4(all_get) o
+        # 9 : rf패스시즌4(all_get)
 
         # 10 :
 
 
-        # ?? : 여름바캉스스페셜출석이벤트(fourteen) 1
-        # ?? : 여른바캉스썸머코인교환이벤트(gyohwan) 2
-        # ?? : 아티팩트강화미션이벤트(all_get) 3
-        # ?? : 길드기부보상UP이벤트(pass) 4
-        # ?? : 썸머룰렛이벤트(all_get_2) 5
+        # ?? : 일일미션을하자!미션이벤트!(all_get) 5
+        # ?? : 지역던전/격전지추가혜택이벤트(pass) 4
+        # ?? :
+        # ?? :
+        # ?? :
 
 
         if is_picture == "1" or is_picture == "0":
@@ -1334,9 +1356,9 @@ def get_event_click(cla, is_picture, y_point):
             data = "twenty_five"
         elif is_picture == "0":
             data = "length_five"
-        elif is_picture == "3" or is_picture == "9":
+        elif is_picture == "3" or is_picture == "5" or is_picture == "9":
             data = "all_get"
-        elif is_picture == "5":
+        elif is_picture == "0":
             data = "all_get_2"
         elif is_picture == "2":
             data = "gyohwan"
@@ -1659,8 +1681,8 @@ def get_event_click(cla, is_picture, y_point):
 
 
 
-
-            for c in range(5):
+            y_count = 0
+            for c in range(7):
 
                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(is_picture) + ".PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -1672,14 +1694,34 @@ def get_event_click(cla, is_picture, y_point):
                     result_point = event_get_reg(cla, y_point)
                     if result_point == True:
 
-                        click_pos_2(580, 420, cla)
-                        time.sleep(0.5)
-                        click_pos_2(580, 490, cla)
-                        time.sleep(0.5)
-                        click_pos_2(580, 560, cla)
-                        time.sleep(0.5)
-                        click_pos_2(580, 630, cla)
-                        time.sleep(0.5)
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan\\gyohwan_btn.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(350, 600, 600, 730, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("gyohwan_btn", imgs_)
+                            x_reg = imgs_.x
+                            y_reg = imgs_.y
+
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan\\max.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(500, 500, 650, 600, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("max", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                            click_pos_reg(x_reg, y_reg, cla)
+                            time.sleep(1)
+                            click_pos_reg(x_reg, y_reg, cla)
+                            time.sleep(0.5)
+                        else:
+                            # 420, 490, 560, 630...70차이
+                            y_count += 1
+                            y_reg_2 = 350 + (70 * y_count)
+                            click_pos_2(580, y_reg_2, cla)
+                            time.sleep(0.5)
 
 
                     else:
