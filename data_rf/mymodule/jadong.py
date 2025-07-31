@@ -33,7 +33,7 @@ def jadong_check(cla, data):
     from game_check import out_check, attack_check
     from action import juljun_check, juljun_on, attack_on, juljun_off
     from clean_screen import clean_screen_start
-    from potion import potion_check
+    from potion import potion_check, potion_buy
     from dead_die import dead_check
 
     try:
@@ -124,6 +124,7 @@ def jadong_check(cla, data):
                     # potion_check(cla)
                     jadong_mode(cla, title_map, des_map)
                 else:
+                    potion_buy(cla)
                     jadong_in(cla, data)
 
             else:

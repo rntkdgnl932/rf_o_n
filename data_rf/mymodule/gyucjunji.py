@@ -30,6 +30,7 @@ def gyucjunji_check(cla, data):
     from clean_screen import clean_screen_start
     from jadong import jadong_mode
     from dead_die import dead_check
+    from potion import potion_buy
 
     try:
         print("gyucjunji_check", data)
@@ -100,7 +101,7 @@ def gyucjunji_check(cla, data):
                         title_map) + "\\" + str(des_map) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(700, 510, 900, 555, cla, img, 0.9)
+                    imgs_ = imgs_set_(700, 510, 900, 555, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("this map", str(title_map), str(des_map), imgs_)
                         is_gyucjunji = True
@@ -115,6 +116,7 @@ def gyucjunji_check(cla, data):
                         click_pos_2(920, 925, cla)
                         juljun_on(cla)
                 else:
+                    potion_buy(cla)
                     gyucjunji_in_ready(cla, data)
                     gyucjunji_in(cla, data)
                     # gyucjunji_jadong_in(cla, data)
@@ -640,6 +642,10 @@ def gyucjunji_in_ready(cla, data):
                     elif "동맹군" in read_data[1]:
                         gyuc_name = "kora"
                         y_reg = 335
+                    else:
+                        gyuc_name = "acrecia"
+                        y_reg = 155
+
 
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\" + str(gyuc_name) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
