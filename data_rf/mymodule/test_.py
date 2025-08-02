@@ -60,12 +60,45 @@ def go_test():
         # boonhae_go_memorychip(cla)
         data = "일일미션"
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\ilgwal_buy_title.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(400, 360, 540, 410, cla, img, 0.75)
-        if imgs_ is not None and imgs_ != False:
-            print("ilgwal_buy_title", imgs_)
+        # pyegijang
+        # secret_base
+        # chaegool
+
+        is_dun = False
+
+        for i in range(10):
+            dun_name = "pyegijang"
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\" + str(dun_name) + ".PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("pyegijang", imgs_)
+                is_dun = True
+            else:
+                dun_name = "secret_base"
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\" + str(
+                    dun_name) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    print("secret_base", imgs_)
+                    is_dun = True
+                else:
+                    dun_name = "chaegool"
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\" + str(
+                        dun_name) + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("chaegool", imgs_)
+                        is_dun = True
+            if is_dun == True:
+                break
+
+            QTest.qWait(500)
         # my_item = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title"
         # file_list = os.listdir(my_item)
         #
