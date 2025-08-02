@@ -504,8 +504,13 @@ def boonhae_go(cla):
                         break
                     else:
 
+                        jogun_1 = False
+                        jogun_2 = False
+                        jogun_3 = False
+                        jogun_4 = False
+                        jogun_5 = False
+                        jogun_6 = False
 
-                        #
                         # 일반
                         clicked = False
 
@@ -518,30 +523,14 @@ def boonhae_go(cla):
                             if imgs_ is not None and imgs_ != False:
                                 print("clicked 1 : ", c + 1, imgs_)
                                 clicked = True
+                                jogun_1 = True
                                 break
 
                         if clicked == False:
                             click_pos_2(530, 245, cla)
                             time.sleep(0.5)
 
-                        # 희귀
-                        if v_.onCollection == True:
-                            clicked = False
 
-                            for c in range(2):
-                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
-                                    c + 1) + ".PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(440, 250, 530, 285, cla, img, 0.9)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("clicked 2 : ", c + 1, imgs_)
-                                    clicked = True
-                                    break
-
-                            if clicked == False:
-                                click_pos_2(530, 275, cla)
-                                time.sleep(0.5)
 
                         # 장비
                         clicked = False
@@ -553,8 +542,9 @@ def boonhae_go(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(440, 290, 530, 330, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("clicked 3 : ", c + 1, imgs_)
+                                print("clicked 2 : ", c + 1, imgs_)
                                 clicked = True
+                                jogun_2 = True
                                 break
 
                         if clicked == False:
@@ -571,8 +561,9 @@ def boonhae_go(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(570, 220, 640, 270, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("clicked 4 : ", c + 1, imgs_)
+                                print("clicked 3 : ", c + 1, imgs_)
                                 clicked = True
+                                jogun_3 = True
                                 break
 
                         if clicked == False:
@@ -589,8 +580,9 @@ def boonhae_go(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(440, 385, 530, 435, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("clicked 5 : ", c + 1, imgs_)
+                                print("clicked 4 : ", c + 1, imgs_)
                                 clicked = True
+                                jogun_4 = True
                                 break
 
                         if clicked == False:
@@ -607,13 +599,35 @@ def boonhae_go(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(570, 385, 640, 435, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("clicked 6 : ", c + 1, imgs_)
+                                print("clicked 5 : ", c + 1, imgs_)
                                 clicked = True
+                                jogun_5 = True
                                 break
 
                         if clicked == False:
                             click_pos_2(645, 415, cla)
                             time.sleep(0.5)
+
+                        # 희귀
+                        if v_.onCollection == True:
+                            clicked = False
+
+                            for c in range(2):
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
+                                    c + 1) + ".PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(440, 250, 530, 285, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("clicked 6 : ", c + 1, imgs_)
+                                    clicked = True
+                                    jogun_6 = True
+                                    break
+
+                            if clicked == False:
+                                click_pos_2(530, 275, cla)
+                                time.sleep(0.5)
+
                         #
 
                         click_pos_2(870, 1020, cla)
@@ -622,6 +636,12 @@ def boonhae_go(cla):
 
                         confirm_all(cla)
 
+                        if jogun_1 == True and jogun_2 == True and jogun_3 == True and jogun_4 == True and jogun_5 == True:
+                            if v_.onCollection == True:
+                                if jogun_6 == True:
+                                    break
+                            else:
+                                break
 
                     time.sleep(0.5)
 
@@ -713,6 +733,12 @@ def boonhae_go_memorychip(cla):
                     else:
 
                         #
+                        jogun_1 = False
+                        jogun_2 = False
+                        jogun_3 = False
+                        jogun_4 = False
+                        jogun_5 = False
+                        jogun_6 = False
                         # 일반
                         clicked = False
 
@@ -725,30 +751,14 @@ def boonhae_go_memorychip(cla):
                             if imgs_ is not None and imgs_ != False:
                                 print("clicked 1 : ", c + 1, imgs_)
                                 clicked = True
+                                jogun_1 = True
                                 break
 
                         if clicked == False:
                             click_pos_2(530, 245, cla)
                             time.sleep(0.5)
 
-                        # 희귀
-                        if v_.onCollection == True:
-                            clicked = False
 
-                            for c in range(2):
-                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
-                                    c + 1) + ".PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(440, 250, 530, 285, cla, img, 0.9)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("clicked 2 : ", c + 1, imgs_)
-                                    clicked = True
-                                    break
-
-                            if clicked == False:
-                                click_pos_2(530, 275, cla)
-                                time.sleep(0.5)
 
                         # 장비
                         clicked = False
@@ -760,8 +770,9 @@ def boonhae_go_memorychip(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(440, 290, 530, 330, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("clicked 3 : ", c + 1, imgs_)
+                                print("clicked 2 : ", c + 1, imgs_)
                                 clicked = True
+                                jogun_2 = True
                                 break
 
                         if clicked == False:
@@ -778,8 +789,9 @@ def boonhae_go_memorychip(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(440, 315, 530, 370, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("clicked 메모리칩 : ", c + 1, imgs_)
+                                print("clicked 3 메모리칩 : ", c + 1, imgs_)
                                 clicked = True
+                                jogun_3 = True
                                 break
 
                         if clicked == False:
@@ -798,6 +810,7 @@ def boonhae_go_memorychip(cla):
                             if imgs_ is not None and imgs_ != False:
                                 print("clicked 4 : ", c + 1, imgs_)
                                 clicked = True
+                                jogun_4 = True
                                 break
 
                         if clicked == False:
@@ -814,14 +827,34 @@ def boonhae_go_memorychip(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(440, 385, 530, 435, cla, img, 0.9)
                             if imgs_ is not None and imgs_ != False:
-                                print("clicked 등록완료 : ", c + 1, imgs_)
+                                print("clicked 5 등록완료 : ", c + 1, imgs_)
                                 clicked = True
+                                jogun_5 = True
                                 break
 
                         if clicked == False:
                             click_pos_2(530, 415, cla)
                             time.sleep(0.5)
 
+                        # 희귀
+                        if v_.onCollection == True:
+                            clicked = False
+
+                            for c in range(2):
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\clicked_" + str(
+                                    c + 1) + ".PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(440, 250, 530, 285, cla, img, 0.9)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("clicked 6 : ", c + 1, imgs_)
+                                    clicked = True
+                                    jogun_6 = True
+                                    break
+
+                            if clicked == False:
+                                click_pos_2(530, 275, cla)
+                                time.sleep(0.5)
 
                         #
 
@@ -830,6 +863,13 @@ def boonhae_go_memorychip(cla):
                         time.sleep(0.5)
 
                         confirm_all(cla)
+
+                        if jogun_1 == True and jogun_2 == True and jogun_3 == True and jogun_4 == True and jogun_5 == True:
+                            if v_.onCollection == True:
+                                if jogun_6 == True:
+                                    break
+                            else:
+                                break
 
                     time.sleep(0.5)
 

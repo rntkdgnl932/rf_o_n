@@ -60,13 +60,12 @@ def go_test():
         # boonhae_go_memorychip(cla)
         data = "일일미션"
 
-        for i in range(10):
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\juljun_map\\joonglib\\4.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(700, 510, 900, 555, cla, img, 0.9)
-            if imgs_ is not None and imgs_ != False:
-                print("this map", imgs_)
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\potion\\ilgwal_buy_title.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 360, 540, 410, cla, img, 0.75)
+        if imgs_ is not None and imgs_ != False:
+            print("ilgwal_buy_title", imgs_)
         # my_item = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title"
         # file_list = os.listdir(my_item)
         #

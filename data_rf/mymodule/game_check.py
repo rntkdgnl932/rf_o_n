@@ -156,6 +156,8 @@ def move_check(cla):
     import cv2
     from function_game import imgs_set_
 
+    my_item = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title"
+    file_list = os.listdir(my_item)
 
     try:
         print("move_check")
@@ -189,6 +191,20 @@ def move_check(cla):
                     result_out = out_check(cla)
                     if result_out == True:
                         is_move_count += 1
+                    else:
+
+                        for i in range(len(file_list)):
+                            result_file_list = file_list[i].split(".")
+                            read_data = result_file_list[0]
+
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\" + str(read_data) + ".PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(30, 30, 200, 100, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("title is", str(read_data), imgs_)
+                                is_move = False
+                                break
             QTest.qWait(2000)
 
     except Exception as e:
