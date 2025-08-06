@@ -1318,32 +1318,32 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - : 4, 5
+        # - : 3, 9
 
         # 1 : 여름바캉스스페셜출석이벤트(fourteen) o
 
-        # 2 : 여른바캉스썸머코인교환이벤트(gyohwan) o
+        # 2 : 여른바캉스썸머코인교환이벤트(gyohwan)
 
-        # 3 : 아티팩트강화미션이벤트(all_get) o
+        # 3 : 여름바캉스물놀이준비제작이벤트(pass) 3
 
-        # 4 : 지역던전/격전지추가혜택이벤트(pass) 4
+        # 4 : 지역던전/격전지추가혜택이벤트(pass) o
 
-        # 5 : 일일미션을하자!미션이벤트!(all_get) 5
+        # 5 : 일일미션을하자!미션이벤트!(all_get) o
 
-        # 6 :
+        # 6 : rf패스시즌5(all_get) 6
 
         # 7 : 데일리출석이벤트!(twenty_one) o
 
-        # 8 :
+        # 8 : 몬스터를처치하자미션이벤트(all_get) 8
 
-        # 9 : rf패스시즌4(all_get)
+        # 9 :
 
         # 10 :
 
 
-        # ?? : 일일미션을하자!미션이벤트!(all_get) 5
-        # ?? : 지역던전/격전지추가혜택이벤트(pass) 4
-        # ?? :
+        # ?? : 여름바캉스물놀이준비제작이벤트(pass) 3
+        # ?? : 몬스터를처치하자미션이벤트(all_get) 8
+        # ?? : rf패스시즌5(all_get) 6
         # ?? :
         # ?? :
 
@@ -1356,13 +1356,13 @@ def get_event_click(cla, is_picture, y_point):
             data = "twenty_five"
         elif is_picture == "0":
             data = "length_five"
-        elif is_picture == "3" or is_picture == "5" or is_picture == "9":
+        elif is_picture == "5" or is_picture == "6" or is_picture == "8":
             data = "all_get"
         elif is_picture == "0":
             data = "all_get_2"
         elif is_picture == "2":
             data = "gyohwan"
-        elif is_picture == "4" or is_picture == "0":
+        elif is_picture == "4" or is_picture == "3":
             data = "pass"
 
 
