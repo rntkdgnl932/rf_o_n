@@ -923,11 +923,22 @@ def get_event(cla):
             imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.9)
             if imgs_ is not None and imgs_ != False:
                 print("title : close_2")
+                is_event_point = False
                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(790, 370, 830, 730, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
+                    is_event_point = True
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(790, 370, 830, 730, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        is_event_point = True
+
+                if is_event_point == True:
 
                     # 반복문
 
@@ -962,6 +973,38 @@ def get_event(cla):
                                 is_picture = str(pic_num)
                                 get_event_click(cla, is_picture, y_point)
                                 break
+                    else:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(790, 370, 830, 730, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("event_point_2", imgs_)
+
+                            y_point = imgs_.y
+
+                            click_pos_reg(imgs_.x - 50, imgs_.y, cla)
+                            time.sleep(0.5)
+                            click_pos_reg(imgs_.x - 50, imgs_.y, cla)
+                            time.sleep(0.5)
+
+                            # 그림 파악하기
+
+                            for n in range(len(file_list)):
+
+                                pic_num_ready = file_list[n]
+                                pic_num = pic_num_ready.split(".")[0]
+
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(
+                                    pic_num) + ".PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("pic_num", pic_num)
+                                    is_picture = str(pic_num)
+                                    get_event_click(cla, is_picture, y_point)
+                                    break
 
                 else:
 
@@ -975,7 +1018,15 @@ def get_event(cla):
                             is_point = True
                             break
                         else:
-                            drag_pos(770, 700, 770, 400, cla)
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(790, 370, 830, 730, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                is_point = True
+                                break
+                            else:
+                                drag_pos(770, 700, 770, 400, cla)
                         QTest.qWait(500)
                     if is_point == False:
                         is_get = True
@@ -1150,11 +1201,24 @@ def get_promotion(cla):
             imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.9)
             if imgs_ is not None and imgs_ != False:
                 print("title : close_2")
+
+                is_event_point = False
+
                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(790, 370, 830, 730, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
+                    is_event_point = True
+                else:
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_2.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(790, 370, 830, 730, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        is_event_point = True
+
+                if is_event_point == True:
 
                     # 반복문
 
@@ -1189,7 +1253,38 @@ def get_promotion(cla):
                                 is_picture = str(pic_num)
                                 get_event_click(cla, is_picture, y_point)
                                 break
+                    else:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(790, 370, 830, 730, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            print("event_point_2", imgs_)
 
+                            y_point = imgs_.y
+
+                            click_pos_reg(imgs_.x - 50, imgs_.y + 20, cla)
+                            time.sleep(0.5)
+                            click_pos_reg(imgs_.x - 50, imgs_.y + 20, cla)
+                            time.sleep(0.5)
+
+                            # 그림 파악하기
+
+                            for n in range(len(file_list)):
+
+                                pic_num_ready = file_list[n]
+                                pic_num = pic_num_ready.split(".")[0]
+
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(
+                                    pic_num) + ".PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("pic_num", pic_num)
+                                    is_picture = str(pic_num)
+                                    get_event_click(cla, is_picture, y_point)
+                                    break
                 else:
                     is_get = True
 
@@ -1261,6 +1356,14 @@ def event_get_reg(cla, y_point):
         if imgs_ is not None and imgs_ != False:
             print("e_in_point_1", imgs_)
             is_point = True
+        else:
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(790, y_point - 20, 830, y_point + 20, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("event_point_2", imgs_)
+                is_point = True
 
         return is_point
     except Exception as e:
