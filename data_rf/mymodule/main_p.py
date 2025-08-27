@@ -196,6 +196,9 @@ class MyApp(QDialog):
         else:
             my_monitor = 0
 
+        if line_[1] == "super_coob":
+            my_monitor = 0
+
         from console_position import set_console_on_monitor
         ok = set_console_on_monitor(
             monitor_index=my_monitor,
