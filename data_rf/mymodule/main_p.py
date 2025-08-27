@@ -190,6 +190,20 @@ class MyApp(QDialog):
         elif last_monitor_number == 3:
             x_reg = 960 * 3
 
+        monitor_position = "topright"
+        if x_reg == 2880:
+            my_monitor = 1
+        else:
+            my_monitor = 0
+
+        from console_position import set_console_on_monitor
+        ok = set_console_on_monitor(
+            monitor_index=my_monitor,
+            client_w=800, client_h=800,
+            anchor=monitor_position, margin=(40, 40),
+            cols=None, lines=None
+        )
+
         self.setGeometry(20 + x_reg, y_reg, 900, 850)
         self.show()
     def my_title(self):
