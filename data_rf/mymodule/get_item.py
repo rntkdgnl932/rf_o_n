@@ -1456,9 +1456,9 @@ def get_event_click(cla, is_picture, y_point):
         elif is_picture == "7":
             data = "twenty_one"
         elif is_picture == "0":
-            data = "twenty_five"
-        elif is_picture == "6" or is_picture == "8":
             data = "length_five"
+        elif is_picture == "6" or is_picture == "8":
+            data = "twenty_five"
         elif is_picture == "4" or is_picture == "5" or is_picture == "1" or is_picture == "9":
             data = "all_get"
         elif is_picture == "3" or is_picture == "0":

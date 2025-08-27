@@ -16,7 +16,7 @@ def go_test():
     import random
 
 
-    cla = "one"
+    cla = "two"
 
     plus = 0
 
@@ -63,6 +63,8 @@ def go_test():
         # pyegijang
         # secret_base
         # chaegool
+
+        get_event(cla)
 
         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\roulette\\contact_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
