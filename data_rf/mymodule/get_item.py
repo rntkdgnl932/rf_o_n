@@ -1421,51 +1421,57 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - :
+        # - : 1, 7
 
-        # 1 : 여름나기7일미션이벤트(all_get) 1
+        # 1 : 데일리출석이벤트시즌2(twenty_one) 1
 
-        # 2 :
-        # 3 :
+        # 2 : 0.5주년전야제스페설출석부이벤트(fourteen) o
 
-        # 4 :
+        # 3 : 행운을잡아라캡슐이벤트(all_get_2) o
 
-        # 5 :
+        # 4 : 아케인의유산(all_get) o
 
-        # 6 :
+        # 5 : 유적단조사단패스!(all_get) o
 
-        # 7 : 데일리출석이벤트!(twenty_one) 7
+        # 6 : 잊혀진유적지조사(twenty_five) o
 
-        # 8 :
+        # 7 : 경험치부스트!핫타임이벤트(pass) 7
 
-        # 9 :
-        # 10 :
+        # 8 : 전설적인유적지조사(twenty_five) o
+
+        # 9 : 전설적인보물열쇠지원미션(all_get) o
+
+        # 10 : 길드기부보상up!이벤트(pass) 10
+
+        # 11 : 격돌하는워존알베론총력전(pass) 11
+
+        # 12 : RF패스시즌6(all_get) 12
 
 
-        # ?? : 0.5주년전야제스페설출석부이벤트(fourteen) 2
-        # ?? : 행운을잡아라캡슐이벤트(all_get_2) 3
-        # ?? : 아케인의유산(all_get) 4
-        # ?? : 유적단조사단패스!(all_get) 5
-        # ?? : 잊혀진유적지조사(twenty_five) 6
-        # ?? : 전설적인유적지조사(twenty_five)  8
-        # ?? : 전설적인보물열쇠지원미션(all_get) 9
+        # ?? : 데일리출석이벤트시즌2(twenty_one) 1
+        # ?? : 경험치부스트!핫타임이벤트(pass) 7
+        # ?? : 길드기부보상up!이벤트(pass) 10
+        # ?? : 격돌하는워존알베론총력전(pass) 11
+        # ?? : RF패스시즌6(all_get) 12
+        # ?? :
+        # ?? :
 
 
         if is_picture == "2" or is_picture == "0":
             data = "fourteen"
-        elif is_picture == "7":
+        elif is_picture == "1":
             data = "twenty_one"
         elif is_picture == "0":
             data = "length_five"
         elif is_picture == "6" or is_picture == "8":
             data = "twenty_five"
-        elif is_picture == "4" or is_picture == "5" or is_picture == "1" or is_picture == "9":
+        elif is_picture == "4" or is_picture == "5" or is_picture == "12" or is_picture == "9":
             data = "all_get"
         elif is_picture == "3" or is_picture == "0":
             data = "all_get_2"
         elif is_picture == "0":
             data = "gyohwan"
-        elif is_picture == "0" or is_picture == "0":
+        elif is_picture == "7" or is_picture == "10" or is_picture == "11":
             data = "pass"
 
 
