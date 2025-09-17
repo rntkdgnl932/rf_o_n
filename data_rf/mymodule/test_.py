@@ -16,7 +16,7 @@ def go_test():
     import random
 
 
-    cla = "two"
+    cla = "one"
 
     plus = 0
 
@@ -64,14 +64,12 @@ def go_test():
         # secret_base
         # chaegool
 
-        get_event(cla)
-
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\roulette\\contact_1.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(130, 340, 830, 730, cla, img, 0.8)
+        imgs_ = imgs_set_(130, 340, 700, 730, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
-            print("contact_1", imgs_)
+            print("checkedcheckedcheckedcheckedcheckedchecked", imgs_)
 
         # boonhae_collection_start(cla)
         #

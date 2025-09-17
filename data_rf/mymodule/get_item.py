@@ -1421,43 +1421,42 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - : 5 - 9, 11
+        # - : 2 - 6, 10
 
         # 1 : 데일리출석이벤트시즌2(twenty_one) o
 
-        # 2 : 0.5주년전야제스페설출석부이벤트(fourteen) o
+        # 2 :
 
-        # 3 : 행운을잡아라캡슐이벤트(all_get_2) o
+        # 3 :
 
-        # 4 : 아케인의유산(all_get) o
+        # 4 :
 
-        # 5 : 돌려돌려룰렛이벤트(all_get_2) 5
+        # 5 :
 
-        # 6 : 몬스터데이터를모으자이벤트(all_get) 6
+        # 6 :
 
-        # 7 : 지역던전/격전지추가혜택이벤트(pass) 7
+        # 7 : 지역던전/격전지추가혜택이벤트(pass) o
 
         # 8 :
 
         # 9 :
 
-        # 10 : 길드기부보상up!이벤트(pass) o
+        # 10 :
 
         # 11 :
 
         # 12 : RF패스시즌6(all_get) o
 
 
-        # ?? : 돌려돌려룰렛이벤트(all_get_2) 5
+        # ?? : 멈추지않는여정,용벙의길(all_get) 2
+        # ?? : 아르카의특별한제작이벤트(pass) 3
+        # ?? : 0.5주년축제카운트다운!출석이벤트(seven) 4
+        # ?? : 둘렛이벤트(all_get_2) 5
         # ?? : 몬스터데이터를모으자이벤트(all_get) 6
-        # ?? : 지역던전/격전지추가혜택이벤트(pass) 7
-        # ?? :
-        # ?? :
-        # ?? :
         # ?? :
 
 
-        if is_picture == "2" or is_picture == "0":
+        if is_picture == "0" or is_picture == "0":
             data = "fourteen"
         elif is_picture == "1":
             data = "twenty_one"
@@ -1465,13 +1464,13 @@ def get_event_click(cla, is_picture, y_point):
             data = "length_five"
         elif is_picture == "0" or is_picture == "0":
             data = "twenty_five"
-        elif is_picture == "4" or is_picture == "6" or is_picture == "12" or is_picture == "0":
+        elif is_picture == "2" or is_picture == "6" or is_picture == "12" or is_picture == "0":
             data = "all_get"
-        elif is_picture == "3" or is_picture == "5":
+        elif is_picture == "5" or is_picture == "0":
             data = "all_get_2"
         elif is_picture == "0":
             data = "gyohwan"
-        elif is_picture == "7" or is_picture == "10" or is_picture == "0":
+        elif is_picture == "7" or is_picture == "3" or is_picture == "0":
             data = "pass"
 
 
@@ -1543,6 +1542,42 @@ def get_event_click(cla, is_picture, y_point):
                 else:
                     click_pos_2(755, y_point, cla)
                 QTest.qWait(200)
+
+        elif data == "seven":
+            print("seven")
+
+
+
+
+
+            for c in range(5):
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(is_picture) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("get_event_click : pic_num", is_picture)
+
+                    result_point = event_get_reg(cla, y_point)
+                    if result_point == True:
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\fourteen\\checked.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_for = imgs_set_for(130, 340, 700, 730, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+
+                            if len(imgs_for) > 0:
+                                click_x = imgs_for[len(imgs_for) - 1][0]
+                                click_y = imgs_for[len(imgs_for) - 1][1]
+                                click_pos_reg(click_x + 80, click_y, cla)
+                            else:
+                                click_pos_2(200, 550, cla)
+                    else:
+                        break
+                else:
+                    click_pos_2(755, y_point, cla)
+                QTest.qWait(200)
+
         elif data == "twenty_one":
             print("twenty_one")
 
