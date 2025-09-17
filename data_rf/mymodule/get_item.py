@@ -1425,15 +1425,15 @@ def get_event_click(cla, is_picture, y_point):
 
         # 1 : 데일리출석이벤트시즌2(twenty_one) o
 
-        # 2 :
+        # 2 : 멈추지않는여정,용벙의길(all_get) 2
 
-        # 3 :
+        # 3 : 아르카의특별한제작이벤트(pass) 3
 
-        # 4 :
+        # 4 : 0.5주년축제카운트다운!출석이벤트(seven) 4
 
-        # 5 :
+        # 5 : 둘렛이벤트(all_get_2) 5
 
-        # 6 :
+        # 6 : 몬스터데이터를모으자이벤트(all_get) 6
 
         # 7 : 지역던전/격전지추가혜택이벤트(pass) o
 
@@ -1458,6 +1458,8 @@ def get_event_click(cla, is_picture, y_point):
 
         if is_picture == "0" or is_picture == "0":
             data = "fourteen"
+        elif is_picture == "4":
+            data = "seven"
         elif is_picture == "1":
             data = "twenty_one"
         elif is_picture == "0":
