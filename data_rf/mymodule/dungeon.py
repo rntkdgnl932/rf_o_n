@@ -7,6 +7,7 @@ import variable as v_
 from PyQt5.QtTest import *
 sys.path.append('C:/my_games/' + str(v_.game_folder) + '/' + str(v_.data_folder) + '/mymodule')
 
+kind_map_ready = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\"
 
 
 def dungeon_start(cla, data):
@@ -65,29 +66,21 @@ def dungeon_start(cla, data):
                 result_juljun = juljun_check(cla)
                 if result_juljun == True:
 
-                    is_dun = False
-
                     for i in range(10):
+                        kind_map = kind_map_ready + str(dun_name) + "\\" + str(dun_name) + "\\"
+                        map_ = os.listdir(kind_map)
+                        for p in range(len(map_)):
+                            full_path = str(kind_map) + map_[p]
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("dun map!!!!!", map_[p], imgs_)
+                                is_dun = True
+                                break
 
-
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\" + str(dun_name) + ".PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.8)
-                        if imgs_ is not None and imgs_ != False:
-                            if read_data[1] == "폐기장":
-                                print("pyegijang", imgs_)
-
-                            elif read_data[1] == "비밀기지":
-                                print("secret_base", imgs_)
-
-                            elif read_data[1] == "채굴장":
-                                print("chaegool", imgs_)
-
-                            is_dun = True
-
+                        if is_dun == True:
                             break
-
                         QTest.qWait(500)
 
                     if is_dun == True:

@@ -20,6 +20,7 @@ def dead_check(cla):
     from clean_screen import clean_screen_start
     from game_check import loading_check, out_check
 
+
     try:
         print("dead_check")
 

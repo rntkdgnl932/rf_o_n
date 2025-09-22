@@ -63,8 +63,26 @@ def go_test():
         # pyegijang
         # secret_base
         # chaegool
+        dun_name = "pyegijang"
+        kind_map_ready = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\"
 
-        get_post(cla)
+        is_dun = False
+        for i in range(10):
+            kind_map = kind_map_ready + str(dun_name) + "\\" + str(dun_name) + "\\"
+            map_ = os.listdir(kind_map)
+            for p in range(len(map_)):
+                full_path = str(kind_map) + map_[p]
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(700, 515, 900, 555, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("dun map!!!!!", map_[p], imgs_)
+                    is_dun = True
+                    break
+
+            if is_dun == True:
+                break
+            QTest.qWait(500)
 
         # boonhae_collection_start(cla)
         #
