@@ -1466,21 +1466,21 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - : 2 - 6, 10
+        # - : 3 ~ 12
 
         # 1 : 데일리출석이벤트시즌2(twenty_one) o
 
-        # 2 : 멈추지않는여정,용벙의길(all_get) 2
+        # 2 : 멈추지않는여정,용벙의길(all_get) o
 
-        # 3 : 아르카의특별한제작이벤트(pass) 3
+        # 3 :
 
-        # 4 : 0.5주년축제카운트다운!출석이벤트(seven) 4
+        # 4 :
 
-        # 5 : 둘렛이벤트(all_get_2) 5
+        # 5 :
 
-        # 6 : 몬스터데이터를모으자이벤트(all_get) 6
+        # 6 :
 
-        # 7 : 지역던전/격전지추가혜택이벤트(pass) o
+        # 7 :
 
         # 8 :
 
@@ -1490,34 +1490,34 @@ def get_event_click(cla, is_picture, y_point):
 
         # 11 :
 
-        # 12 : RF패스시즌6(all_get) o
+        # 12 :
 
 
-        # ?? : 멈추지않는여정,용벙의길(all_get) 2
-        # ?? : 아르카의특별한제작이벤트(pass) 3
-        # ?? : 0.5주년축제카운트다운!출석이벤트(seven) 4
-        # ?? : 둘렛이벤트(all_get_2) 5
-        # ?? : 몬스터데이터를모으자이벤트(all_get) 6
+        # ?? : 전설적인보물열쇠패스(all_get) 3
+        # ?? : 전설적인유적지조사(twenty_five) 4
+        # ?? : 전설적인보물열쇠지원미션(all_get) 5
+        # ?? : 0.5년축제스페출출석이벤트(fourteen) 6
+        # ?? : 0.5년축제7일미션이벤트(all_get) 7
+        # ?? : 0.5년축제스페셜미션이벤트(all_get) 8
         # ?? :
 
-
-        if is_picture == "0" or is_picture == "0":
+        if is_picture == "6" or is_picture == "0":
             data = "fourteen"
-        elif is_picture == "4":
+        elif is_picture == "0":
             data = "seven"
         elif is_picture == "1":
             data = "twenty_one"
         elif is_picture == "0":
             data = "length_five"
-        elif is_picture == "0" or is_picture == "0":
+        elif is_picture == "4" or is_picture == "0":
             data = "twenty_five"
-        elif is_picture == "2" or is_picture == "6" or is_picture == "12" or is_picture == "0":
+        elif is_picture == "2" or is_picture == "3" or is_picture == "5" or is_picture == "7" or is_picture == "8":
             data = "all_get"
-        elif is_picture == "5" or is_picture == "0":
+        elif is_picture == "0" or is_picture == "0":
             data = "all_get_2"
         elif is_picture == "0":
             data = "gyohwan"
-        elif is_picture == "7" or is_picture == "3" or is_picture == "0":
+        elif is_picture == "0" or is_picture == "0" or is_picture == "0":
             data = "pass"
 
 
