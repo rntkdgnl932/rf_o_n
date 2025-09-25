@@ -36,7 +36,7 @@ def game_check_start(cla):
             if imgs_ is not None and imgs_ != False:
                 print("jangsigan_1", imgs_)
 
-                click_pos_2(480, 620, cla)
+                click_pos_2(480, 635, cla)
 
                 # why = "장시간...."
                 # line_to_me(cla, why)
@@ -249,14 +249,14 @@ def out_check(cla):
 
         is_data = False
 
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan_1.PNG"
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\game_check\\jangsigan\\jangsigan.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(330, 500, 500, 600, cla, img, 0.85)
+        imgs_ = imgs_set_(270, 300, 800, 800, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
-            print("jangsigan_1", imgs_)
+            print("jangsigan", imgs_)
 
-            click_pos_2(480, 620, cla)
+            click_pos_2(480, 635, cla)
 
             # why = "장시간인데 로그인 되는지 확인하라"
             # line_to_me(cla, why)
