@@ -567,7 +567,7 @@ def character_change(cla, character_id):
 
                     # 메뉴 열기
                     menu_open(cla)
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\character_start\\menu_character.PNG"
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\character.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)

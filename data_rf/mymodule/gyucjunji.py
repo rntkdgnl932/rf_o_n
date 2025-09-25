@@ -517,7 +517,7 @@ def gyucjunji_in(cla, data):
                             time.sleep(0.5)
 
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\menu_gyucjunji.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\gyucjunji.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
@@ -685,7 +685,7 @@ def gyucjunji_in_ready(cla, data):
                     confirm_all(cla)
 
                 else:
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\menu_national_card.PNG"
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\gyucjunji.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
@@ -831,7 +831,7 @@ def gyucjunji_in_setting(cla, gyuc_name, y_reg):
                     confirm_all(cla)
 
                 else:
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\menu_national_card.PNG"
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\gyucjunji.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)

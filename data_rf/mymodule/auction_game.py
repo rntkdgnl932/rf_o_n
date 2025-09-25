@@ -147,7 +147,7 @@ def auction_in(cla):
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\auction\\menu_auction.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\auction.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
@@ -229,7 +229,7 @@ def auction_sell(cla):
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\auction\\menu_auction.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\auction.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)

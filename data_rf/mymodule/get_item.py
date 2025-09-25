@@ -133,12 +133,12 @@ def get_sangjum_sohwan(cla):
                         is_in = True
                         break
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\sangjum_sohwan\\menu_sangjum.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\sangjum.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
@@ -457,12 +457,12 @@ def get_post(cla):
                         is_in = True
                         break
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\menu_point_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
@@ -568,12 +568,12 @@ def get_upjuk(cla):
                         is_in = True
                         break
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\menu_point_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
@@ -766,12 +766,12 @@ def get_memorychip(cla):
                         is_in = True
                         break
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\menu_point_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
@@ -918,7 +918,7 @@ def jaelyo_jejak(cla):
                         is_in = True
                         break
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\jaelyo_jejak\\menu_jejak.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\jejak.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
@@ -1088,12 +1088,12 @@ def get_event(cla):
                         is_in = True
                         break
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\menu_point_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
@@ -1175,12 +1175,12 @@ def get_event_open(cla):
                         is_in = True
                         break
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\menu_point_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
@@ -1345,12 +1345,12 @@ def get_promotion(cla):
                         is_in = True
                         break
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\menu_point_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
@@ -1472,19 +1472,19 @@ def get_event_click(cla, is_picture, y_point):
 
         # 2 : 멈추지않는여정,용벙의길(all_get) o
 
-        # 3 :
+        # 3 : 전설적인보물열쇠패스(all_get) 3
 
-        # 4 :
+        # 4 : 전설적인유적지조사(twenty_five) 4
 
-        # 5 :
+        # 5 : 전설적인보물열쇠지원미션(all_get) 5
 
-        # 6 :
+        # 6 : 0.5년축제스페출출석이벤트(fourteen) 6
 
-        # 7 :
+        # 7 : 0.5년축제7일미션이벤트(all_get) 7
 
-        # 8 :
+        # 8 : 0.5년축제스페셜미션이벤트(all_get) 8
 
-        # 9 :
+        # 9 : 0.5주년축제카운트다운!출석이벤트(seven) o
 
         # 10 :
 
@@ -1503,7 +1503,7 @@ def get_event_click(cla, is_picture, y_point):
 
         if is_picture == "6" or is_picture == "0":
             data = "fourteen"
-        elif is_picture == "0":
+        elif is_picture == "9":
             data = "seven"
         elif is_picture == "1":
             data = "twenty_one"
@@ -1782,7 +1782,7 @@ def get_event_click(cla, is_picture, y_point):
                     result_point = event_get_reg(cla, y_point)
                     if result_point == True:
 
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\menu_point_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(150, 450, 680, 500, cla, img, 0.9)
@@ -1817,7 +1817,7 @@ def get_event_click(cla, is_picture, y_point):
                     result_point = event_get_reg(cla, y_point)
                     if result_point == True:
 
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\menu_point_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(150, 450, 680, 500, cla, img, 0.9)
@@ -2058,12 +2058,12 @@ def guild_start(cla):
                         is_in = True
                         break
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_guild.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\guild.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)

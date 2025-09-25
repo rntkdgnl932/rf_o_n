@@ -150,8 +150,10 @@ def potion_buy(cla):
                     else:
                         go_maul(cla)
             QTest.qWait(1000)
-
-        boonhae_collection_start(cla)
+        if "던전" in v_.now_scheduel:
+            print("good")
+        else:
+            boonhae_collection_start(cla)
 
 
     except Exception as e:

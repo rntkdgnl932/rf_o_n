@@ -39,6 +39,7 @@ def dungeon_start(cla, data):
             # 던전_신기
             # 던전_폐기장_8
             # 던전_비밀기지
+            # 던전_이벤트
 
             read_data = data.split("_")
 
@@ -53,7 +54,7 @@ def dungeon_start(cla, data):
                     print("ScienceTrainingCenter", imgs_)
                     dun_ing(cla, data)
                     is_dun = True
-            elif read_data[1] == "폐기장" or read_data[1] == "비밀기지" or read_data[1] == "채굴장":
+            elif read_data[1] == "폐기장" or read_data[1] == "비밀기지" or read_data[1] == "채굴장" or read_data[1] == "이벤트":
                 if read_data[1] == "폐기장":
                     dun_name = "pyegijang"
 
@@ -62,6 +63,9 @@ def dungeon_start(cla, data):
 
                 elif read_data[1] == "채굴장":
                     dun_name = "chaegool"
+
+                elif read_data[1] == "이벤트":
+                    dun_name = "event"
 
                 result_juljun = juljun_check(cla)
                 if result_juljun == True:
@@ -329,7 +333,7 @@ def dun_in(cla, data):
 
                             loading_check(cla)
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\menu_dun.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\dungeon.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.8)
@@ -337,7 +341,7 @@ def dun_in(cla, data):
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
                             menu_open(cla)
-            elif read_data[1] == "폐기장" or read_data[1] == "비밀기지" or read_data[1] == "채굴장":
+            elif read_data[1] == "폐기장" or read_data[1] == "비밀기지" or read_data[1] == "채굴장" or read_data[1] == "이벤트":
 
                 # 던전_바이오슈트
                 # 던전_신기
@@ -361,6 +365,8 @@ def dun_in(cla, data):
                     dun_name = "chaegool"
                     if int(read_data[2]) > 2:
                         step = "3"
+                elif read_data[1] == "이벤트":
+                    dun_name = "event"
 
 
                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\" + str(dun_name) + "\\title.PNG"
@@ -374,12 +380,14 @@ def dun_in(cla, data):
                         print("title : secret_base", imgs_)
                     elif read_data[1] == "채굴장":
                         print("title : chaegool", imgs_)
+                    elif read_data[1] == "이벤트":
+                        print("title : event", imgs_)
 
 
 
                     # read_data[2]
 
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\num\\" + str(step) + ".PNG"
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\num\\num1\\" + str(step) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(250, 430, 325, 680, cla, img, 0.9)
@@ -392,7 +400,7 @@ def dun_in(cla, data):
                         click_pos_2(660, 660, cla)
                         is_dun = False
                     else:
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\num2\\" + str(
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\num\\num2\\" + str(
                             step) + ".PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -406,7 +414,7 @@ def dun_in(cla, data):
                             click_pos_2(660, 660, cla)
                             is_dun = False
                         else:
-                            if read_data[1] == "폐기장":
+                            if read_data[1] == "폐기장" or read_data[1] == "이벤트":
                                 if int(read_data[2]) < 5:
                                     drag_pos(290, 460, 290, 660, cla)
                                 else:
@@ -429,7 +437,7 @@ def dun_in(cla, data):
                                 else:
                                     break
                             else:
-                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\time_lack_notice.PNG"
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\time_lack_notice.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(270, 60, 630, 130, cla, img, 0.8)
@@ -462,7 +470,7 @@ def dun_in(cla, data):
                     if imgs_ is not None and imgs_ != False:
                         print("clicked", imgs_)
 
-                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\zero.PNG"
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\zero.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(850, 900, 915, 970, cla, img, 0.99)
@@ -471,7 +479,7 @@ def dun_in(cla, data):
                             myQuest_play_add(cla, data)
                             is_dun = False
                         else:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\pyegijang\\dun_in_btn.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\dun_in_btn.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(770, 990, 950, 1040, cla, img, 0.85)
@@ -488,17 +496,28 @@ def dun_in(cla, data):
                         imgs_ = imgs_set_(30, 30, 200, 100, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             print("dungeon", imgs_)
-                            click_pos_2(280, 95, cla)
+                            click_pos_2(390, 95, cla)
                             time.sleep(0.5)
+
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_6.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 30, 960, 1040, cla, img, 0.9)
+                            if imgs_ is not None and imgs_ != False:
+                                print("close_6", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
                             if read_data[1] == "폐기장":
                                 click_pos_2(100, 155, cla)
                             elif read_data[1] == "비밀기지":
                                 click_pos_2(100, 220, cla)
                             elif read_data[1] == "채굴장":
                                 click_pos_2(100, 285, cla)
+                            elif read_data[1] == "이벤트":
+                                click_pos_2(100, 415, cla)
                             time.sleep(0.5)
                         else:
-                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\menu_dun.PNG"
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\dungeon.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.8)
@@ -643,7 +662,7 @@ def dun_in_sotang(cla, data):
 
                             time.sleep(0.1)
                 else:
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\menu_dun.PNG"
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\dungeon.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.8)

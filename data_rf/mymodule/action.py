@@ -156,7 +156,7 @@ def menu_open(cla):
             if is_data_count > 7:
                 is_data = True
 
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
@@ -166,7 +166,7 @@ def menu_open(cla):
                 # event
                 this_point_x = 767
                 this_point_y = 45
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\menu_point_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
@@ -177,7 +177,7 @@ def menu_open(cla):
                 # promotion
                 this_point_x = 810
                 this_point_y = 45
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\menu_point_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
@@ -188,7 +188,7 @@ def menu_open(cla):
                 # post
                 this_point_x = 770
                 this_point_y = 1000
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\menu_point_1.PNG"
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\menu_point_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(this_point_x - plus_minus, this_point_y - plus_minus,
@@ -229,7 +229,7 @@ def menu_open_pure(cla):
             if is_data_count > 7:
                 is_data = True
 
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
@@ -410,7 +410,7 @@ def juljun_off_setting(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("setting", imgs_)
                 else:
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\menu_open\\menu_setting.PNG"
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(670, 30, 960, 1040, cla, img, 0.85)
