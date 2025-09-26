@@ -51,7 +51,7 @@ def go_test():
     from auction_game import auction_low_num, auction_qun_num, auction_start
     from mission import mission_get, mission_get_des
     from gyucjunji import gyucjunji_in
-    from dungeon import dun_in
+    from dungeon import dun_in, dun_in_sotang
     from server import server_get_version
     plus_minus = 20
     try:
@@ -63,39 +63,7 @@ def go_test():
         # pyegijang
         # secret_base
         # chaegool
-        y_count = 0
-        for xx in range(10):
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\title.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(400, 350, 550, 420, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                print("gyohwan2 title", imgs_)
-
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan\\max.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(500, 500, 650, 600, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("max", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.5)
-
-                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\gyohwan_btn.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(400, 650, 550, 720, cla, img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("gyohwan_btn", imgs_)
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.5)
-            else:
-                # 420, 490, 560, 630...70차이
-                y_count += 1
-                y_reg_2 = 350 + (70 * y_count)
-                click_pos_2(460, y_reg_2, cla)
-                time.sleep(0.5)
-            time.sleep(0.5)
+        dun_in_sotang(cla, "던전_바이오슈트")
 
 
         # dun_name = "pyegijang"

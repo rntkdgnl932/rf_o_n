@@ -303,35 +303,40 @@ def dun_in(cla, data):
                             click_pos_2(60, 95, cla)
                             time.sleep(0.5)
 
+                            # 스킵 해버리기
+
                             if read_data[1] == "바이오슈트":
-                                click_pos_2(255, 735, cla)
+                                click_pos_2(150, 735, cla)
                             elif read_data[1] == "신기":
-                                click_pos_2(735, 735, cla)
+                                click_pos_2(600, 735, cla)
 
-                            for i in range(10):
-                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\bio_suit\\ticket_lack_notice.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(300, 40, 800, 160, cla, img, 0.85)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("ticket_lack_notice", imgs_)
-                                    myQuest_play_add(cla, data)
-                                    is_dun = False
-                                    break
-                                else:
-                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\singi\\not_complete_notice.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(300, 40, 800, 160, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("not_complete_notice", imgs_)
-                                        myQuest_play_add(cla, data)
-                                        is_dun = False
-                                        break
+                            dun_in_sotang(cla, data)
 
-                                time.sleep(0.1)
 
-                            loading_check(cla)
+                            # for i in range(10):
+                            #     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\bio_suit\\ticket_lack_notice.PNG"
+                            #     img_array = np.fromfile(full_path, np.uint8)
+                            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            #     imgs_ = imgs_set_(300, 40, 800, 160, cla, img, 0.85)
+                            #     if imgs_ is not None and imgs_ != False:
+                            #         print("ticket_lack_notice", imgs_)
+                            #         myQuest_play_add(cla, data)
+                            #         is_dun = False
+                            #         break
+                            #     else:
+                            #         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\singi\\not_complete_notice.PNG"
+                            #         img_array = np.fromfile(full_path, np.uint8)
+                            #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            #         imgs_ = imgs_set_(300, 40, 800, 160, cla, img, 0.85)
+                            #         if imgs_ is not None and imgs_ != False:
+                            #             print("not_complete_notice", imgs_)
+                            #             myQuest_play_add(cla, data)
+                            #             is_dun = False
+                            #             break
+                            #
+                            #     time.sleep(0.1)
+                            #
+                            # loading_check(cla)
                     else:
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\dungeon.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
