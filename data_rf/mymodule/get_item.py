@@ -1499,7 +1499,7 @@ def get_event_click(cla, is_picture, y_point):
         # ?? : 0.5년축제스페출출석이벤트(fourteen) 6
         # ?? : 0.5년축제7일미션이벤트(all_get) 7
         # ?? : 0.5년축제스페셜미션이벤트(all_get) 8
-        # ?? :
+        # ?? : 페링키의떡!교환이벤트0.5년축제(gyohwan2)
 
         if is_picture == "6" or is_picture == "0":
             data = "fourteen"
@@ -1517,6 +1517,8 @@ def get_event_click(cla, is_picture, y_point):
             data = "all_get_2"
         elif is_picture == "0":
             data = "gyohwan"
+        elif is_picture == "10":
+            data = "gyohwan2"
         elif is_picture == "0" or is_picture == "0" or is_picture == "0":
             data = "pass"
 
@@ -1923,6 +1925,78 @@ def get_event_click(cla, is_picture, y_point):
                     click_pos_2(755, y_point, cla)
                 QTest.qWait(200)
 
+        elif data == "gyohwan2":
+
+            print("gyohwan2")
+
+
+
+            y_count = 0
+            gyohwan2 = True
+            for c in range(5):
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(is_picture) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("get_event_click : pic_num", is_picture)
+
+                    result_point = event_get_reg(cla, y_point)
+                    if result_point == True:
+
+                        for xx in range(10):
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(400, 350, 550, 420, cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("gyohwan2 title", imgs_)
+
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan\\max.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(500, 500, 650, 600, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("max", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.5)
+
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\gyohwan_btn.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 650, 550, 720, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("gyohwan_btn", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    time.sleep(0.5)
+                            else:
+                                # 420, 490, 560, 630...70차이
+                                y_count += 1
+                                y_reg_2 = 330 + (70 * y_count)
+                                click_pos_2(460, y_reg_2, cla)
+                                for any in range(7):
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\anymore_notice.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(400, 650, 550, 720, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("anymore_notice", imgs_)
+                                        gyohwan2 = False
+                                        break
+                                    time.sleep(0.1)
+
+                            time.sleep(0.5)
+
+
+                        if gyohwan2 == False:
+                            break
+                    else:
+                        break
+                else:
+                    click_pos_2(755, y_point, cla)
+                QTest.qWait(200)
+
         elif data == "pass":
             print("pass")
             clean_screen_start(cla)
@@ -1963,6 +2037,7 @@ def guild_start(cla):
                 click_pos_2(150, 1015, cla)
                 time.sleep(0.5)
 
+
                 for i in range(5):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\title\\guild.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -1974,6 +2049,16 @@ def guild_start(cla):
                         click_pos_2(150, 1015, cla)
                     time.sleep(0.5)
 
+                for i in range(5):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\guild\\guild_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 390, 540, 450, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(890, 1015, cla)
+                    time.sleep(0.5)
 
                 for i in range(7):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\guild\\anymore_donation_notice.PNG"
@@ -1993,7 +2078,7 @@ def guild_start(cla):
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\guild\\donation_ready_btn.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(750, 990, 880, 1040, cla, img, 0.85)
+                            imgs_ = imgs_set_(750, 990, 960, 1040, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                     QTest.qWait(500)
