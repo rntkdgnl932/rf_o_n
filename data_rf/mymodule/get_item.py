@@ -941,7 +941,7 @@ def get_event(cla):
 
     from function_game import imgs_set_, click_pos_2, click_pos_reg, drag_pos
     from action import menu_open_pure
-
+    from boonhae_collection import boonhae_collection_start
     # 폴더 내 파일 개수
     folder_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title"
     file_list = os.listdir(folder_path)
@@ -949,7 +949,7 @@ def get_event(cla):
 
     try:
 
-
+        boonhae_collection_start(cla)
 
         print("get_event")
         this_point_x = 767

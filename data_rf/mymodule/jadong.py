@@ -606,8 +606,8 @@ def jadong_mode(cla, title_map, des_map):
     from potion import potion_buy
     from massenger import line_to_me
     from game_check import game_check_start
-    from action import juljun_off, attack_on
-
+    from action import juljun_off, attack_on, juljun_on
+    from boonhae_collection import boonhae_collection_start
 
     try:
         print("jadong_mode")
@@ -619,6 +619,7 @@ def jadong_mode(cla, title_map, des_map):
         jadong_mode = True
 
         jadong_mode_count = 0
+        boonhae_count = 0
 
         while jadong_mode is True:
 
@@ -656,7 +657,11 @@ def jadong_mode(cla, title_map, des_map):
                         print("attack_ready", imgs_)
                         attack_on(cla)
                     else:
-
+                        boonhae_count += 1
+                        if boonhae_count > 3600:
+                            boonhae_count = 0
+                            boonhae_collection_start(cla)
+                            juljun_on(cla)
                         print("자동사냥중??")
                 else:
                     is_data = False
