@@ -63,7 +63,7 @@ def go_test():
         # pyegijang
         # secret_base
         # chaegool
-        dun_in_sotang(cla, "던전_바이오슈트")
+        boonhae_go(cla)
 
 
         # dun_name = "pyegijang"

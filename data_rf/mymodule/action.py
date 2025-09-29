@@ -79,7 +79,7 @@ def confirm_all(cla):
                                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\gyucjunji\\move_confirm_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(480, 600, 600, 640, cla, img, 0.85)
+                                imgs_ = imgs_set_(480, 600, 600, 700, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
                                     print("move_confirm_1", imgs_)
                                     is_confirm = True
@@ -88,9 +88,9 @@ def confirm_all(cla):
                                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\confirm_all\\boonhae_confirm.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(480, 600, 600, 640, cla, img, 0.85)
+                                    imgs_ = imgs_set_(480, 600, 600, 700, cla, img, 0.85)
                                     if imgs_ is not None and imgs_ != False:
-                                        print("move_confirm_1", imgs_)
+                                        print("boonhae_confirm", imgs_)
                                         is_confirm = True
                                         click_pos_reg(imgs_.x, imgs_.y, cla)
                                     else:

@@ -629,8 +629,17 @@ def boonhae_go(cla):
                                 time.sleep(0.5)
 
                         #
-
-                        click_pos_2(870, 1020, cla)
+                        for b in range(5):
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\confirm_all\\boonhae_confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(480, 600, 600, 700, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("boonhae_confirm", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                click_pos_2(870, 1020, cla)
+                            QTest.qWait(1000)
 
                         time.sleep(0.5)
 
