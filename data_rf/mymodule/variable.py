@@ -9,6 +9,7 @@ dead_count = 0
 dead_count_msg = "//"
 dead_is_no_have_item = False
 now_scheduel = 'none'
+boonhae_count = 0
 
 # 게임 및 폴더 관련
 this_game = "rf_o_n"

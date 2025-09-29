@@ -91,6 +91,13 @@ def dungeon_start(cla, data):
 
                         result_attack = attack_check(cla)
                         if result_attack == True:
+                            v_.boonhae_count += 1
+                            if v_.boonhae_count > 3600:
+                                v_.boonhae_count = 0
+                                boonhae_collection_start(cla)
+                                juljun_on(cla)
+
+
                             potion_check(cla)
                         else:
                             juljun_off(cla)

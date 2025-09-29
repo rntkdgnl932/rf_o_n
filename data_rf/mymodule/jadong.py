@@ -619,7 +619,6 @@ def jadong_mode(cla, title_map, des_map):
         jadong_mode = True
 
         jadong_mode_count = 0
-        boonhae_count = 0
 
         while jadong_mode is True:
 
@@ -657,9 +656,9 @@ def jadong_mode(cla, title_map, des_map):
                         print("attack_ready", imgs_)
                         attack_on(cla)
                     else:
-                        boonhae_count += 1
-                        if boonhae_count > 3600:
-                            boonhae_count = 0
+                        v_.boonhae_count += 1
+                        if v_.boonhae_count > 3600:
+                            v_.boonhae_count = 0
                             boonhae_collection_start(cla)
                             juljun_on(cla)
                         print("자동사냥중??")
