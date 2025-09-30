@@ -1486,9 +1486,9 @@ def get_event_click(cla, is_picture, y_point):
 
         # 9 : 0.5주년축제카운트다운!출석이벤트(seven) o
 
-        # 10 :
+        # 10 : 페링키의떡!교환이벤트0.5년축제(gyohwan2)
 
-        # 11 :
+        # 11 : rf패스시즌7(all_get) 11
 
         # 12 :
 
@@ -1511,7 +1511,7 @@ def get_event_click(cla, is_picture, y_point):
             data = "length_five"
         elif is_picture == "4" or is_picture == "0":
             data = "twenty_five"
-        elif is_picture == "2" or is_picture == "3" or is_picture == "5" or is_picture == "7" or is_picture == "8":
+        elif is_picture == "2" or is_picture == "3" or is_picture == "5" or is_picture == "7" or is_picture == "8" or is_picture == "11":
             data = "all_get"
         elif is_picture == "0" or is_picture == "0":
             data = "all_get_2"
