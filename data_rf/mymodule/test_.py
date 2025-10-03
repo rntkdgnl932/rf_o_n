@@ -63,7 +63,12 @@ def go_test():
         # pyegijang
         # secret_base
         # chaegool
-        boonhae_go(cla)
+        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\post\\confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(470, 590, 630, 660, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("confirm", imgs_)
 
 
         # dun_name = "pyegijang"

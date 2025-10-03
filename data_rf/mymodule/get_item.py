@@ -361,7 +361,7 @@ def get_post(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("get_btn", imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(1)
+                        QTest.qWait(1500)
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\post\\confirm.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -397,7 +397,7 @@ def get_post(cla):
                     if imgs_ is not None and imgs_ != False:
                         print("get_btn", imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(1)
+                        QTest.qWait(1500)
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\post\\confirm.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
