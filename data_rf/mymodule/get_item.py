@@ -1050,7 +1050,6 @@ def get_event(cla):
                                     is_picture = str(pic_num)
                                     get_event_click(cla, is_picture, y_point)
                                     break
-
                 else:
 
                     is_point = False
@@ -1466,44 +1465,44 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - : 3 ~ 12
+        # - : 2, 9, 10
 
         # 1 : 데일리출석이벤트시즌2(twenty_one) o
 
-        # 2 : 멈추지않는여정,용벙의길(all_get) o
+        # 2 :
 
-        # 3 : 전설적인보물열쇠패스(all_get) 3
+        # 3 : 전설적인보물열쇠패스(all_get) o
 
-        # 4 : 전설적인유적지조사(twenty_five) 4
+        # 4 : 전설적인유적지조사(twenty_five) o
 
-        # 5 : 전설적인보물열쇠지원미션(all_get) 5
+        # 5 : 전설적인보물열쇠지원미션(all_get) o
 
-        # 6 : 0.5년축제스페출출석이벤트(fourteen) 6
+        # 6 : 0.5년축제스페출출석이벤트(fourteen) o
 
-        # 7 : 0.5년축제7일미션이벤트(all_get) 7
+        # 7 : 0.5년축제7일미션이벤트(all_get) o
 
-        # 8 : 0.5년축제스페셜미션이벤트(all_get) 8
+        # 8 : 0.5년축제스페셜미션이벤트(all_get) o
 
-        # 9 : 0.5주년축제카운트다운!출석이벤트(seven) o
+        # 9 :
 
-        # 10 : 페링키의떡!교환이벤트0.5년축제(gyohwan2)
+        # 10 :
 
-        # 11 : rf패스시즌7(all_get) 11
+        # 11 : rf패스시즌7(all_get) o
 
         # 12 :
 
 
-        # ?? : 전설적인보물열쇠패스(all_get) 3
-        # ?? : 전설적인유적지조사(twenty_five) 4
-        # ?? : 전설적인보물열쇠지원미션(all_get) 5
-        # ?? : 0.5년축제스페출출석이벤트(fourteen) 6
-        # ?? : 0.5년축제7일미션이벤트(all_get) 7
-        # ?? : 0.5년축제스페셜미션이벤트(all_get) 8
-        # ?? : 페링키의떡!교환이벤트0.5년축제(gyohwan2)
+        # ?? : 한글날특별미션이벤트!(all_get) 2
+        # ?? : 길드코인지원미션이벤트(all_get) 9
+        # ?? : 페링키의떡공장!이벤트던전(pass) 10
+        # ?? : 0.5주년축제(gyohwan2) 12
+        # ?? :
+        # ?? :
+        # ?? :
 
         if is_picture == "6" or is_picture == "0":
             data = "fourteen"
-        elif is_picture == "9":
+        elif is_picture == "0":
             data = "seven"
         elif is_picture == "1":
             data = "twenty_one"
@@ -1511,15 +1510,15 @@ def get_event_click(cla, is_picture, y_point):
             data = "length_five"
         elif is_picture == "4" or is_picture == "0":
             data = "twenty_five"
-        elif is_picture == "2" or is_picture == "3" or is_picture == "5" or is_picture == "7" or is_picture == "8" or is_picture == "11":
+        elif is_picture == "2" or is_picture == "3" or is_picture == "5" or is_picture == "7" or is_picture == "8" or is_picture == "9" or is_picture == "11":
             data = "all_get"
         elif is_picture == "0" or is_picture == "0":
             data = "all_get_2"
         elif is_picture == "0":
             data = "gyohwan"
-        elif is_picture == "10":
+        elif is_picture == "12":
             data = "gyohwan2"
-        elif is_picture == "0" or is_picture == "0" or is_picture == "0":
+        elif is_picture == "10" or is_picture == "0" or is_picture == "0":
             data = "pass"
 
 
