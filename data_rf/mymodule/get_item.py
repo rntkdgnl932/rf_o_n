@@ -1082,7 +1082,7 @@ def get_event(cla):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.9)
+                    imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         is_in = True
                         break
@@ -1469,7 +1469,7 @@ def get_event_click(cla, is_picture, y_point):
 
         # 1 : 데일리출석이벤트시즌2(twenty_one) o
 
-        # 2 :
+        # 2 : 한글날특별미션이벤트!(all_get) 2
 
         # 3 : 전설적인보물열쇠패스(all_get) o
 
@@ -1483,13 +1483,13 @@ def get_event_click(cla, is_picture, y_point):
 
         # 8 : 0.5년축제스페셜미션이벤트(all_get) o
 
-        # 9 :
+        # 9 : 길드코인지원미션이벤트(all_get) 9
 
-        # 10 :
+        # 10 : 페링키의떡공장!이벤트던전(pass) 10
 
         # 11 : rf패스시즌7(all_get) o
 
-        # 12 :
+        # 12 : 0.5주년축제(gyohwan2) 12
 
 
         # ?? : 한글날특별미션이벤트!(all_get) 2
