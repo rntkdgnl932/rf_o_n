@@ -228,7 +228,7 @@ def get_sangjum_sohwan_start(cla):
                                 print("all_confirm_btn", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                                 time.sleep(2)
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                click_pos_reg(imgs_.x + 50, imgs_.y, cla)
                                 time.sleep(1)
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\sangjum_sohwan\\confirm.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
