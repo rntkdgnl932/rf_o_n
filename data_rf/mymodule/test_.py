@@ -57,18 +57,7 @@ def go_test():
     try:
         print("test")
 
-        # boonhae_go_memorychip(cla)
-        data = "일일미션"
-
-        # pyegijang
-        # secret_base
-        # chaegool
-        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("close_2", imgs_)
+        get_event(cla)
 
 
         # dun_name = "pyegijang"

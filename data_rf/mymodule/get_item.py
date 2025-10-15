@@ -935,7 +935,7 @@ def jaelyo_jejak(cla):
     except Exception as e:
         print(e)
 
-def get_event(cla):
+def  get_event(cla):
     import numpy as np
     import cv2
 
@@ -1465,60 +1465,62 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - : 2, 9, 10
+        # - : 3, 4, 5, 7, 8, 10, 12
 
         # 1 : 데일리출석이벤트시즌2(twenty_one) o
 
-        # 2 : 한글날특별미션이벤트!(all_get) 2
+        # 2 : 한글날특별미션이벤트!(all_get) o
 
-        # 3 : 전설적인보물열쇠패스(all_get) o
+        # 3 : 가을맞이7일출석이벤트(seven) 3
 
-        # 4 : 전설적인유적지조사(twenty_five) o
+        # 4 : 가을낙엽교환이벤트(?) 4
 
-        # 5 : 전설적인보물열쇠지원미션(all_get) o
+        # 5 : 길드기부보상UP!이벤트(pass) 5
 
         # 6 : 0.5년축제스페출출석이벤트(fourteen) o
 
-        # 7 : 0.5년축제7일미션이벤트(all_get) o
+        # 7 : 일일미션횟수추가이벤트(pass) 7
 
-        # 8 : 0.5년축제스페셜미션이벤트(all_get) o
+        # 8 :
 
-        # 9 : 길드코인지원미션이벤트(all_get) 9
+        # 9 : 길드코인지원미션이벤트(all_get) o
 
-        # 10 : 페링키의떡공장!이벤트던전(pass) 10
+        # 10 :
 
         # 11 : rf패스시즌7(all_get) o
 
-        # 12 : 0.5주년축제(gyohwan2) 12
+        # 12 :
 
 
-        # ?? : 한글날특별미션이벤트!(all_get) 2
-        # ?? : 길드코인지원미션이벤트(all_get) 9
-        # ?? : 페링키의떡공장!이벤트던전(pass) 10
-        # ?? : 0.5주년축제(gyohwan2) 12
+        # ?? : 가을맞이7일출석이벤트(seven) 3
+        # ?? : 가을낙엽교환이벤트(?) 4
+        # ?? : 길드기부보상UP!이벤트(pass) 5
+        # ?? : 일일미션횟수추가이벤트(pass) 7
         # ?? :
         # ?? :
         # ?? :
 
         if is_picture == "6" or is_picture == "0":
             data = "fourteen"
-        elif is_picture == "0":
+        elif is_picture == "3":
             data = "seven"
         elif is_picture == "1":
             data = "twenty_one"
         elif is_picture == "0":
             data = "length_five"
-        elif is_picture == "4" or is_picture == "0":
+        elif is_picture == "0" or is_picture == "0":
             data = "twenty_five"
-        elif is_picture == "2" or is_picture == "3" or is_picture == "5" or is_picture == "7" or is_picture == "8" or is_picture == "9" or is_picture == "11":
+        elif is_picture == "2" or is_picture == "0" or is_picture == "0" or is_picture == "9" or is_picture == "11":
             data = "all_get"
         elif is_picture == "0" or is_picture == "0":
             data = "all_get_2"
         elif is_picture == "0":
             data = "gyohwan"
-        elif is_picture == "12":
+        elif is_picture == "0":
             data = "gyohwan2"
-        elif is_picture == "10" or is_picture == "0" or is_picture == "0":
+        elif is_picture == "0":
+            data = "dojun"
+        elif is_picture == "5" or is_picture == "7":
             data = "pass"
 
 
@@ -1995,6 +1997,42 @@ def get_event_click(cla, is_picture, y_point):
                 else:
                     click_pos_2(755, y_point, cla)
                 QTest.qWait(200)
+        elif data == "dojun":
+            print("dojun")
+
+            result_point = event_get_reg(cla, y_point)
+            if result_point == True:
+
+                for i in range(5):
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\skip\\get_notice.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(300, 400, 840, 740, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("get_notice", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        QTest.qWait(500)
+
+                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\dojun\\get_btn.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 400, 840, 740, cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("get_btn", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        click_pos_2(300, 560, cla)
+                    QTest.qWait(500)
+
+            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\action\\skip\\get_notice.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(300, 400, 840, 740, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                print("get_notice", imgs_)
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                QTest.qWait(500)
+
 
         elif data == "pass":
             print("pass")
