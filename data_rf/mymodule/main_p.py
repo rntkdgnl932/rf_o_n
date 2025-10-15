@@ -3950,7 +3950,10 @@ class game_Playing(QThread):
                                         auction_start(v_.now_cla)
                                         myQuest_play_add(v_.now_cla, result_schedule_)
                                     elif "던전" in result_schedule_:
-                                        dungeon_start(v_.now_cla, result_schedule_)
+                                        if "이벤트" in result_schedule_:
+                                            myQuest_play_add(v_.now_cla, result_schedule_)
+                                        else:
+                                            dungeon_start(v_.now_cla, result_schedule_)
                                     elif "자동" in result_schedule_:
                                         jadong_check(v_.now_cla, result_schedule_)
                                     elif "격전지" in result_schedule_:
