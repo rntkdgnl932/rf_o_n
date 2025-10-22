@@ -1976,30 +1976,33 @@ def get_event_click(cla, is_picture, y_point):
                                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\checked.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(400, 350, 500, 740, cla, img, 0.7)
+                                imgs_ = imgs_set_(400, 650, 500, 740, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     print("checked", imgs_)
-                                    click_pos_reg(imgs_.x, imgs_.y + 65, cla)
+                                    drag_pos(460, 550, 460, 450, cla)
                                 else:
                                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\checked.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(400, 650, 500, 740, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("checked", imgs_)
-                                        drag_pos(460, 550, 460, 450, cla)
-                                    else:
-                                        click_pos_2(460, 420, cla)
-                                for any in range(7):
-                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\anymore_notice.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(400, 650, 550, 720, cla, img, 0.8)
-                                    if imgs_ is not None and imgs_ != False:
-                                        print("anymore_notice", imgs_)
-                                        gyohwan2 = False
-                                        break
-                                    time.sleep(0.1)
+                                    imgs_for = imgs_set_for(400, 350, 500, 740, cla, img, 0.7)
+                                    if imgs_for is not None and imgs_for != False:
+                                        print("checked", imgs_for)
+                                        if len(imgs_for) > 0:
+                                            x_reg = imgs_for[len(imgs_for) - 1][0]
+                                            y_reg = imgs_for[len(imgs_for) - 1][1]
+                                            click_pos_reg(x_reg, y_reg + 65, cla)
+                                        else:
+                                            click_pos_2(460, 420, cla)
+                                    for any in range(7):
+                                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\anymore_notice.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(400, 650, 550, 720, cla, img, 0.8)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("anymore_notice", imgs_)
+                                            gyohwan2 = False
+                                            break
+                                        time.sleep(0.1)
 
                             time.sleep(0.5)
 
