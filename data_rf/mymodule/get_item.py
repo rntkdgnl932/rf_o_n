@@ -1465,42 +1465,42 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - : 3, 4, 5, 7, 8, 10, 12
+        # - : 6, 9, 11
 
         # 1 : 데일리출석이벤트시즌2(twenty_one) o
 
         # 2 : 한글날특별미션이벤트!(all_get) o
 
-        # 3 : 가을맞이7일출석이벤트(seven) 3
+        # 3 : 가을맞이7일출석이벤트(seven) o
 
-        # 4 : 가을낙엽교환이벤트(?) 4
+        # 4 : 가을낙엽교환이벤트(gyohwan2) o
 
-        # 5 : 길드기부보상UP!이벤트(pass) 5
+        # 5 : 길드기부보상UP!이벤트(pass) o
 
-        # 6 : 0.5년축제스페출출석이벤트(fourteen) o
+        # 6 : 아티팩트강화미션이벤트(all_get) 6
 
-        # 7 : 일일미션횟수추가이벤트(pass) 7
+        # 7 : 일일미션횟수추가이벤트(pass) o
 
-        # 8 :
+        # 8 : 골든워커를잡아라!(pass) 8
 
-        # 9 : 길드코인지원미션이벤트(all_get) o
+        # 9 : 격돌하는워존!알베른총력전(pass) 9
 
         # 10 :
 
-        # 11 : rf패스시즌7(all_get) o
+        # 11 :
 
         # 12 :
 
 
-        # ?? : 가을맞이7일출석이벤트(seven) 3
-        # ?? : 가을낙엽교환이벤트(?) 4
-        # ?? : 길드기부보상UP!이벤트(pass) 5
-        # ?? : 일일미션횟수추가이벤트(pass) 7
+        # ?? : 아티팩트강화미션이벤트(all_get) 6
+        # ?? : 골든워커를잡아라!(pass) 8
+        # ?? : 격돌하는워존!알베른총력전(pass) 9
+        # ?? :
         # ?? :
         # ?? :
         # ?? :
 
-        if is_picture == "6" or is_picture == "0":
+        if is_picture == "0" or is_picture == "0":
             data = "fourteen"
         elif is_picture == "3":
             data = "seven"
@@ -1510,17 +1510,17 @@ def get_event_click(cla, is_picture, y_point):
             data = "length_five"
         elif is_picture == "0" or is_picture == "0":
             data = "twenty_five"
-        elif is_picture == "2" or is_picture == "0" or is_picture == "0" or is_picture == "9" or is_picture == "11":
+        elif is_picture == "2" or is_picture == "6" or is_picture == "0":
             data = "all_get"
         elif is_picture == "0" or is_picture == "0":
             data = "all_get_2"
         elif is_picture == "0":
             data = "gyohwan"
-        elif is_picture == "0":
+        elif is_picture == "4":
             data = "gyohwan2"
         elif is_picture == "0":
             data = "dojun"
-        elif is_picture == "5" or is_picture == "7":
+        elif is_picture == "5" or is_picture == "7" or is_picture == "8" or is_picture == "9":
             data = "pass"
 
 
@@ -1927,6 +1927,7 @@ def get_event_click(cla, is_picture, y_point):
                 QTest.qWait(200)
 
         elif data == "gyohwan2":
+            from function_game import drag_pos
 
             print("gyohwan2")
 
@@ -1972,10 +1973,23 @@ def get_event_click(cla, is_picture, y_point):
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                     time.sleep(0.5)
                             else:
-                                # 420, 490, 560, 630...70차이
-                                y_count += 1
-                                y_reg_2 = 330 + (70 * y_count)
-                                click_pos_2(460, y_reg_2, cla)
+                                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\checked.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(400, 350, 500, 740, cla, img, 0.8)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("checked", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y + 65, cla)
+                                else:
+                                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\checked.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(400, 650, 500, 740, cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("checked", imgs_)
+                                        drag_pos(460, 550, 460, 450, cla)
+                                    else:
+                                        click_pos_2(460, 420, cla)
                                 for any in range(7):
                                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event\\gyohwan2\\anymore_notice.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)

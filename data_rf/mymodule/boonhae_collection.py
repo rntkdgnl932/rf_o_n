@@ -70,7 +70,7 @@ def collection_start(cla):
                     full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\collection_point_1.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(100, reg_y, 140, 500, cla, img, 0.9)
+                    imgs_ = imgs_set_(100, reg_y, 140, 500, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
 
                         y_point = imgs_.y
@@ -148,7 +148,7 @@ def collection_start(cla):
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\collection_point_1.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(100, 100, 140, 500, cla, img, 0.9)
+                            imgs_ = imgs_set_(100, 100, 140, 500, cla, img, 0.8)
                             if imgs_ is not None and imgs_ != False:
                                 print("collection_point_1", imgs_)
                                 click_pos_2(70, 130, cla)
@@ -171,7 +171,7 @@ def collection_start(cla):
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\collection_point_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(100, reg_y_2, 140, 500, cla, img, 0.9)
+                        imgs_ = imgs_set_(100, reg_y_2, 140, 500, cla, img, 0.8)
                         if imgs_ is not None and imgs_ != False:
 
                             y_point = imgs_.y
@@ -249,7 +249,7 @@ def collection_start(cla):
                                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\boonhae_collection\\collection_point_1.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(100, 100, 140, 500, cla, img, 0.9)
+                                imgs_ = imgs_set_(100, 100, 140, 500, cla, img, 0.8)
                                 if imgs_ is not None and imgs_ != False:
                                     print("collection_point_1", imgs_)
                                     click_pos_2(70, 130, cla)
