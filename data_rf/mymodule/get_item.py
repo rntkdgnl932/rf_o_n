@@ -1485,7 +1485,7 @@ def get_event_click(cla, is_picture, y_point):
 
         # 9 : 격돌하는워존!알베른총력전(pass) 9
 
-        # 10 :
+        # 10 : 7일출석이벤트ctrl+z(seven)
 
         # 11 :
 
@@ -1502,7 +1502,7 @@ def get_event_click(cla, is_picture, y_point):
 
         if is_picture == "0" or is_picture == "0":
             data = "fourteen"
-        elif is_picture == "3":
+        elif is_picture == "3" or is_picture == "10":
             data = "seven"
         elif is_picture == "1":
             data = "twenty_one"
