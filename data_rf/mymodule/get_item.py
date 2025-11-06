@@ -935,7 +935,7 @@ def jaelyo_jejak(cla):
     except Exception as e:
         print(e)
 
-def  get_event(cla):
+def get_event(cla):
     import numpy as np
     import cv2
 
@@ -949,7 +949,7 @@ def  get_event(cla):
 
     try:
 
-        boonhae_collection_start(cla)
+        # boonhae_collection_start(cla)
 
         print("get_event")
         this_point_x = 767
@@ -962,12 +962,23 @@ def  get_event(cla):
             is_get_count += 1
             if is_get_count > 10:
                 is_get = True
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.9)
-            if imgs_ is not None and imgs_ != False:
-                print("title : close_2")
+
+            event_pic = False
+            for n in range(len(file_list)):
+
+                pic_num_ready = file_list[n]
+                pic_num = pic_num_ready.split(".")[0]
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(pic_num) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("pic_num", pic_num)
+                    event_pic = True
+                    break
+
+            if event_pic == True:
                 is_event_point = False
                 full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_point_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -1079,12 +1090,23 @@ def  get_event(cla):
 
                 is_in = False
                 for i in range(5):
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        is_in = True
+
+                    for n in range(len(file_list)):
+
+                        pic_num_ready = file_list[n]
+                        pic_num = pic_num_ready.split(".")[0]
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(
+                            pic_num) + ".PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("pic_num", pic_num)
+                            is_in = True
+                            break
+
+                    if is_in == True:
                         break
                     else:
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
@@ -1239,12 +1261,23 @@ def get_promotion(cla):
             is_get_count += 1
             if is_get_count > 10:
                 is_get = True
-            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.9)
-            if imgs_ is not None and imgs_ != False:
-                print("title : close_2")
+
+            event_pic = False
+            for n in range(len(file_list)):
+
+                pic_num_ready = file_list[n]
+                pic_num = pic_num_ready.split(".")[0]
+
+                full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(pic_num) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("pic_num", pic_num)
+                    event_pic = True
+                    break
+
+            if event_pic == True:
 
                 is_event_point = False
 
@@ -1336,12 +1369,22 @@ def get_promotion(cla):
 
                 is_in = False
                 for i in range(5):
-                    full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_2.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(780, 330, 840, 390, cla, img, 0.9)
-                    if imgs_ is not None and imgs_ != False:
-                        is_in = True
+                    for n in range(len(file_list)):
+
+                        pic_num_ready = file_list[n]
+                        pic_num = pic_num_ready.split(".")[0]
+
+                        full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\get_item\\event_title\\" + str(
+                            pic_num) + ".PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(120, 340, 830, 730, cla, img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("pic_num", pic_num)
+                            is_in = True
+                            break
+
+                    if is_in == True:
                         break
                     else:
                         full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\menu\\setting.PNG"
@@ -1469,40 +1512,41 @@ def get_event_click(cla, is_picture, y_point):
 
         # 1 : 데일리출석이벤트시즌2(twenty_one) o
 
-        # 2 : 노드성장지원이벤트(all_get) 2
+        # 2 : 노드성장지원이벤트(all_get) o
 
-        # 3 :
+        # 3 : 초겨울준비제작이벤트(pass) 3
 
-        # 4 :
+        # 4 : 초겨울준비7일출석이벤트(seven) 4
 
-        # 5 :
+        # 5 : 몬스터소탕컬렉션이벤트(all_get) 5
 
-        # 6 : 아티팩트강화미션이벤트(all_get) o
+        # 6 : 로버공방미션이벤트(all_get) 6
 
-        # 7 :
+        # 7 : 격돌하는크레이터알베론총력전(pass) 7
 
-        # 8 : 골든워커를잡아라!(pass) o
+        # 8 : 룰렛티켓이벤트(all_get_2) 8
 
-        # 9 : 격돌하는워존!알베른총력전(pass) o
+        # 9 : 룰렛티켓미션이벤트(all_get) 9
 
-        # 10 : 7일출석이벤트ctrl+z(seven) o
+        # 10 : RF패스시즌8(all_get) 10
 
-        # 11 :
+        # 11 : 아르카의특권(pass)
 
         # 12 :
 
 
-        # ?? : 노드성장지원이벤트(all_get) 2
-        # ?? :
-        # ?? :
-        # ?? :
-        # ?? :
-        # ?? :
-        # ?? :
+        # ?? : 초겨울준비제작이벤트(pass) 3
+        # ?? : 초겨울준비7일출석이벤트(seven) 4
+        # ?? : 몬스터소탕컬렉션이벤트(all_get) 5
+        # ?? : 로버공방미션이벤트(all_get) 6
+        # ?? : 격돌하는크레이터알베론총력전(pass) 7
+        # ?? : 룰렛티켓이벤트(all_get_2) 8
+        # ?? : 룰렛티켓미션이벤트(all_get) 9
+        # ?? : RF패스시즌8(all_get) 10
 
         if is_picture == "0" or is_picture == "0":
             data = "fourteen"
-        elif is_picture == "0" or is_picture == "10":
+        elif is_picture == "4" or is_picture == "0":
             data = "seven"
         elif is_picture == "1":
             data = "twenty_one"
@@ -1510,9 +1554,9 @@ def get_event_click(cla, is_picture, y_point):
             data = "length_five"
         elif is_picture == "0" or is_picture == "0":
             data = "twenty_five"
-        elif is_picture == "2" or is_picture == "6" or is_picture == "0":
+        elif is_picture == "2" or is_picture == "5" or is_picture == "6" or is_picture == "9" or is_picture == "10":
             data = "all_get"
-        elif is_picture == "0" or is_picture == "0":
+        elif is_picture == "8" or is_picture == "0":
             data = "all_get_2"
         elif is_picture == "0":
             data = "gyohwan"
@@ -1520,7 +1564,7 @@ def get_event_click(cla, is_picture, y_point):
             data = "gyohwan2"
         elif is_picture == "0":
             data = "dojun"
-        elif is_picture == "0" or is_picture == "0" or is_picture == "8" or is_picture == "9":
+        elif is_picture == "3" or is_picture == "7" or is_picture == "11" or is_picture == "0":
             data = "pass"
 
 
@@ -1771,7 +1815,7 @@ def get_event_click(cla, is_picture, y_point):
 
         elif data == "all_get":
 
-            print("length_five")
+            print("all_get")
 
             for c in range(5):
 

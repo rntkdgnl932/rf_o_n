@@ -62,10 +62,8 @@ def game_start():
         if start_get == "yes":
 
             result_my_server_read = server_get()
-            print("my_server_read", result_my_server_read)
 
             if result_my_server_read == 'start':
-                print("게임 gogo")
                 play_game = True
 
                 if line_[1] == "ko":
@@ -121,7 +119,7 @@ def server_get():
         # response = requests.get(url, headers={'Cache-Control': 'no-cache'})
         data = response.text
 
-        print("server_get", str(v_.game_folder), data)
+        # print("server_get", str(v_.game_folder), data)
         return data
     except Exception as e:
         print(e)
