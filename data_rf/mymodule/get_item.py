@@ -1508,41 +1508,37 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - :2 - 5, 7
+        # - :2, 7
 
         # 1 : 데일리출석이벤트시즌2(twenty_one) o
 
-        # 2 : 노드성장지원이벤트(all_get) o
+        # 2 :
 
-        # 3 : 초겨울준비제작이벤트(pass) 3
+        # 3 : 초겨울준비제작이벤트(pass) o
 
-        # 4 : 초겨울준비7일출석이벤트(seven) 4
+        # 4 : 초겨울준비7일출석이벤트(seven) o
 
-        # 5 : 몬스터소탕컬렉션이벤트(all_get) 5
+        # 5 : 몬스터소탕컬렉션이벤트(all_get) o
 
-        # 6 : 로버공방미션이벤트(all_get) 6
+        # 6 : 로버공방미션이벤트(all_get) o
 
-        # 7 : 격돌하는크레이터알베론총력전(pass) 7
+        # 7 :
 
-        # 8 : 룰렛티켓이벤트(all_get_2) 8
+        # 8 : 룰렛티켓이벤트(all_get_2) o
 
-        # 9 : 룰렛티켓미션이벤트(all_get) 9
+        # 9 : 룰렛티켓미션이벤트(all_get) o
 
-        # 10 : RF패스시즌8(all_get) 10
+        # 10 : RF패스시즌8(all_get) o
 
-        # 11 : 아르카의특권(pass)
+        # 11 : 아르카의특권(pass) o
 
         # 12 :
 
 
-        # ?? : 초겨울준비제작이벤트(pass) 3
-        # ?? : 초겨울준비7일출석이벤트(seven) 4
-        # ?? : 몬스터소탕컬렉션이벤트(all_get) 5
-        # ?? : 로버공방미션이벤트(all_get) 6
-        # ?? : 격돌하는크레이터알베론총력전(pass) 7
-        # ?? : 룰렛티켓이벤트(all_get_2) 8
-        # ?? : 룰렛티켓미션이벤트(all_get) 9
-        # ?? : RF패스시즌8(all_get) 10
+        # ?? : 공성전준비전투력성장이벤트(all_get) 2
+        # ?? : 지역던전격전지추가혜택이벤트(pass) 7
+        # ?? : 아르카의소환패스(all_get) 12
+        # ?? :
 
         if is_picture == "0" or is_picture == "0":
             data = "fourteen"
@@ -1554,7 +1550,7 @@ def get_event_click(cla, is_picture, y_point):
             data = "length_five"
         elif is_picture == "0" or is_picture == "0":
             data = "twenty_five"
-        elif is_picture == "2" or is_picture == "5" or is_picture == "6" or is_picture == "9" or is_picture == "10":
+        elif is_picture == "0" or is_picture == "5" or is_picture == "6" or is_picture == "9" or is_picture == "10":
             data = "all_get"
         elif is_picture == "8" or is_picture == "0":
             data = "all_get_2"
@@ -1564,7 +1560,7 @@ def get_event_click(cla, is_picture, y_point):
             data = "gyohwan2"
         elif is_picture == "0":
             data = "dojun"
-        elif is_picture == "3" or is_picture == "7" or is_picture == "11" or is_picture == "0":
+        elif is_picture == "3" or is_picture == "0" or is_picture == "11" or is_picture == "0":
             data = "pass"
 
 

@@ -307,8 +307,22 @@ def dun_in(cla, data):
 
 
                         else:
-                            click_pos_2(60, 95, cla)
-                            time.sleep(0.5)
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\cyon_btn_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 50, 700, 120, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("cyon_btn_1", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\cyon_btn_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 50, 700, 120, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("cyon_btn_2", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
 
                             # 스킵 해버리기
 
@@ -510,6 +524,22 @@ def dun_in(cla, data):
                             print("dungeon", imgs_)
                             click_pos_2(390, 95, cla)
                             time.sleep(0.5)
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\region_btn_2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 50, 700, 120, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("region_btn_2", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
+                            full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\dungeon\\region_btn_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 50, 700, 120, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                print("region_btn_1", imgs_)
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
 
                             full_path = "c:\\my_games\\rf_o_n\\data_rf\\imgs\\clean_screen\\close_6.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
