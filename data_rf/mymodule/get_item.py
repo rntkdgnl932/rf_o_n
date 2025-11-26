@@ -1508,41 +1508,41 @@ def get_event_click(cla, is_picture, y_point):
 
         ######
 
-        # - : 3~6
+        # - : 2 7 8 9 10 11 12
 
         # 1 : 데일리출석이벤트시즌2(twenty_one) o
 
-        # 2 : 공성전준비전투력성장이벤트(all_get) o
+        # 2 : 길드결속강화이벤트(all_get) 2
 
-        # 3 : 최초의공성전기념!특별출석이벤트(fourteen) 3
+        # 3 : 최초의공성전기념!특별출석이벤트(fourteen) o
 
-        # 4 : 초겨울꽝없는이벤트(twenty_five) 4
+        # 4 : 초겨울꽝없는이벤트(twenty_five) o
 
-        # 5 : 몬스터데이터수집이벤트(all_get) 5
+        # 5 : 몬스터데이터수집이벤트(all_get) o
 
-        # 6 : 런처성장지원이벤트(all_get) 6
+        # 6 : 런처성장지원이벤트(all_get) o
 
-        # 7 : 지역던전격전지추가혜택이벤트(pass) o
+        # 7 : 일일미션횟수추가이벤트(pass) 7
 
-        # 8 : 룰렛티켓이벤트(all_get_2) o
+        # 8 :
 
-        # 9 : 룰렛티켓미션이벤트(all_get) o
+        # 9 :
 
-        # 10 : RF패스시즌8(all_get) o
+        # 10 :
 
-        # 11 : 아르카의특권(pass) o
+        # 11 :
 
-        # 12 : 아르카의소환패스(all_get) o
+        # 12 :
 
-        # 13 : 외행성서버점령이벤트(all_get) 13
+        # 13 : 외행성서버점령이벤트(all_get) o
 
 
-        # ?? : 최초의공성전기념!특별출석이벤트(fourteen) 3
-        # ?? : 초겨울꽝없는이벤트(twenty_five) 4
-        # ?? : 몬스터데이터수집이벤트(all_get) 5
-        # ?? : 런처성장지원이벤트(all_get) 6
+        # ?? : 길드결속강화이벤트(all_get) 2
+        # ?? : 일일미션횟수추가이벤트(pass) 7
         # ?? :
-        # ?? : 외행성서버점령이벤트(all_get) 13
+        # ?? :
+        # ?? :
+        # ?? :
 
         if is_picture == "3" or is_picture == "0":
             data = "fourteen"
@@ -1554,9 +1554,9 @@ def get_event_click(cla, is_picture, y_point):
             data = "length_five"
         elif is_picture == "4" or is_picture == "0":
             data = "twenty_five"
-        elif is_picture == "2" or is_picture == "5" or is_picture == "6" or is_picture == "9" or is_picture == "10" or is_picture == "12" or is_picture == "13":
+        elif is_picture == "0" or is_picture == "5" or is_picture == "6" or is_picture == "0" or is_picture == "0" or is_picture == "0" or is_picture == "13":
             data = "all_get"
-        elif is_picture == "8" or is_picture == "0":
+        elif is_picture == "0" or is_picture == "0":
             data = "all_get_2"
         elif is_picture == "0":
             data = "gyohwan"
@@ -1564,7 +1564,7 @@ def get_event_click(cla, is_picture, y_point):
             data = "gyohwan2"
         elif is_picture == "0":
             data = "dojun"
-        elif is_picture == "0" or is_picture == "7" or is_picture == "11" or is_picture == "0":
+        elif is_picture == "0" or is_picture == "0" or is_picture == "0" or is_picture == "0":
             data = "pass"
 
 
