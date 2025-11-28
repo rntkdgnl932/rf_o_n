@@ -1525,9 +1525,9 @@ def get_event_click(cla, is_picture, y_point):
 
         # 7 : 일일미션횟수추가이벤트(pass) 7
 
-        # 8 :
+        # 8 : 몬스터헌터패스(all_get)
 
-        # 9 :
+        # 9 : 아르카의소환패스(all_get)
 
         # 10 :
 
@@ -1555,7 +1555,7 @@ def get_event_click(cla, is_picture, y_point):
             data = "length_five"
         elif is_picture == "4" or is_picture == "0":
             data = "twenty_five"
-        elif is_picture == "0" or is_picture == "5" or is_picture == "6" or is_picture == "0" or is_picture == "0" or is_picture == "0" or is_picture == "13":
+        elif is_picture == "0" or is_picture == "5" or is_picture == "6" or is_picture == "0" or is_picture == "8" or is_picture == "9" or is_picture == "13":
             data = "all_get"
         elif is_picture == "0" or is_picture == "0":
             data = "all_get_2"
