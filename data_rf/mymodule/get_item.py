@@ -17,10 +17,11 @@ def get_item_start(cla):
 
     from function_game import macro_out
     from massenger import line_to_me
-    from boonhae_collection import boonhae_go_memorychip
+    from boonhae_collection import boonhae_go_memorychip, boonhae_go
 
     try:
         print("get_item_start")
+        boonhae_go(cla)
         get_event(cla)
         get_promotion(cla)
 
