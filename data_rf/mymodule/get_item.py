@@ -1555,7 +1555,7 @@ def get_event_click(cla, is_picture, y_point):
             data = "length_five"
         elif is_picture == "4" or is_picture == "0":
             data = "twenty_five"
-        elif is_picture == "0" or is_picture == "5" or is_picture == "6" or is_picture == "0" or is_picture == "8" or is_picture == "9" or is_picture == "13":
+        elif is_picture == "2" or is_picture == "5" or is_picture == "6" or is_picture == "0" or is_picture == "8" or is_picture == "9" or is_picture == "13":
             data = "all_get"
         elif is_picture == "0" or is_picture == "0":
             data = "all_get_2"
@@ -1565,7 +1565,7 @@ def get_event_click(cla, is_picture, y_point):
             data = "gyohwan2"
         elif is_picture == "0":
             data = "dojun"
-        elif is_picture == "0" or is_picture == "0" or is_picture == "0" or is_picture == "0":
+        elif is_picture == "7" or is_picture == "0" or is_picture == "0" or is_picture == "0":
             data = "pass"
 
 
